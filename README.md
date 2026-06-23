@@ -122,7 +122,7 @@ die IBAN validiert und das Ergebnis per HTTP an eine externe API sendet."
 
 ## Voraussetzungen
 
-- **Claude Code** mit Zugriff auf dieses Repository
+- **Claude Code** oder **Google Antigravity** mit Zugriff auf dieses Repository
 - **BSI CustomerSuite** ab Version 26.1.x (Zielversion für Exports)
 - Für Importe: BSI-Instanz mit Import-Berechtigung
 

@@ -1,93 +1,127 @@
 # BSI AI Development
 
+KI-gestützte Entwicklungsumgebung für die **BSI CustomerSuite**. Dieses Repository enthält spezialisierte Agent-Skills, Registries und Beispiel-Exporte, die es Claude Code ermöglichen, BSI-Konfigurationen (Prozesse, Schnittstellen, Exporte) automatisiert zu erstellen und zu validieren.
 
+---
 
-## Getting started
-
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
-
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
-
-## Add your files
-
-* [Create](https://docs.gitlab.com/user/project/repository/web_editor/#create-a-file) or [upload](https://docs.gitlab.com/user/project/repository/web_editor/#upload-a-file) files
-* [Add files using the command line](https://docs.gitlab.com/topics/git/add_files/#add-files-to-a-git-repository) or push an existing Git repository with the following command:
+## Inhalt
 
 ```
-cd existing_repo
-git remote add origin https://gitlab.adesso-group.com/collaborate/sandbox/819261d3/ai-services/bsi-ai-development.git
-git branch -M main
-git push -uf origin main
+.agents/skills/          # Spezialisierte Agent-Skills
+  eip-lowcode-expert/    # EIP-Schnittstellen & Low-Code (TypeScript)
+  export-expert/         # BSI ZIP-Export-Erstellung & Validierung
+  process-expert/        # Business-Prozesse & Step-Registry
+.antigravity/            # Globale Systemregeln
+CLAUDE.md                # Projekt-Konfiguration für Claude Code
 ```
 
-## Integrate with your tools
+---
 
-* [Set up project integrations](https://gitlab.adesso-group.com/collaborate/sandbox/819261d3/ai-services/bsi-ai-development/-/settings/integrations)
+## Skills & Fähigkeiten
 
-## Collaborate with your team
+### 1. Process Expert — Business-Prozesse erstellen
 
-* [Invite team members and collaborators](https://docs.gitlab.com/user/project/members/)
-* [Create a new merge request](https://docs.gitlab.com/user/project/merge_requests/creating_merge_requests/)
-* [Automatically close issues from merge requests](https://docs.gitlab.com/user/project/issues/managing_issues/#closing-issues-automatically)
-* [Enable merge request approvals](https://docs.gitlab.com/user/project/merge_requests/approvals/)
-* [Set auto-merge](https://docs.gitlab.com/user/project/merge_requests/auto_merge/)
+**Skill:** `.agents/skills/process-expert/`
 
-## Test and Deploy
+Erstellt vollständige, importierbare BSI-Prozess-Konfigurationen als ZIP-Exporte.
 
-Use the built-in continuous integration in GitLab.
+**Was der Agent kann:**
+- Neue Business-Prozesse aus natürlichsprachlicher Beschreibung generieren
+- Steps aus der zentralen Registry auswählen und korrekt verschalten
+- Verzweigungslogik (Kriterien-Step) mit verschachtelten DataModel-Constraints konfigurieren
+- Bindings, Outlets und stepConfiguration für komplexe Steps automatisch befüllen
+- Valide ZIP-Exporte erstellen, die direkt in BSI importiert werden können
 
-* [Get started with GitLab CI/CD](https://docs.gitlab.com/ci/quick_start/)
-* [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/user/application_security/sast/)
-* [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/topics/autodevops/requirements/)
-* [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/user/clusters/agent/)
-* [Set up protected environments](https://docs.gitlab.com/ci/environments/protected_environments/)
+**Registry:** `process_step_registry.json` v3.0.0 — 123 Steps mit Feldern:
 
-***
+| Feld | Beschreibung |
+|---|---|
+| `requiredBindings` | Pflicht-Bindings mit vollständigem JSON-Beispiel |
+| `stepConfigurationType` | `_type` der `stepConfiguration` |
+| `stepConfigurationTemplate` | Vollständiges Template |
+| `outletDescriptors` | Outlet-Struktur (inkl. "Keine Treffer") |
+| `indexRequirements` | Zusätzliche Index-Items für den Export |
+| `constraintPattern` | Constraint-Struktur für Verzweigungsschritte |
 
-# Editing this README
+**Angereicherte Steps:** Start (201503), Ende (201504), Adressen ändern (176353), Kriterien (209153), Kachelschritt (138297), Korrespondenz erstellen (168901), Informationen anzeigen (10048)
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
+**Beispielprozesse (validiert):**
+- Adressänderung Kunde — Start → Adressen ändern → Ende
+- Kundenformprüfung — Start → Kriterien (Kundenform) → [Korrespondenz | Kachelschritt] → Ende
 
-## Suggestions for a good README
+---
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+### 2. EIP Low-Code Expert — Schnittstellen & Integrationen
 
-## Name
-Choose a self-explaining name for your project.
+**Skill:** `.agents/skills/eip-lowcode-expert/`
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+Erstellt EIP-Schnittstellen (Interfaces) für die BSI Enterprise Integration Platform.
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+**Was der Agent kann:**
+- EIP-Interfaces aus Standard-Steps zusammenstellen
+- Komplexe Transformations- und Validierungslogik als TypeScript (Low-Code-Step) implementieren
+- Korrekte `_typeVersion`-Werte je BSI-Version setzen (kritisch für fehlerfreien Import)
+- Neue Projekte anlegen und Interfaces darin einbetten
+- Valide Interface-JSON-Dateien für den ZIP-Export generieren
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+**Bekannte Step-Typen:**
+- HTTP-Requests, XML/JSON-Parser, DB-Adapter
+- Iteration (`interfaces.IterationProcessorConfig`)
+- CRM DataModel Search (`interfaces.CrmDataModelSearchProcessorConfig`)
+- Low-Code (TypeScript) für beliebige Logik
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+**Beispiele:** IBAN-Validierung, CSV-Import, CRM-Export, API-Trigger
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+---
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+### 3. Export Expert — ZIP-Export-Erstellung
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+**Skill:** `.agents/skills/export-expert/`
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+Stellt sicher, dass generierte Konfigurationen als valide BSI-Import-ZIPs verpackt werden.
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+**Was der Agent kann:**
+- `index.json` mit korrekten Pflichtfeldern je Produkttyp (`crm` / `interfaces`) aufbauen
+- `globalUniqueId` aus BSI-UIDs ableiten (Ableitungsregeln für alle UID-Muster)
+- `transferType: full` vs. `reference-only` korrekt zuweisen
+- `primary-processes`-Dateien im richtigen Format (`crm.PrimaryProcessIdTransfer`) erstellen
+- Inkonsistente Index-Referenzen erkennen und korrigieren
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+**Unterstützte Export-Typen:**
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+| Typ | `productId` | Pflichtfelder |
+|---|---|---|
+| CRM-Prozess | `crm` | `productIdentifier`, `productVersion`, `valueMigrationIds` |
+| EIP-Interface | `interfaces` | — |
 
-## License
-For open source projects, say how it is licensed.
+---
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+## Verwendung mit Claude Code
+
+Die Skills werden automatisch aktiviert, wenn Claude Code in diesem Verzeichnis gestartet wird. Die `CLAUDE.md` definiert, welche Skills für welche Aufgaben genutzt werden.
+
+**Beispiel-Prompts:**
+
+```
+"Erstelle mir einen Prozess, der einen Kunden als Input nimmt und je nach
+Kundenform (Person / Organisation) unterschiedliche Schritte ausführt."
+
+"Baue ein EIP-Interface, das Kundendaten aus einer CSV-Datei liest,
+die IBAN validiert und das Ergebnis per HTTP an eine externe API sendet."
+```
+
+---
+
+## Voraussetzungen
+
+- **Claude Code** mit Zugriff auf dieses Repository
+- **BSI CustomerSuite** ab Version 26.1.x (Zielversion für Exports)
+- Für Importe: BSI-Instanz mit Import-Berechtigung
+
+---
+
+## Roadmap / Geplante Skills
+
+- **Datenmodell-Agent** — Automatische Auskunft über CRM-Entitäten, Relationen und Attribut-UIDs (ersetzt manuelle UID-Recherche für Kriterien-Steps)
+- **Validierungs-Agent** — Automatische Prüfung generierter ZIPs vor dem Import
+- **Context-Kunde-Agent** — Kundenspezifische Konfigurationen und Vorlagen verwalten

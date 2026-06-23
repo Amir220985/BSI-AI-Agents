@@ -1,0 +1,936 @@
+{
+  "_type" : "interfaces.InterfaceConfig",
+  "_typeVersion" : "interfaces-24.2.017",
+  "changeDate" : "2026-05-12 16:18:22.632",
+  "createDate" : "2026-05-12 16:18:22.632",
+  "gid" : "1ed9a729-fd0c-4f64-aa0a-9bffeb7f3ea8",
+  "groups" : [ {
+    "_type" : "interfaces.GroupConfig",
+    "_typeVersion" : "interfaces-22.0.0",
+    "color" : "color1",
+    "id" : "f9c1cd7e-6556-4be4-8136-883864d8d9a6",
+    "name" : "Retry"
+  }, {
+    "_type" : "interfaces.GroupConfig",
+    "_typeVersion" : "interfaces-22.0.0",
+    "color" : "color2",
+    "id" : "b78917ab-8a1d-4f05-822e-e2f7a92b309c",
+    "name" : "Process"
+  }, {
+    "_type" : "interfaces.GroupConfig",
+    "_typeVersion" : "interfaces-22.0.0",
+    "color" : "color3",
+    "id" : "bcec3578-a5f2-4c00-a9cd-9de77e764c28",
+    "name" : "Fetch"
+  } ],
+  "id" : "634cc4c0-5468-408e-a0b0-523841f750b8",
+  "logLevel" : "warn",
+  "name" : "Import CSV",
+  "notes" : "Example interface for importing data provided as CSV.\n\nThe interface has three parts:\n\n1. Fetch:\nFetches the data from a storage and iterates over all CSV rows (for the sake of simplicity, the values are not loaded form an external system, but are simply mocked in a TypeScript processor).\n\n2. Process: this part implements the following features\n\na) verification and mapping\nThe values of the source data are validated, and external values are mapped to internal ones using the “mappings” collection.\n\nb) import valid records into CRM\nIf everything is ok, we create a mutation, and the record is written into the CRM. If the mutation was successful, a hash of the record and the created CRM object’s key is stored in the “processedRecords” collection (hang on to understand why).\n\nc) unchanged record detection\nBefore processing, a record is checked whether it has been changed since its last processing. This reduces processing time of the interface in case the source system is not able to filter those records that have changed since the last execution. Therefore, every imported record is stored in the processedRecords collection, using the object's external key as key and the record's hash as value (note, the hash is computed of all properties).\nIf the record did change and the hash is different, the \"processedRecords\" collection also holds the CRM object’s key that has been created before. Hence, we know which one to update.\n\nd) bad record handling\nRecords for which the verification failed are stored in the \"retries\" collection as well. The value contains the original record, a reason and a retry counter, initialized with 0. If the record is retired later and if it is still invalid, the counter is incremented.\n\n3. Retry:\nThe third part of the interface queries the \"retries\" collection for bad records that have not been retried more than five times. Matching entries are simply processed again.",
+  "processors" : [ {
+    "_type" : "interfaces.ProcessorConfig",
+    "_typeVersion" : "interfaces-22.0.1004",
+    "customConfig" : {
+      "_type" : "interfaces.TriggerTemporalProcessorConfig",
+      "_typeVersion" : "interfaces-22.0.0",
+      "temporalConfig" : {
+        "_type" : "bsiscout.TemporalConfig",
+        "_typeVersion" : "bsiscout-22.0.0",
+        "temporalMode" : "periodicity",
+        "temporalOption" : "manual"
+      }
+    },
+    "gid" : "b5fc3ff8-c967-4ea0-aed1-26dcb1e6392b",
+    "groupId" : "bcec3578-a5f2-4c00-a9cd-9de77e764c28",
+    "id" : "61bb73de-3432-4926-969e-5f9fa68ae0af",
+    "notes" : null,
+    "outlets" : [ {
+      "_type" : "interfaces.OutletConfig",
+      "_typeVersion" : "interfaces-22.0.1006",
+      "connectorPoints" : [ ],
+      "descriptorId" : "b3f5da65-ba2e-40ab-9983-a4e34544ff28",
+      "executionType" : "default",
+      "gid" : "896fa11a-9861-4e7a-af83-8520da67e2d5",
+      "id" : "6b748726-9d9f-4be7-b1ce-cc8c63cba4da",
+      "name" : "Standard",
+      "presentation" : "primary",
+      "targetProcessorId" : "94688555-235b-423f-9709-39fd38ceaaba"
+    } ],
+    "position" : {
+      "_type" : "interfaces.Point",
+      "_typeVersion" : "interfaces-22.0.0",
+      "x" : 3,
+      "y" : 3
+    },
+    "scriptIdentifier" : "temporalTrigger",
+    "typeId" : "406211f6-7b91-4790-b492-feb3e7cac22c"
+  }, {
+    "_type" : "interfaces.ProcessorConfig",
+    "_typeVersion" : "interfaces-22.0.1004",
+    "customConfig" : {
+      "_type" : "interfaces.TypeScriptProcessorConfig",
+      "_typeVersion" : "interfaces-23.2.018"
+    },
+    "gid" : "a1cdc940-4491-432a-851c-af2259ee534a",
+    "groupId" : "bcec3578-a5f2-4c00-a9cd-9de77e764c28",
+    "id" : "94688555-235b-423f-9709-39fd38ceaaba",
+    "notes" : "For the sake of simplicity we use this type script processor to provide some CSV rows. In real life, the data is fetched from a storage, like S3 or FTP.",
+    "outlets" : [ {
+      "_type" : "interfaces.OutletConfig",
+      "_typeVersion" : "interfaces-22.0.1006",
+      "connectorPoints" : [ ],
+      "descriptorId" : "c4b09fff-0dae-4726-bdeb-12fd01ddc2da",
+      "executionType" : "default",
+      "gid" : "cb689596-cbd3-4e7c-b152-9c1980c0a8a9",
+      "id" : "dd515636-f953-4441-943e-d121ab320d3a",
+      "name" : "Standard",
+      "presentation" : "primary",
+      "targetProcessorId" : "89cd7e4e-2e0c-416d-b010-f68e011260dd"
+    } ],
+    "position" : {
+      "_type" : "interfaces.Point",
+      "_typeVersion" : "interfaces-22.0.0",
+      "x" : 9,
+      "y" : 3
+    },
+    "scriptIdentifier" : "simulateFetch",
+    "typeId" : "ffd19a7a-7613-40c0-876a-5d9a6eca66b6"
+  }, {
+    "_type" : "interfaces.ProcessorConfig",
+    "_typeVersion" : "interfaces-22.0.1004",
+    "customConfig" : {
+      "_type" : "interfaces.TriggerManualProcessorConfig",
+      "_typeVersion" : "interfaces-22.0.0"
+    },
+    "gid" : "5e74e8df-8029-42d4-817d-3e56ae692ec1",
+    "groupId" : "f9c1cd7e-6556-4be4-8136-883864d8d9a6",
+    "id" : "5bb5412b-b824-4a2e-a558-3e76d8cb8b13",
+    "notes" : null,
+    "outlets" : [ {
+      "_type" : "interfaces.OutletConfig",
+      "_typeVersion" : "interfaces-22.0.1006",
+      "connectorPoints" : [ ],
+      "descriptorId" : "d20e1c72-467d-4af8-9c19-0027cd18c901",
+      "executionType" : "default",
+      "gid" : "cb3bfda1-00b8-4490-aec1-53b5c16ec8d2",
+      "id" : "48f85b95-b0e7-48ef-815d-2b102defe679",
+      "name" : "Standard",
+      "presentation" : "primary",
+      "targetProcessorId" : "ee2e70e3-f155-4b3e-8694-d3df5020f9c5"
+    } ],
+    "position" : {
+      "_type" : "interfaces.Point",
+      "_typeVersion" : "interfaces-22.0.0",
+      "x" : 3,
+      "y" : 14
+    },
+    "scriptIdentifier" : "manualTrigger",
+    "typeId" : "b4447959-8495-4a20-83e1-e3e0384c5935"
+  }, {
+    "_type" : "interfaces.ProcessorConfig",
+    "_typeVersion" : "interfaces-22.0.1004",
+    "customConfig" : {
+      "_type" : "interfaces.CsvProcessorCustomConfig",
+      "_typeVersion" : "interfaces-26.1.001",
+      "operation" : "read",
+      "presetId" : "6e8adc7e-0df7-4fb1-861e-5ef82f08ffc6"
+    },
+    "gid" : "2cf0b060-9d17-4090-a328-b09ff3a8cc12",
+    "groupId" : "bcec3578-a5f2-4c00-a9cd-9de77e764c28",
+    "id" : "89cd7e4e-2e0c-416d-b010-f68e011260dd",
+    "notes" : null,
+    "outlets" : [ {
+      "_type" : "interfaces.OutletConfig",
+      "_typeVersion" : "interfaces-22.0.1006",
+      "connectorPoints" : [ ],
+      "descriptorId" : "ed9dfe53-c48e-4551-b398-b1c2598726a8",
+      "executionType" : "default",
+      "gid" : "e30c34f9-1fcb-45b5-afbc-074ab7f4ffc9",
+      "id" : "07b071b5-5767-4716-8f91-a146d3a66cc4",
+      "name" : "Standard",
+      "presentation" : "primary",
+      "targetProcessorId" : "514d2017-f891-4656-96cb-02e230cee48c"
+    } ],
+    "position" : {
+      "_type" : "interfaces.Point",
+      "_typeVersion" : "interfaces-22.0.0",
+      "x" : 15,
+      "y" : 3
+    },
+    "scriptIdentifier" : "csv",
+    "typeId" : "1245030d-3b73-42fb-a7a8-3ed91b729303"
+  }, {
+    "_type" : "interfaces.ProcessorConfig",
+    "_typeVersion" : "interfaces-22.0.1004",
+    "customConfig" : {
+      "_type" : "interfaces.TypeScriptProcessorConfig",
+      "_typeVersion" : "interfaces-23.2.018"
+    },
+    "gid" : "3f01ca01-76fd-4fa8-b859-673300b98f75",
+    "groupId" : null,
+    "id" : "ee2e70e3-f155-4b3e-8694-d3df5020f9c5",
+    "notes" : null,
+    "outlets" : [ {
+      "_type" : "interfaces.OutletConfig",
+      "_typeVersion" : "interfaces-22.0.1006",
+      "connectorPoints" : [ ],
+      "descriptorId" : "c4b09fff-0dae-4726-bdeb-12fd01ddc2da",
+      "executionType" : "default",
+      "gid" : "09889d8d-5c53-4eb8-ac6f-49e7888b981a",
+      "id" : "a9a05e80-4889-4276-b23d-fcf541ffc78b",
+      "name" : "Standard",
+      "presentation" : "primary",
+      "targetProcessorId" : "f7d39247-35a4-4435-9f24-122c822ac1ee"
+    } ],
+    "position" : {
+      "_type" : "interfaces.Point",
+      "_typeVersion" : "interfaces-22.0.0",
+      "x" : 9,
+      "y" : 14
+    },
+    "scriptIdentifier" : "listCollection",
+    "typeId" : "ffd19a7a-7613-40c0-876a-5d9a6eca66b6"
+  }, {
+    "_type" : "interfaces.ProcessorConfig",
+    "_typeVersion" : "interfaces-22.0.1004",
+    "customConfig" : {
+      "_type" : "interfaces.IterationProcessorConfig",
+      "_typeVersion" : "interfaces-26.1.001",
+      "aggregateAsListData" : false,
+      "aggregateResults" : false,
+      "chunkSize" : 1,
+      "workerThreads" : 1
+    },
+    "gid" : "6df6ea9e-c677-4a47-b079-0a7c8f4d57e6",
+    "groupId" : "bcec3578-a5f2-4c00-a9cd-9de77e764c28",
+    "id" : "514d2017-f891-4656-96cb-02e230cee48c",
+    "notes" : null,
+    "outlets" : [ {
+      "_type" : "interfaces.OutletConfig",
+      "_typeVersion" : "interfaces-22.0.1006",
+      "connectorPoints" : [ ],
+      "descriptorId" : "da7bac4b-8a6c-4fd7-abf3-7ca5d1a78575",
+      "executionType" : "scoped",
+      "gid" : "21808d80-f5de-4ff2-9f63-70c09d92c4ad",
+      "id" : "403173ea-673d-4764-9b20-4d0f744029d5",
+      "name" : "Iteration",
+      "presentation" : "default",
+      "targetProcessorId" : "0844262d-87e2-4c15-a612-e5707d52e3d8"
+    }, {
+      "_type" : "interfaces.OutletConfig",
+      "_typeVersion" : "interfaces-22.0.1006",
+      "connectorPoints" : [ ],
+      "descriptorId" : "dd8f5806-3156-4697-97c0-dd069570f2e6",
+      "executionType" : "default",
+      "gid" : "97a00937-bd07-4f1c-a565-5c1a62bf3716",
+      "id" : "1f6b98f3-9f9f-4982-8f59-09e2eb3435e8",
+      "name" : "Abgeschlossen",
+      "presentation" : "default",
+      "targetProcessorId" : null
+    } ],
+    "position" : {
+      "_type" : "interfaces.Point",
+      "_typeVersion" : "interfaces-22.0.0",
+      "x" : 21,
+      "y" : 3
+    },
+    "scriptIdentifier" : "iterateFetch",
+    "typeId" : "21c361ec-5dec-4f13-9767-442db1adb3a3"
+  }, {
+    "_type" : "interfaces.ProcessorConfig",
+    "_typeVersion" : "interfaces-22.0.1004",
+    "customConfig" : {
+      "_type" : "interfaces.IterationProcessorConfig",
+      "_typeVersion" : "interfaces-26.1.001",
+      "aggregateAsListData" : false,
+      "aggregateResults" : false,
+      "chunkSize" : 1,
+      "workerThreads" : 1
+    },
+    "gid" : "effe8fd6-4213-4747-9ecc-c89d5fefc750",
+    "groupId" : "f9c1cd7e-6556-4be4-8136-883864d8d9a6",
+    "id" : "f7d39247-35a4-4435-9f24-122c822ac1ee",
+    "notes" : null,
+    "outlets" : [ {
+      "_type" : "interfaces.OutletConfig",
+      "_typeVersion" : "interfaces-22.0.1006",
+      "connectorPoints" : [ ],
+      "descriptorId" : "da7bac4b-8a6c-4fd7-abf3-7ca5d1a78575",
+      "executionType" : "scoped",
+      "gid" : "c4a792c2-8a96-47ca-abf8-6d5c478819f2",
+      "id" : "ca6caa56-40a4-43d7-a1b7-3b0ff1b08ff8",
+      "name" : "Iteration",
+      "presentation" : "default",
+      "targetProcessorId" : "e99d05be-436c-4e85-971b-07ee0662536c"
+    }, {
+      "_type" : "interfaces.OutletConfig",
+      "_typeVersion" : "interfaces-22.0.1006",
+      "connectorPoints" : [ ],
+      "descriptorId" : "dd8f5806-3156-4697-97c0-dd069570f2e6",
+      "executionType" : "default",
+      "gid" : "2975fe19-83c9-4255-b6ea-1ff60a2c541a",
+      "id" : "5b94cbb3-9caf-48f7-a77b-705e431bd50e",
+      "name" : "Abgeschlossen",
+      "presentation" : "default",
+      "targetProcessorId" : null
+    } ],
+    "position" : {
+      "_type" : "interfaces.Point",
+      "_typeVersion" : "interfaces-22.0.0",
+      "x" : 21,
+      "y" : 14
+    },
+    "scriptIdentifier" : "iterateRetry",
+    "typeId" : "21c361ec-5dec-4f13-9767-442db1adb3a3"
+  }, {
+    "_type" : "interfaces.ProcessorConfig",
+    "_typeVersion" : "interfaces-22.0.1004",
+    "customConfig" : {
+      "_type" : "interfaces.TypeScriptProcessorConfig",
+      "_typeVersion" : "interfaces-23.2.018"
+    },
+    "gid" : "cc493c9a-c805-4796-b8b7-633a560e3a5d",
+    "groupId" : "bcec3578-a5f2-4c00-a9cd-9de77e764c28",
+    "id" : "0844262d-87e2-4c15-a612-e5707d52e3d8",
+    "notes" : null,
+    "outlets" : [ {
+      "_type" : "interfaces.OutletConfig",
+      "_typeVersion" : "interfaces-22.0.1006",
+      "connectorPoints" : [ ],
+      "descriptorId" : "c4b09fff-0dae-4726-bdeb-12fd01ddc2da",
+      "executionType" : "default",
+      "gid" : "179a2ea5-6a67-481d-aca0-7822a2671617",
+      "id" : "e8f3bc3e-cabd-48bc-b69f-06c7f15e9fc0",
+      "name" : "Standard",
+      "presentation" : "primary",
+      "targetProcessorId" : "9b8571e9-a48f-41e8-bc45-d4b49bb6e023"
+    } ],
+    "position" : {
+      "_type" : "interfaces.Point",
+      "_typeVersion" : "interfaces-22.0.0",
+      "x" : 27,
+      "y" : 3
+    },
+    "scriptIdentifier" : "prepareDataFetch",
+    "typeId" : "ffd19a7a-7613-40c0-876a-5d9a6eca66b6"
+  }, {
+    "_type" : "interfaces.ProcessorConfig",
+    "_typeVersion" : "interfaces-22.0.1004",
+    "customConfig" : {
+      "_type" : "interfaces.TypeScriptProcessorConfig",
+      "_typeVersion" : "interfaces-23.2.018"
+    },
+    "gid" : "28700c00-82d8-459e-8abb-fbc0f94431fe",
+    "groupId" : "f9c1cd7e-6556-4be4-8136-883864d8d9a6",
+    "id" : "e99d05be-436c-4e85-971b-07ee0662536c",
+    "notes" : null,
+    "outlets" : [ {
+      "_type" : "interfaces.OutletConfig",
+      "_typeVersion" : "interfaces-22.0.1006",
+      "connectorPoints" : [ ],
+      "descriptorId" : "c4b09fff-0dae-4726-bdeb-12fd01ddc2da",
+      "executionType" : "default",
+      "gid" : "9cc94834-0f72-4546-b5f8-29e3b23755f3",
+      "id" : "401a3fba-a064-4b84-a289-e0eee7bc3e00",
+      "name" : "Standard",
+      "presentation" : "primary",
+      "targetProcessorId" : "9b8571e9-a48f-41e8-bc45-d4b49bb6e023"
+    } ],
+    "position" : {
+      "_type" : "interfaces.Point",
+      "_typeVersion" : "interfaces-22.0.0",
+      "x" : 27,
+      "y" : 14
+    },
+    "scriptIdentifier" : "prepareDataRetry",
+    "typeId" : "ffd19a7a-7613-40c0-876a-5d9a6eca66b6"
+  }, {
+    "_type" : "interfaces.ProcessorConfig",
+    "_typeVersion" : "interfaces-22.0.1004",
+    "customConfig" : {
+      "_type" : "interfaces.TypeScriptProcessorConfig",
+      "_typeVersion" : "interfaces-23.2.018",
+      "outletScriptIds" : {
+        "unchanged" : "bc585c90-eb0e-4950-bdee-1cbbd41d1ff4",
+        "modify data" : "95e72bc1-76b2-48bc-a518-511700deceed",
+        "missing mapping" : "436b236a-9e49-4cfd-9c4d-c4b5aedfb09d"
+      }
+    },
+    "gid" : "e36d528f-a901-4062-a96d-26d6ae8be7fc",
+    "groupId" : "b78917ab-8a1d-4f05-822e-e2f7a92b309c",
+    "id" : "9b8571e9-a48f-41e8-bc45-d4b49bb6e023",
+    "notes" : null,
+    "outlets" : [ {
+      "_type" : "interfaces.OutletConfig",
+      "_typeVersion" : "interfaces-22.0.1006",
+      "connectorPoints" : [ ],
+      "descriptorId" : "c4b09fff-0dae-4726-bdeb-12fd01ddc2da",
+      "executionType" : "default",
+      "gid" : "e8f1641d-1912-44d2-ba54-c4a43e623c0d",
+      "id" : "4130f2dd-ef35-4bd5-816d-130a273066b2",
+      "name" : "Standard",
+      "presentation" : "hidden",
+      "targetProcessorId" : null
+    }, {
+      "_type" : "interfaces.OutletConfig",
+      "_typeVersion" : "interfaces-22.0.1006",
+      "connectorPoints" : [ ],
+      "descriptorId" : null,
+      "executionType" : "default",
+      "gid" : "12bb3d58-4d8d-4a15-aead-f4ed42073248",
+      "id" : "95e72bc1-76b2-48bc-a518-511700deceed",
+      "name" : "Daten mutieren",
+      "presentation" : "default",
+      "targetProcessorId" : "01b728d3-f0e8-4a79-a8d0-1adc33fb5cf3"
+    }, {
+      "_type" : "interfaces.OutletConfig",
+      "_typeVersion" : "interfaces-22.0.1006",
+      "connectorPoints" : [ ],
+      "descriptorId" : null,
+      "executionType" : "default",
+      "gid" : "3d89a7bb-5eae-4d93-8ddd-dcc848b43ca6",
+      "id" : "436b236a-9e49-4cfd-9c4d-c4b5aedfb09d",
+      "name" : "fehlendes Mapping",
+      "presentation" : "default",
+      "targetProcessorId" : "a45e3a4c-25ca-4a8c-8981-632d8e6d7d63"
+    }, {
+      "_type" : "interfaces.OutletConfig",
+      "_typeVersion" : "interfaces-22.0.1006",
+      "connectorPoints" : [ ],
+      "descriptorId" : null,
+      "executionType" : "default",
+      "gid" : "994f57da-b7d7-4e50-a0ba-30d4a5ffba8e",
+      "id" : "bc585c90-eb0e-4950-bdee-1cbbd41d1ff4",
+      "name" : "Kein Änderungen",
+      "presentation" : "default",
+      "targetProcessorId" : null
+    } ],
+    "position" : {
+      "_type" : "interfaces.Point",
+      "_typeVersion" : "interfaces-22.0.0",
+      "x" : 38,
+      "y" : 7
+    },
+    "scriptIdentifier" : "validateAndMap",
+    "typeId" : "ffd19a7a-7613-40c0-876a-5d9a6eca66b6"
+  }, {
+    "_type" : "interfaces.ProcessorConfig",
+    "_typeVersion" : "interfaces-22.0.1004",
+    "customConfig" : {
+      "_type" : "interfaces.CrmMutationProcessorConfig",
+      "_typeVersion" : "interfaces-24.2.010"
+    },
+    "gid" : "bfb9dffe-0ed3-4792-8e5a-dc8d023675d2",
+    "groupId" : "b78917ab-8a1d-4f05-822e-e2f7a92b309c",
+    "id" : "01b728d3-f0e8-4a79-a8d0-1adc33fb5cf3",
+    "notes" : null,
+    "outlets" : [ {
+      "_type" : "interfaces.OutletConfig",
+      "_typeVersion" : "interfaces-22.0.1006",
+      "connectorPoints" : [ ],
+      "descriptorId" : "6c0f1af6-2051-4fd5-947b-398c59418229",
+      "executionType" : "default",
+      "gid" : "b8716cb3-3f8b-4b5e-9541-8a351237aa05",
+      "id" : "1ac416b3-421a-4f1c-99c5-b7395dd122b0",
+      "name" : "Standard",
+      "presentation" : "default",
+      "targetProcessorId" : "cbdb2baa-7779-40ff-ab01-9ed56215101d"
+    }, {
+      "_type" : "interfaces.OutletConfig",
+      "_typeVersion" : "interfaces-22.0.1006",
+      "connectorPoints" : [ ],
+      "descriptorId" : "f3aac37d-ce3b-45d0-8c52-b157854d2e8f",
+      "executionType" : "default",
+      "gid" : "4445f9ae-7f73-46dd-ab87-3e030c08eae1",
+      "id" : "c22d94f2-2778-49bd-aec7-ba24065a3150",
+      "name" : "Fehler",
+      "presentation" : "default",
+      "targetProcessorId" : "cbdb2baa-7779-40ff-ab01-9ed56215101d"
+    } ],
+    "position" : {
+      "_type" : "interfaces.Point",
+      "_typeVersion" : "interfaces-22.0.0",
+      "x" : 44,
+      "y" : 7
+    },
+    "scriptIdentifier" : "mutation",
+    "typeId" : "cf9ee65c-a489-4250-b76a-7b1741868c0f"
+  }, {
+    "_type" : "interfaces.ProcessorConfig",
+    "_typeVersion" : "interfaces-22.0.1004",
+    "customConfig" : {
+      "_type" : "interfaces.TypeScriptProcessorConfig",
+      "_typeVersion" : "interfaces-23.2.018"
+    },
+    "gid" : "e421a558-fd3e-4d1b-a27b-22997da5a847",
+    "groupId" : "b78917ab-8a1d-4f05-822e-e2f7a92b309c",
+    "id" : "a45e3a4c-25ca-4a8c-8981-632d8e6d7d63",
+    "notes" : null,
+    "outlets" : [ {
+      "_type" : "interfaces.OutletConfig",
+      "_typeVersion" : "interfaces-22.0.1006",
+      "connectorPoints" : [ ],
+      "descriptorId" : "c4b09fff-0dae-4726-bdeb-12fd01ddc2da",
+      "executionType" : "default",
+      "gid" : "6b634861-79c2-4c15-8671-069ccb3110ed",
+      "id" : "651fcbbc-7e13-4ea9-8fb7-4438ce13e852",
+      "name" : "Standard",
+      "presentation" : "primary",
+      "targetProcessorId" : null
+    } ],
+    "position" : {
+      "_type" : "interfaces.Point",
+      "_typeVersion" : "interfaces-22.0.0",
+      "x" : 44,
+      "y" : 12
+    },
+    "scriptIdentifier" : "storeForRetry",
+    "typeId" : "ffd19a7a-7613-40c0-876a-5d9a6eca66b6"
+  }, {
+    "_type" : "interfaces.ProcessorConfig",
+    "_typeVersion" : "interfaces-22.0.1004",
+    "customConfig" : {
+      "_type" : "interfaces.TypeScriptProcessorConfig",
+      "_typeVersion" : "interfaces-23.2.018"
+    },
+    "gid" : "a9c591fa-2545-4069-bec6-fe5ca2ec2ff0",
+    "groupId" : "b78917ab-8a1d-4f05-822e-e2f7a92b309c",
+    "id" : "cbdb2baa-7779-40ff-ab01-9ed56215101d",
+    "notes" : null,
+    "outlets" : [ {
+      "_type" : "interfaces.OutletConfig",
+      "_typeVersion" : "interfaces-22.0.1006",
+      "connectorPoints" : [ ],
+      "descriptorId" : "c4b09fff-0dae-4726-bdeb-12fd01ddc2da",
+      "executionType" : "default",
+      "gid" : "37881558-1911-4b8b-a7f6-64a4023612b0",
+      "id" : "5b5af630-e14e-4e42-86c0-54234f4ea1d7",
+      "name" : "Standard",
+      "presentation" : "primary",
+      "targetProcessorId" : null
+    } ],
+    "position" : {
+      "_type" : "interfaces.Point",
+      "_typeVersion" : "interfaces-22.0.0",
+      "x" : 50,
+      "y" : 7
+    },
+    "scriptIdentifier" : "computeHash",
+    "typeId" : "ffd19a7a-7613-40c0-876a-5d9a6eca66b6"
+  } ],
+  "projectId" : "d4fc2d45-4afe-4890-9de5-06c546299560",
+  "published" : false,
+  "recordingLevel" : "analytics",
+  "responsible" : {
+    "_type" : "start.Responsible",
+    "_typeVersion" : "start-1.3.2",
+    "userId" : "36317f78-6040-4648-936d-e8b66b394c0b"
+  },
+  "revision" : null,
+  "runtime" : "b",
+  "status" : "draft",
+  "template" : false,
+  "typeId" : "ce4bb086-02d6-4cee-9509-7b0dadaa6654",
+  "typeScripts" : [ {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : null,
+    "readOnly" : false,
+    "scriptKind" : "public-api",
+    "scriptName" : "attributes.d.ts",
+    "test" : false,
+    "typeScript" : "export interface Attributes {\n  record: Record;\n}\n\nexport interface Record {\n  id: number,\n  task: string;\n  urgency: string;\n  userName: string;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : null,
+    "readOnly" : true,
+    "scriptKind" : "public-api",
+    "scriptName" : "interface.d.ts",
+    "test" : false,
+    "typeScript" : "import { Attributes as InvocationAttributes } from './attributes';\nimport { _Attributes as _computeHashAttributes } from './computeHash/api';\nimport { _Attributes as _csvAttributes } from './csv/api';\nimport { _Attributes as _iterateFetchAttributes } from './iterateFetch/api';\nimport { _Attributes as _iterateRetryAttributes } from './iterateRetry/api';\nimport { _Attributes as _listCollectionAttributes } from './listCollection/api';\nimport { _Attributes as _mutationAttributes } from './mutation/api';\nimport { _Attributes as _prepareDataFetchAttributes } from './prepareDataFetch/api';\nimport { _Attributes as _prepareDataRetryAttributes } from './prepareDataRetry/api';\nimport { _Attributes as _simulateFetchAttributes } from './simulateFetch/api';\nimport { _Attributes as _storeForRetryAttributes } from './storeForRetry/api';\nimport { _Attributes as _validateAndMapAttributes } from './validateAndMap/api';\n\nexport interface ProcessorAttributes {\n  computeHash: _computeHashAttributes;\n  csv: _csvAttributes;\n  iterateFetch: _iterateFetchAttributes;\n  iterateRetry: _iterateRetryAttributes;\n  listCollection: _listCollectionAttributes;\n  manualTrigger: any;\n  mutation: _mutationAttributes;\n  prepareDataFetch: _prepareDataFetchAttributes;\n  prepareDataRetry: _prepareDataRetryAttributes;\n  simulateFetch: _simulateFetchAttributes;\n  storeForRetry: _storeForRetryAttributes;\n  temporalTrigger: any;\n  validateAndMap: _validateAndMapAttributes;\n}\n\nexport interface Invocation {\n  attributes: InvocationAttributes;\n  processors: ProcessorAttributes;\n\n  setError(value: any): void;\n  getError(): any;\n  hasError(): boolean;\n  resetError(): void;\n}\n\nexport { };"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "9b8571e9-a48f-41e8-bc45-d4b49bb6e023",
+    "readOnly" : true,
+    "scriptKind" : "public-api",
+    "scriptName" : "api.d.ts",
+    "test" : false,
+    "typeScript" : "import { Attributes } from './attributes';\nimport { process } from './script';\n\nexport interface _Attributes extends Omit<Attributes, 'result'> {\n  result: ReturnType<typeof process>;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "9b8571e9-a48f-41e8-bc45-d4b49bb6e023",
+    "readOnly" : true,
+    "scriptKind" : "private-api",
+    "scriptName" : "definition.d.ts",
+    "test" : false,
+    "typeScript" : "import { Attributes } from './attributes';\n\nexport type Outlet = 'missing mapping' | 'modify data' | 'unchanged';\n\nexport interface Self {\n  withAttribute<T extends keyof Attributes>(attributeId: T, value: Attributes[T]): Self;\n  withOutlet(outletId: Outlet): Self;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "9b8571e9-a48f-41e8-bc45-d4b49bb6e023",
+    "readOnly" : false,
+    "scriptKind" : "public-api",
+    "scriptName" : "attributes.d.ts",
+    "test" : false,
+    "typeScript" : "export interface Attributes {\n  issues: string[];\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : "export function process(invocation, self) {\n    const record = invocation.attributes.record;\n    // check if data is knonwn and unchanged\n    const info = Collections.get('processedRecords').get(record.id);\n    if (info && info.hash === Hash.md5(record)) {\n        self.withOutlet('unchanged');\n        return;\n    }\n    // collect issues\n    const issues = [];\n    // resolve prio\n    const prio = Collections.get('mappings').get(record.urgency);\n    if (!prio) {\n        issues.push('unknown urgency [collection mappings]: \\'' + record.urgency + '\\'');\n    }\n    // resolver user\n    let userId = Resolvers.crmEntities.resolveUser({ restrictions: { username: record.userName } });\n    if (!userId) {\n        issues.push('unknown user [customer suite]: \\'' + record.userName + '\\'');\n    }\n    if (issues.length > 0) {\n        self\n            .withAttribute('issues', issues)\n            .withOutlet('missing mapping');\n        return;\n    }\n    // otherwise, create mutation\n    self.withOutlet('modify data');\n    return ProcessorTypes.dataMutation.createModifyTask({\n        id: info === null || info === void 0 ? void 0 : info.taskKey,\n        highPriority: prio === 'high',\n        subject: '[imported] ' + record.task,\n        responsible: userId\n    });\n}\n",
+    "processorId" : "9b8571e9-a48f-41e8-bc45-d4b49bb6e023",
+    "readOnly" : false,
+    "scriptKind" : "script",
+    "scriptName" : "script.ts",
+    "test" : false,
+    "typeScript" : "import { Self } from './definition';\nimport { Invocation } from '../interface';\nimport { Collections } from '../../collections';\nimport { Hash } from '@eip/utils';\nimport { ProcessorTypes, Resolvers } from '@eip/core';\n\nexport function process(invocation: Invocation, self: Self) {\n  const record = invocation.attributes.record;\n\n  // check if data is knonwn and unchanged\n  const info = Collections.get('processedRecords').get(record.id);\n  if (info && info.hash === Hash.md5(record)) {\n    self.withOutlet('unchanged');\n    return;\n  }\n\n  // collect issues\n  const issues: string[] = [];\n\n  // resolve prio\n  const prio = Collections.get('mappings').get(record.urgency);\n  if (!prio) {\n    issues.push('unknown urgency [collection mappings]: \\'' + record.urgency + '\\'');\n  }\n\n  // resolver user\n  let userId = Resolvers.crmEntities.resolveUser({ restrictions: { username: record.userName } });\n  if (!userId) {\n    issues.push('unknown user [customer suite]: \\'' + record.userName + '\\'');\n  }\n\n  if (issues.length > 0) {\n    self\n      .withAttribute('issues', issues)\n      .withOutlet('missing mapping');\n    return;\n  }\n\n  // otherwise, create mutation\n  self.withOutlet('modify data');\n  return ProcessorTypes.dataMutation.createModifyTask({\n    id: info?.taskKey,\n    highPriority: prio === 'high',\n    subject: '[imported] ' + record.task,\n    responsible: userId\n  });\n}\n"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "514d2017-f891-4656-96cb-02e230cee48c",
+    "readOnly" : true,
+    "scriptKind" : "public-api",
+    "scriptName" : "api.d.ts",
+    "test" : false,
+    "typeScript" : "import { Flatten } from '@eip/core';\nimport { provideData } from './data';\n\n\nexport interface _Attributes {\n  element: Flatten<ReturnType<typeof provideData>>;\n  index: number;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : "export function provideData(invocation) {\n    const r = invocation.processors.csv.rows;\n    return r;\n}\n",
+    "processorId" : "514d2017-f891-4656-96cb-02e230cee48c",
+    "readOnly" : false,
+    "scriptKind" : "script",
+    "scriptName" : "data.ts",
+    "test" : false,
+    "typeScript" : "import { Invocation } from '../interface';\n\nexport function provideData(invocation: Invocation) {\n  const r =\ninvocation.processors.csv.rows\n;\n  return r;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "cbdb2baa-7779-40ff-ab01-9ed56215101d",
+    "readOnly" : true,
+    "scriptKind" : "public-api",
+    "scriptName" : "api.d.ts",
+    "test" : false,
+    "typeScript" : "import { Attributes } from './attributes';\nimport { process } from './script';\n\nexport interface _Attributes extends Omit<Attributes, 'result'> {\n  result: ReturnType<typeof process>;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "cbdb2baa-7779-40ff-ab01-9ed56215101d",
+    "readOnly" : true,
+    "scriptKind" : "private-api",
+    "scriptName" : "definition.d.ts",
+    "test" : false,
+    "typeScript" : "import { Attributes } from './attributes';\n\nexport interface Self {\n  withAttribute<T extends keyof Attributes>(attributeId: T, value: Attributes[T]): Self;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "cbdb2baa-7779-40ff-ab01-9ed56215101d",
+    "readOnly" : false,
+    "scriptKind" : "public-api",
+    "scriptName" : "attributes.d.ts",
+    "test" : false,
+    "typeScript" : "export interface Attributes {\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : "export function process(invocation, self) {\n    const resp = invocation.processors.mutation.response;\n    if (resp.mutationResults[0].status !== Codes.DataMutationStatus.Ok) {\n        return;\n    }\n    const todo = invocation.attributes.record;\n    // store hash\n    Collections.get('processedRecords').putImmediately(todo.id, {\n        hash: Hash.md5(todo),\n        taskKey: resp.mutationResults[0].affectedItemKey\n    });\n    // remove potential retry\n    Collections.get('retries').removeImmediately(todo.id);\n}\n",
+    "processorId" : "cbdb2baa-7779-40ff-ab01-9ed56215101d",
+    "readOnly" : false,
+    "scriptKind" : "script",
+    "scriptName" : "script.ts",
+    "test" : false,
+    "typeScript" : "import { Self } from './definition';\nimport { Invocation } from '../interface';\nimport { Codes } from '@eip/crm-core';\nimport { Hash } from '@eip/utils';\nimport { Collections } from '../../collections';\n\nexport function process(invocation: Invocation, self: Self) {\n  const resp = invocation.processors.mutation.response;\n\n  if (resp.mutationResults[0].status !== Codes.DataMutationStatus.Ok) {\n    return;\n  }\n\n  const todo = invocation.attributes.record;\n\n  // store hash\n  Collections.get('processedRecords').putImmediately(todo.id, {\n    hash: Hash.md5(todo),\n    taskKey: resp.mutationResults[0].affectedItemKey\n  });\n\n  // remove potential retry\n  Collections.get('retries').removeImmediately(todo.id);\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "e99d05be-436c-4e85-971b-07ee0662536c",
+    "readOnly" : true,
+    "scriptKind" : "public-api",
+    "scriptName" : "api.d.ts",
+    "test" : false,
+    "typeScript" : "import { Attributes } from './attributes';\nimport { process } from './script';\n\nexport interface _Attributes extends Omit<Attributes, 'result'> {\n  result: ReturnType<typeof process>;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "e99d05be-436c-4e85-971b-07ee0662536c",
+    "readOnly" : true,
+    "scriptKind" : "private-api",
+    "scriptName" : "definition.d.ts",
+    "test" : false,
+    "typeScript" : "import { Attributes } from './attributes';\n\nexport interface Self {\n  withAttribute<T extends keyof Attributes>(attributeId: T, value: Attributes[T]): Self;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "e99d05be-436c-4e85-971b-07ee0662536c",
+    "readOnly" : false,
+    "scriptKind" : "public-api",
+    "scriptName" : "attributes.d.ts",
+    "test" : false,
+    "typeScript" : "export interface Attributes {\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : "export function process(invocation, self) {\n    invocation.attributes.record = invocation.processors.iterateRetry.element;\n}\n",
+    "processorId" : "e99d05be-436c-4e85-971b-07ee0662536c",
+    "readOnly" : false,
+    "scriptKind" : "script",
+    "scriptName" : "script.ts",
+    "test" : false,
+    "typeScript" : "import { Self } from './definition';\nimport { Invocation } from '../interface';\n\nexport function process(invocation: Invocation, self: Self) {\n  invocation.attributes.record = invocation.processors.iterateRetry.element;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "89cd7e4e-2e0c-416d-b010-f68e011260dd",
+    "readOnly" : true,
+    "scriptKind" : "public-api",
+    "scriptName" : "api.d.ts",
+    "test" : false,
+    "typeScript" : "import { ListData } from '@eip/core';\nexport interface _Attributes {\n  rows: ListData<Record<string, string>>;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : "export function provideData(invocation) {\n    const r = invocation.processors.simulateFetch.result;\n    return r;\n}\n",
+    "processorId" : "89cd7e4e-2e0c-416d-b010-f68e011260dd",
+    "readOnly" : false,
+    "scriptKind" : "script",
+    "scriptName" : "data.ts",
+    "test" : false,
+    "typeScript" : "import { Invocation } from '../interface';\n\nexport function provideData(invocation: Invocation) {\n  const r =\ninvocation.processors.simulateFetch.result\n;\n  return r;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "ee2e70e3-f155-4b3e-8694-d3df5020f9c5",
+    "readOnly" : true,
+    "scriptKind" : "public-api",
+    "scriptName" : "api.d.ts",
+    "test" : false,
+    "typeScript" : "import { Attributes } from './attributes';\nimport { process } from './script';\n\nexport interface _Attributes extends Omit<Attributes, 'result'> {\n  result: ReturnType<typeof process>;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "ee2e70e3-f155-4b3e-8694-d3df5020f9c5",
+    "readOnly" : true,
+    "scriptKind" : "private-api",
+    "scriptName" : "definition.d.ts",
+    "test" : false,
+    "typeScript" : "import { Attributes } from './attributes';\n\nexport interface Self {\n  withAttribute<T extends keyof Attributes>(attributeId: T, value: Attributes[T]): Self;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "ee2e70e3-f155-4b3e-8694-d3df5020f9c5",
+    "readOnly" : false,
+    "scriptKind" : "public-api",
+    "scriptName" : "attributes.d.ts",
+    "test" : false,
+    "typeScript" : "export interface Attributes {\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : "export function process(invocation, self) {\n    return Collections.get('retries')\n        .list({\n        maxResults: 100,\n        valueRestrictions: [\n            Collections.jsonPath()\n                .property('retryCount')\n                .condition(b => b.lt(b.filterPath(), 5))\n        ]\n    })\n        .map(e => e.value.record);\n}\n",
+    "processorId" : "ee2e70e3-f155-4b3e-8694-d3df5020f9c5",
+    "readOnly" : false,
+    "scriptKind" : "script",
+    "scriptName" : "script.ts",
+    "test" : false,
+    "typeScript" : "import { Self } from './definition';\nimport { Invocation } from '../interface';\nimport { Collections } from '../../collections';\n\nexport function process(invocation: Invocation, self: Self) {\n  return Collections.get('retries')\n    .list({\n      maxResults: 100,\n      valueRestrictions: [\n        Collections.jsonPath()\n          .property('retryCount')\n          .condition(b => b.lt(b.filterPath(), 5))\n      ]\n    })\n    .map(e => e.value.record);\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : "export function prepareMutations(invocation, self) {\n    self\n        .withMutations(invocation.processors.validateAndMap.result);\n}",
+    "processorId" : "01b728d3-f0e8-4a79-a8d0-1adc33fb5cf3",
+    "readOnly" : false,
+    "scriptKind" : "script",
+    "scriptName" : "data.ts",
+    "test" : false,
+    "typeScript" : "import { Self } from './definition';\nimport { Invocation } from '../interface';\n\nexport function prepareMutations(invocation: Invocation, self: Self) {\n  self\n    .withMutations(invocation.processors.validateAndMap.result);\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "94688555-235b-423f-9709-39fd38ceaaba",
+    "readOnly" : true,
+    "scriptKind" : "public-api",
+    "scriptName" : "api.d.ts",
+    "test" : false,
+    "typeScript" : "import { Attributes } from './attributes';\nimport { process } from './script';\n\nexport interface _Attributes extends Omit<Attributes, 'result'> {\n  result: ReturnType<typeof process>;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "94688555-235b-423f-9709-39fd38ceaaba",
+    "readOnly" : true,
+    "scriptKind" : "private-api",
+    "scriptName" : "definition.d.ts",
+    "test" : false,
+    "typeScript" : "import { Attributes } from './attributes';\n\nexport interface Self {\n  withAttribute<T extends keyof Attributes>(attributeId: T, value: Attributes[T]): Self;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "94688555-235b-423f-9709-39fd38ceaaba",
+    "readOnly" : false,
+    "scriptKind" : "public-api",
+    "scriptName" : "attributes.d.ts",
+    "test" : false,
+    "typeScript" : "export interface Attributes {\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : "export function process(invocation, self) {\n    return `nr;betreff;dringlichkeit;benutzer\n1;Getriebeprobleme;dringend;vicky.valetti\n2;Ölflecken;dringend;andrea.adams\n3;Upgrade-Möglichkeiten;KW 11;vicky.valetti\n4;Upgrade-Möglichkeiten;rasch;vicky.valetti\n5;Kunden werben Kunden Programm;asap;administrator`;\n}\n",
+    "processorId" : "94688555-235b-423f-9709-39fd38ceaaba",
+    "readOnly" : false,
+    "scriptKind" : "script",
+    "scriptName" : "script.ts",
+    "test" : false,
+    "typeScript" : "import { Self } from './definition';\nimport { Invocation } from '../interface';\n\nexport function process(invocation: Invocation, self: Self) {\n  return `nr;betreff;dringlichkeit;benutzer\n1;Getriebeprobleme;dringend;vicky.valetti\n2;Ölflecken;dringend;andrea.adams\n3;Upgrade-Möglichkeiten;KW 11;vicky.valetti\n4;Upgrade-Möglichkeiten;rasch;vicky.valetti\n5;Kunden werben Kunden Programm;asap;administrator`;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "0844262d-87e2-4c15-a612-e5707d52e3d8",
+    "readOnly" : true,
+    "scriptKind" : "public-api",
+    "scriptName" : "api.d.ts",
+    "test" : false,
+    "typeScript" : "import { Attributes } from './attributes';\nimport { process } from './script';\n\nexport interface _Attributes extends Omit<Attributes, 'result'> {\n  result: ReturnType<typeof process>;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "0844262d-87e2-4c15-a612-e5707d52e3d8",
+    "readOnly" : true,
+    "scriptKind" : "private-api",
+    "scriptName" : "definition.d.ts",
+    "test" : false,
+    "typeScript" : "import { Attributes } from './attributes';\n\nexport interface Self {\n  withAttribute<T extends keyof Attributes>(attributeId: T, value: Attributes[T]): Self;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "0844262d-87e2-4c15-a612-e5707d52e3d8",
+    "readOnly" : false,
+    "scriptKind" : "public-api",
+    "scriptName" : "attributes.d.ts",
+    "test" : false,
+    "typeScript" : "export interface Attributes {\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : "export function process(invocation, self) {\n    const element = invocation.processors.iterateFetch.element;\n    invocation.attributes.record = {\n        id: parseInt(element.nr),\n        task: element.betreff,\n        urgency: element.dringlichkeit,\n        userName: element.benutzer\n    };\n}\n",
+    "processorId" : "0844262d-87e2-4c15-a612-e5707d52e3d8",
+    "readOnly" : false,
+    "scriptKind" : "script",
+    "scriptName" : "script.ts",
+    "test" : false,
+    "typeScript" : "import { Self } from './definition';\nimport { Invocation } from '../interface';\n\nexport function process(invocation: Invocation, self: Self) {\n  const element = invocation.processors.iterateFetch.element;\n\n  invocation.attributes.record = {\n    id: parseInt(element.nr),\n    task: element.betreff,\n    urgency: element.dringlichkeit,\n    userName: element.benutzer\n  };\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "a45e3a4c-25ca-4a8c-8981-632d8e6d7d63",
+    "readOnly" : true,
+    "scriptKind" : "public-api",
+    "scriptName" : "api.d.ts",
+    "test" : false,
+    "typeScript" : "import { Attributes } from './attributes';\nimport { process } from './script';\n\nexport interface _Attributes extends Omit<Attributes, 'result'> {\n  result: ReturnType<typeof process>;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "a45e3a4c-25ca-4a8c-8981-632d8e6d7d63",
+    "readOnly" : true,
+    "scriptKind" : "private-api",
+    "scriptName" : "definition.d.ts",
+    "test" : false,
+    "typeScript" : "import { Attributes } from './attributes';\n\nexport interface Self {\n  withAttribute<T extends keyof Attributes>(attributeId: T, value: Attributes[T]): Self;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "a45e3a4c-25ca-4a8c-8981-632d8e6d7d63",
+    "readOnly" : false,
+    "scriptKind" : "public-api",
+    "scriptName" : "attributes.d.ts",
+    "test" : false,
+    "typeScript" : "export interface Attributes {\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : "export function process(invocation, self) {\n    const record = invocation.attributes.record;\n    const hash = Hash.md5(record);\n    const retries = Collections.get('retries');\n    const lastRetry = retries.get(invocation.attributes.record.id);\n    const retryCount = (lastRetry && lastRetry.hash === hash) ? lastRetry.retryCount + 1 : 0;\n    retries.putImmediately(invocation.attributes.record.id, {\n        record: invocation.attributes.record,\n        hash: hash,\n        issues: invocation.processors.validateAndMap.issues,\n        retryCount: retryCount\n    });\n}\n",
+    "processorId" : "a45e3a4c-25ca-4a8c-8981-632d8e6d7d63",
+    "readOnly" : false,
+    "scriptKind" : "script",
+    "scriptName" : "script.ts",
+    "test" : false,
+    "typeScript" : "import { Self } from './definition';\nimport { Invocation } from '../interface';\nimport { Collections } from '../../collections';\nimport { Hash } from '@eip/utils';\n\nexport function process(invocation: Invocation, self: Self) {\n  const record = invocation.attributes.record;\n  const hash = Hash.md5(record);\n\n  const retries = Collections.get('retries');\n  const lastRetry = retries.get(invocation.attributes.record.id);\n\n  const retryCount = (lastRetry && lastRetry.hash === hash) ? lastRetry.retryCount + 1 : 0;\n\n  retries.putImmediately(invocation.attributes.record.id, {\n      record: invocation.attributes.record,\n      hash: hash,\n      issues: invocation.processors.validateAndMap.issues,\n      retryCount: retryCount\n    });\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "f7d39247-35a4-4435-9f24-122c822ac1ee",
+    "readOnly" : true,
+    "scriptKind" : "public-api",
+    "scriptName" : "api.d.ts",
+    "test" : false,
+    "typeScript" : "import { Flatten } from '@eip/core';\nimport { provideData } from './data';\n\n\nexport interface _Attributes {\n  element: Flatten<ReturnType<typeof provideData>>;\n  index: number;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : "export function provideData(invocation) {\n    const r = invocation.processors.listCollection.result;\n    return r;\n}\n",
+    "processorId" : "f7d39247-35a4-4435-9f24-122c822ac1ee",
+    "readOnly" : false,
+    "scriptKind" : "script",
+    "scriptName" : "data.ts",
+    "test" : false,
+    "typeScript" : "import { Invocation } from '../interface';\n\nexport function provideData(invocation: Invocation) {\n  const r =\ninvocation.processors.listCollection.result\n;\n  return r;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : null,
+    "readOnly" : true,
+    "scriptKind" : "public-api",
+    "scriptName" : "testDefinition.d.ts",
+    "test" : true,
+    "typeScript" : "import { Attributes as InvocationAttributes } from './attributes';\nimport { Invocation, ProcessorAttributes } from './interface';\n\ntype DeepPartial<T> = T extends any[] ? T : {\n  [P in keyof T]?: DeepPartial<T[P]>;\n};\ntype ProcessorAttributesWithInvocationResults = {[K in keyof ProcessorAttributes]: K extends keyof InvocationProcessorOutputAttribute ? ProcessorAttributes[K] & { result: InvocationProcessorOutputAttribute[K] } : ProcessorAttributes[K];};\ntype TestInvocationResult = Omit<Invocation, \"processors\"> & {processors: ProcessorAttributesWithInvocationResults; outlet: string;};\n\nexport const TestDriver: ITestDriver;\n\nexport interface InvocationProcessorInputAttribute {\n}\n\nexport interface InvocationProcessorOutputAttribute {\n}\n\nexport interface InterfaceTestProcessorAttribute<T extends keyof ProcessorAttributes> {\n  attribute<Q extends keyof ProcessorAttributes[T]>(attributeId: Q, value: ProcessorAttributes[T][Q]): InterfaceTestProcessorAttribute<T>;\n  attributes(attributes: DeepPartial<ProcessorAttributes[T]>): InterfaceTestProcessorAttribute<T>;\n}\n\nexport interface InterfaceTest {\n  withLogLevel(logLevel: 'off' | 'error' | 'warn' | 'info' | 'debug' | 'trace'): InterfaceTest;\n  startWith<K extends keyof ProcessorAttributes>(...args: K extends keyof InvocationProcessorInputAttribute ? [processorIdentifier: K, input?: InvocationProcessorInputAttribute[K]] : [processorIdentifier: K]): InterfaceTest;\n  stopBefore(...processorIdentifiers: (keyof ProcessorAttributes)[]): InterfaceTest;\n  stopAfter(...processorIdentifiers: (keyof ProcessorAttributes)[]): InterfaceTest;\n  processorAttributes<T extends keyof ProcessorAttributes>(processorIdentifier: T, processorAttributeFunction: (processorAttributes: InterfaceTestProcessorAttribute<T>) => void): InterfaceTest;\n  invocationAttribute<T extends keyof InvocationAttributes>(attributeId: T, value: InvocationAttributes[T]): InterfaceTest;\n  invocationAttributes(attributes: DeepPartial<InvocationAttributes>): InterfaceTest;\n  mock<T extends keyof ProcessorAttributes>(processorIdentifier: T, mockFunction?: (mock: ProcessorMock<T>, currentInvocation: Invocation) => void): InterfaceTest;\n  test(): TestInvocationResult;\n}\n\nexport interface ProcessorMock<T extends keyof ProcessorAttributes> {\n  processorAttribute<Q extends keyof ProcessorAttributes[T]>(attributeId: Q, value: ProcessorAttributes[T][Q]): ProcessorMock<T>;\n  processorAttributes(attributes: DeepPartial<ProcessorAttributes[T]>): ProcessorMock<T>;\n  invocationAttribute<Q extends keyof InvocationAttributes>(attributeId: Q, value: InvocationAttributes[Q]): ProcessorMock<T>;\n  invocationAttributes(attributes: DeepPartial<InvocationAttributes>): ProcessorMock<T>;\n  outlet(outletName: string): ProcessorMock<T>;\n}\n\ninterface ITestDriver {\n  createTest(): InterfaceTest;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "01b728d3-f0e8-4a79-a8d0-1adc33fb5cf3",
+    "readOnly" : true,
+    "scriptKind" : "public-api",
+    "scriptName" : "api.d.ts",
+    "test" : false,
+    "typeScript" : "import { MapLike } from '@eip/core';\n\nexport interface MutationResult {\n  mutationRef: string;\n  mutationTransactionRef: string;\n  affectedItemKey: string;\n  correlationId: string;\n  status: string;\n  statusCode: string;\n  message: string;\n}\n\nexport interface MutationResponse {\n  /**\n    * @deprecated Use {@link requestRef} instead.\n    */\n  mutationRequestId: string;\n  /**\n    * @deprecated Use {@link keyMappings} instead.\n    */\n  mutationResults: MutationResult[];\n  requestRef: string;\n  keyMappings: MapLike<string, string>;\n  status: 'ok' | 'error' | 'cancelled';\n  transactionRef: string;\n  errorCode: string;\n  errorMessage: string;\n  errorMessageOrigin: string;\n}\n\nexport interface _Attributes {\n  response: MutationResponse;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "01b728d3-f0e8-4a79-a8d0-1adc33fb5cf3",
+    "readOnly" : true,
+    "scriptKind" : "private-api",
+    "scriptName" : "definition.d.ts",
+    "test" : false,
+    "typeScript" : "export interface Self {\n  /**\n   * List of mutation objects\n   */\n  withMutations(mutations: any): Self;\n  /**\n   * Username which will be used to identify the user in whose name the mutation will be logged\n   */\n  withModifiedByUsername(username: string): Self;\n  /**\n   * Username of the user whose permissions are used for the mutation. Also implicitly sets withModifiedByUsername if this has not been overwritten with another value.\n   */\n  withRunAsUsername(username: string): Self;\n}"
+  } ],
+  "version" : 0
+}

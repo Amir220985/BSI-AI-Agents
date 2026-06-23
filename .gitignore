@@ -1,0 +1,18 @@
+# macOS
+.DS_Store
+
+# Claude Code session data
+.claude/
+
+# Generated BSI exports
+exports/
+
+# Temporary import files
+bsi_import_1/
+bsi_import_1.zip
+
+# Local registry (top-level, not the skill registries)
+registry/
+
+# Interfaces
+interfaces/

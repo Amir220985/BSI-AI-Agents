@@ -1,0 +1,1548 @@
+{
+  "_type" : "interfaces.InterfaceConfig",
+  "_typeVersion" : "interfaces-24.2.017",
+  "changeDate" : "2026-05-12 16:06:33.226",
+  "createDate" : "2026-05-12 16:06:33.226",
+  "gid" : "0f736899-cabc-46c5-bb45-ca3b90e3d149",
+  "groups" : [ {
+    "_type" : "interfaces.GroupConfig",
+    "_typeVersion" : "interfaces-22.0.0",
+    "color" : "color1",
+    "id" : "dd955d51-c1ea-4ba6-aec7-adaeec88f209",
+    "name" : "Export"
+  }, {
+    "_type" : "interfaces.GroupConfig",
+    "_typeVersion" : "interfaces-22.0.0",
+    "color" : "color2",
+    "id" : "7e51e4cb-16d7-4ff4-88a2-cb914474f6a8",
+    "name" : "Customer  Project"
+  }, {
+    "_type" : "interfaces.GroupConfig",
+    "_typeVersion" : "interfaces-22.0.0",
+    "color" : "color3",
+    "id" : "89ae68a1-c6f4-4cab-b037-493edaaadee8",
+    "name" : "Occurence Project"
+  }, {
+    "_type" : "interfaces.GroupConfig",
+    "_typeVersion" : "interfaces-22.0.0",
+    "color" : "color4",
+    "id" : "858de5a7-ef88-4d8f-91cc-ae749701e8a2",
+    "name" : "Social Media Post Project"
+  } ],
+  "id" : "bba34bea-80ec-44e9-bc86-3d608f65113e",
+  "logLevel" : "warn",
+  "name" : "export_project",
+  "notes" : "Export Volta spezifische Daten",
+  "processors" : [ {
+    "_type" : "interfaces.ProcessorConfig",
+    "_typeVersion" : "interfaces-22.0.1004",
+    "customConfig" : {
+      "_type" : "interfaces.RoutineProcessorConfig",
+      "_typeVersion" : "interfaces-23.2.001"
+    },
+    "gid" : "cdf9c4cf-b8de-4e74-8c8a-e38eca250654",
+    "groupId" : "dd955d51-c1ea-4ba6-aec7-adaeec88f209",
+    "id" : "ce47ab81-02fb-40c9-a1aa-9812b8ad505a",
+    "notes" : null,
+    "outlets" : [ {
+      "_type" : "interfaces.OutletConfig",
+      "_typeVersion" : "interfaces-22.0.1006",
+      "connectorPoints" : [ ],
+      "descriptorId" : "d0da7f2c-7fb3-4a2e-a3e4-f14f11dd06dc",
+      "executionType" : "scoped",
+      "gid" : "4cbd367a-1878-4a97-bd5b-50322f80c8eb",
+      "id" : "57594913-aa5d-49bb-9106-c28c91c60547",
+      "name" : "Aufruf",
+      "presentation" : "default",
+      "targetProcessorId" : "6af9ddec-863e-41bf-a214-2a7d05ce075f"
+    } ],
+    "position" : {
+      "_type" : "interfaces.Point",
+      "_typeVersion" : "interfaces-22.0.0",
+      "x" : 2,
+      "y" : 3
+    },
+    "scriptIdentifier" : "runProjectExport",
+    "typeId" : "8f97036a-6c89-458f-a28a-b0f10b0addd4"
+  }, {
+    "_type" : "interfaces.ProcessorConfig",
+    "_typeVersion" : "interfaces-22.0.1004",
+    "customConfig" : {
+      "_type" : "interfaces.TriggerManualProcessorConfig",
+      "_typeVersion" : "interfaces-22.0.0"
+    },
+    "gid" : "31340bd7-2320-47b1-9606-4aa631862cae",
+    "groupId" : "dd955d51-c1ea-4ba6-aec7-adaeec88f209",
+    "id" : "ea7d550e-1029-479b-8773-41e5f1bfc40d",
+    "notes" : null,
+    "outlets" : [ {
+      "_type" : "interfaces.OutletConfig",
+      "_typeVersion" : "interfaces-22.0.1006",
+      "connectorPoints" : [ ],
+      "descriptorId" : "d20e1c72-467d-4af8-9c19-0027cd18c901",
+      "executionType" : "default",
+      "gid" : "6de70d65-c648-4d4d-af59-d6143cfda7bb",
+      "id" : "5437fc58-5cae-4a67-9b3d-2ca6accef361",
+      "name" : "Standard",
+      "presentation" : "primary",
+      "targetProcessorId" : "6af9ddec-863e-41bf-a214-2a7d05ce075f"
+    } ],
+    "position" : {
+      "_type" : "interfaces.Point",
+      "_typeVersion" : "interfaces-22.0.0",
+      "x" : 2,
+      "y" : 8
+    },
+    "scriptIdentifier" : "export_project_trigger",
+    "typeId" : "b4447959-8495-4a20-83e1-e3e0384c5935"
+  }, {
+    "_type" : "interfaces.ProcessorConfig",
+    "_typeVersion" : "interfaces-22.0.1004",
+    "customConfig" : {
+      "_type" : "interfaces.TypeScriptProcessorConfig",
+      "_typeVersion" : "interfaces-23.2.018"
+    },
+    "gid" : "bca1aed1-0af0-44b7-9e69-5abbfff089ce",
+    "groupId" : "dd955d51-c1ea-4ba6-aec7-adaeec88f209",
+    "id" : "6af9ddec-863e-41bf-a214-2a7d05ce075f",
+    "notes" : null,
+    "outlets" : [ {
+      "_type" : "interfaces.OutletConfig",
+      "_typeVersion" : "interfaces-22.0.1006",
+      "connectorPoints" : [ ],
+      "descriptorId" : "c4b09fff-0dae-4726-bdeb-12fd01ddc2da",
+      "executionType" : "default",
+      "gid" : "ae487a26-6c59-49b0-9bd7-b5014176d301",
+      "id" : "ac9ac5e4-4368-4086-b478-74dc91b024cf",
+      "name" : "Standard",
+      "presentation" : "primary",
+      "targetProcessorId" : null
+    } ],
+    "position" : {
+      "_type" : "interfaces.Point",
+      "_typeVersion" : "interfaces-22.0.0",
+      "x" : 8,
+      "y" : 3
+    },
+    "scriptIdentifier" : "execute_routines",
+    "typeId" : "ffd19a7a-7613-40c0-876a-5d9a6eca66b6"
+  }, {
+    "_type" : "interfaces.ProcessorConfig",
+    "_typeVersion" : "interfaces-22.0.1004",
+    "customConfig" : {
+      "_type" : "interfaces.RoutineProcessorConfig",
+      "_typeVersion" : "interfaces-23.2.001"
+    },
+    "gid" : "744dd77b-a926-4f3f-84bb-a31147fba327",
+    "groupId" : "7e51e4cb-16d7-4ff4-88a2-cb914474f6a8",
+    "id" : "11a46086-3add-4e81-afe9-3664971cbe47",
+    "notes" : null,
+    "outlets" : [ {
+      "_type" : "interfaces.OutletConfig",
+      "_typeVersion" : "interfaces-22.0.1006",
+      "connectorPoints" : [ ],
+      "descriptorId" : "d0da7f2c-7fb3-4a2e-a3e4-f14f11dd06dc",
+      "executionType" : "scoped",
+      "gid" : "9a55dcd7-329d-4d3b-91dc-a0ec60fab0eb",
+      "id" : "f17272a5-6716-4a5d-a540-bf9b989f9750",
+      "name" : "Aufruf",
+      "presentation" : "default",
+      "targetProcessorId" : "a40eaebb-4c42-4ccb-8990-6f5035a747de"
+    } ],
+    "position" : {
+      "_type" : "interfaces.Point",
+      "_typeVersion" : "interfaces-22.0.0",
+      "x" : 17,
+      "y" : 3
+    },
+    "scriptIdentifier" : "exportProjectCustomers",
+    "typeId" : "8f97036a-6c89-458f-a28a-b0f10b0addd4"
+  }, {
+    "_type" : "interfaces.ProcessorConfig",
+    "_typeVersion" : "interfaces-22.0.1004",
+    "customConfig" : {
+      "_type" : "interfaces.RoutineProcessorConfig",
+      "_typeVersion" : "interfaces-23.2.001"
+    },
+    "gid" : "72036d4b-0337-45a3-a01b-fe175ef58533",
+    "groupId" : "89ae68a1-c6f4-4cab-b037-493edaaadee8",
+    "id" : "9a519ea9-e60f-4ddc-8296-7fd191f1f9fa",
+    "notes" : null,
+    "outlets" : [ {
+      "_type" : "interfaces.OutletConfig",
+      "_typeVersion" : "interfaces-22.0.1006",
+      "connectorPoints" : [ ],
+      "descriptorId" : "d0da7f2c-7fb3-4a2e-a3e4-f14f11dd06dc",
+      "executionType" : "scoped",
+      "gid" : "83b8b638-e902-4ed7-8988-7449221599f6",
+      "id" : "9193bda4-def5-42c4-b032-5d4ee07a30f2",
+      "name" : "Aufruf",
+      "presentation" : "default",
+      "targetProcessorId" : "7ba4be7c-aa6e-4a7d-9e38-c794e27d66ac"
+    } ],
+    "position" : {
+      "_type" : "interfaces.Point",
+      "_typeVersion" : "interfaces-22.0.0",
+      "x" : 17,
+      "y" : 13
+    },
+    "scriptIdentifier" : "exportProjectOccurrences",
+    "typeId" : "8f97036a-6c89-458f-a28a-b0f10b0addd4"
+  }, {
+    "_type" : "interfaces.ProcessorConfig",
+    "_typeVersion" : "interfaces-22.0.1004",
+    "customConfig" : {
+      "_type" : "interfaces.CrmDataModelSearchProcessorConfig",
+      "_typeVersion" : "interfaces-26.1.001",
+      "aggregateAsListData" : false,
+      "selection" : {
+        "_type" : "bsiscout.DataModelRelationSelection",
+        "_typeVersion" : "bsiscout-24.2.001",
+        "alias" : "crmOccurrences",
+        "containerEntityId" : "Root",
+        "namespaceVersions" : [ "bsiscout-25.1.0", "crm-25.2.2", "crocus-1.0.0", "cstudio-22.0.0", "interfaces-22.0.0", "oroya-1.0.0", "start-22.0.0" ],
+        "relation" : "crmOccurrences",
+        "resultDoType" : "scout.DoEntity",
+        "selections" : [ {
+          "_type" : "bsiscout.DataModelAttributeSelection",
+          "_typeVersion" : "bsiscout-8.0.0.040",
+          "alias" : "id",
+          "attribute" : "id",
+          "fieldType" : "Key:Entity:CrmOccurrence"
+        }, {
+          "_type" : "bsiscout.DataModelAttributeSelection",
+          "_typeVersion" : "bsiscout-8.0.0.040",
+          "alias" : "y-2c412a3e-3c5e-41cf-bc00-14e27917db43",
+          "attribute" : "y-2c412a3e-3c5e-41cf-bc00-14e27917db43",
+          "fieldType" : "Text250"
+        }, {
+          "_type" : "bsiscout.DataModelAttributeSelection",
+          "_typeVersion" : "bsiscout-8.0.0.040",
+          "alias" : "y-67d45296-165b-4383-a36a-736c8d217f64",
+          "attribute" : "y-67d45296-165b-4383-a36a-736c8d217f64",
+          "fieldType" : "Long"
+        }, {
+          "_type" : "bsiscout.DataModelRelationSelection",
+          "_typeVersion" : "bsiscout-24.2.001",
+          "alias" : "y-9ca9842a-595e-4d69-8191-844450666d99",
+          "relation" : "y-9ca9842a-595e-4d69-8191-844450666d99",
+          "resultDoType" : "scout.DoEntity",
+          "selections" : [ {
+            "_type" : "bsiscout.DataModelAttributeSelection",
+            "_typeVersion" : "bsiscout-8.0.0.040",
+            "alias" : "globalKey",
+            "attribute" : "globalKey",
+            "fieldType" : "Text250"
+          }, {
+            "_type" : "bsiscout.DataModelAttributeSelection",
+            "_typeVersion" : "bsiscout-8.0.0.040",
+            "alias" : "id",
+            "attribute" : "id",
+            "fieldType" : "Key:Entity:CrmCode"
+          }, {
+            "_type" : "bsiscout.DataModelAttributeSelection",
+            "_typeVersion" : "bsiscout-8.0.0.040",
+            "alias" : "text",
+            "attribute" : "text",
+            "fieldType" : "Text250"
+          } ],
+          "targetType" : "Entity:CrmCode:71094"
+        }, {
+          "_type" : "bsiscout.DataModelRelationSelection",
+          "_typeVersion" : "bsiscout-24.2.001",
+          "alias" : "y-b65f8862-9545-4c79-a88c-fa132a256c41",
+          "relation" : "y-b65f8862-9545-4c79-a88c-fa132a256c41",
+          "resultDoType" : "scout.DoEntity",
+          "selections" : [ {
+            "_type" : "bsiscout.DataModelAttributeSelection",
+            "_typeVersion" : "bsiscout-8.0.0.040",
+            "alias" : "globalKey",
+            "attribute" : "globalKey",
+            "fieldType" : "Text250"
+          }, {
+            "_type" : "bsiscout.DataModelAttributeSelection",
+            "_typeVersion" : "bsiscout-8.0.0.040",
+            "alias" : "id",
+            "attribute" : "id",
+            "fieldType" : "Key:Entity:CrmCode"
+          }, {
+            "_type" : "bsiscout.DataModelAttributeSelection",
+            "_typeVersion" : "bsiscout-8.0.0.040",
+            "alias" : "text",
+            "attribute" : "text",
+            "fieldType" : "Text250"
+          } ],
+          "targetType" : "Entity:CrmCode:f0e4047f-37d1-4988-a8ca-fae66b8d7372"
+        }, {
+          "_type" : "bsiscout.DataModelRelationSelection",
+          "_typeVersion" : "bsiscout-24.2.001",
+          "alias" : "y-c94e5b9e-4b5e-424b-8dbd-9b1b47f2b551",
+          "relation" : "y-c94e5b9e-4b5e-424b-8dbd-9b1b47f2b551",
+          "resultDoType" : "scout.DoEntity",
+          "selections" : [ {
+            "_type" : "bsiscout.DataModelAttributeSelection",
+            "_typeVersion" : "bsiscout-8.0.0.040",
+            "alias" : "globalKey",
+            "attribute" : "globalKey",
+            "fieldType" : "Text250"
+          }, {
+            "_type" : "bsiscout.DataModelAttributeSelection",
+            "_typeVersion" : "bsiscout-8.0.0.040",
+            "alias" : "id",
+            "attribute" : "id",
+            "fieldType" : "Key:Entity:CrmCode"
+          }, {
+            "_type" : "bsiscout.DataModelAttributeSelection",
+            "_typeVersion" : "bsiscout-8.0.0.040",
+            "alias" : "text",
+            "attribute" : "text",
+            "fieldType" : "Text250"
+          } ],
+          "targetType" : "Entity:CrmCode:0ffc24d2-0aa2-4f5d-a99d-49e3941ec89a"
+        } ],
+        "targetType" : "List:Entity:CrmOccurrence"
+      }
+    },
+    "gid" : "c68ebcef-96b8-48d6-b911-f677ef703f72",
+    "groupId" : "89ae68a1-c6f4-4cab-b037-493edaaadee8",
+    "id" : "7ba4be7c-aa6e-4a7d-9e38-c794e27d66ac",
+    "notes" : "Volta konfgiuration export for\n\ncustomer.region\ncustomer.branche",
+    "outlets" : [ {
+      "_type" : "interfaces.OutletConfig",
+      "_typeVersion" : "interfaces-22.0.1006",
+      "connectorPoints" : [ ],
+      "descriptorId" : "59c636c9-ccce-4650-8460-f7025a556cd2",
+      "executionType" : "default",
+      "gid" : "70cf15e4-530c-4c87-aac1-9409f746786c",
+      "id" : "80998eaa-09b4-41cf-a598-c95a2714870d",
+      "name" : "Standard",
+      "presentation" : "primary",
+      "targetProcessorId" : "0115aa5e-c123-43e1-b3c1-1ecb71ae485c"
+    } ],
+    "position" : {
+      "_type" : "interfaces.Point",
+      "_typeVersion" : "interfaces-22.0.0",
+      "x" : 23,
+      "y" : 13
+    },
+    "scriptIdentifier" : "searchOccurrencesProject",
+    "typeId" : "633d02d2-bda7-450d-a399-277644d39082"
+  }, {
+    "_type" : "interfaces.ProcessorConfig",
+    "_typeVersion" : "interfaces-22.0.1004",
+    "customConfig" : {
+      "_type" : "interfaces.CrmDataModelSearchProcessorConfig",
+      "_typeVersion" : "interfaces-26.1.001",
+      "aggregateAsListData" : false,
+      "selection" : {
+        "_type" : "bsiscout.DataModelRelationSelection",
+        "_typeVersion" : "bsiscout-24.2.001",
+        "alias" : "crmCustomers",
+        "containerEntityId" : "Root",
+        "namespaceVersions" : [ "bsiscout-25.1.0", "crm-25.2.2", "crocus-1.0.0", "cstudio-22.0.0", "interfaces-22.0.0", "oroya-1.0.0", "start-22.0.0" ],
+        "relation" : "crmCustomers",
+        "resultDoType" : "scout.DoEntity",
+        "selections" : [ {
+          "_type" : "bsiscout.DataModelAttributeSelection",
+          "_typeVersion" : "bsiscout-8.0.0.040",
+          "alias" : "globalKey",
+          "attribute" : "globalKey",
+          "fieldType" : "Text250"
+        }, {
+          "_type" : "bsiscout.DataModelAttributeSelection",
+          "_typeVersion" : "bsiscout-8.0.0.040",
+          "alias" : "id",
+          "attribute" : "id",
+          "fieldType" : "Key:Entity:CrmCustomer"
+        }, {
+          "_type" : "bsiscout.DataModelRelationSelection",
+          "_typeVersion" : "bsiscout-24.2.001",
+          "alias" : "y-5a96a860-02e3-4f2d-8c53-117ef0367be2",
+          "relation" : "y-5a96a860-02e3-4f2d-8c53-117ef0367be2",
+          "resultDoType" : "scout.DoEntity",
+          "selections" : [ {
+            "_type" : "bsiscout.DataModelAttributeSelection",
+            "_typeVersion" : "bsiscout-8.0.0.040",
+            "alias" : "globalKey",
+            "attribute" : "globalKey",
+            "fieldType" : "Text250"
+          }, {
+            "_type" : "bsiscout.DataModelAttributeSelection",
+            "_typeVersion" : "bsiscout-8.0.0.040",
+            "alias" : "id",
+            "attribute" : "id",
+            "fieldType" : "Key:Entity:CrmCode"
+          }, {
+            "_type" : "bsiscout.DataModelAttributeSelection",
+            "_typeVersion" : "bsiscout-8.0.0.040",
+            "alias" : "text",
+            "attribute" : "text",
+            "fieldType" : "Text250"
+          } ],
+          "targetType" : "Entity:CrmCode:cbbf03e4-a69a-4ea9-94f7-0b67fea1efbe"
+        }, {
+          "_type" : "bsiscout.DataModelRelationSelection",
+          "_typeVersion" : "bsiscout-24.2.001",
+          "alias" : "y-76fba19e-1211-4781-8fbd-7c87f58a6ce5",
+          "relation" : "y-76fba19e-1211-4781-8fbd-7c87f58a6ce5",
+          "resultDoType" : "scout.DoEntity",
+          "selections" : [ {
+            "_type" : "bsiscout.DataModelAttributeSelection",
+            "_typeVersion" : "bsiscout-8.0.0.040",
+            "alias" : "globalKey",
+            "attribute" : "globalKey",
+            "fieldType" : "Text250"
+          }, {
+            "_type" : "bsiscout.DataModelAttributeSelection",
+            "_typeVersion" : "bsiscout-8.0.0.040",
+            "alias" : "id",
+            "attribute" : "id",
+            "fieldType" : "Key:Entity:CrmCode"
+          }, {
+            "_type" : "bsiscout.DataModelAttributeSelection",
+            "_typeVersion" : "bsiscout-8.0.0.040",
+            "alias" : "text",
+            "attribute" : "text",
+            "fieldType" : "Text250"
+          } ],
+          "targetType" : "Entity:CrmCode:76658323-830f-431d-1092-e4bf83a79836"
+        } ],
+        "targetType" : "List:Entity:CrmCustomer"
+      }
+    },
+    "gid" : "9dab7001-91e0-4015-aaf5-cb8b6afa2d09",
+    "groupId" : "7e51e4cb-16d7-4ff4-88a2-cb914474f6a8",
+    "id" : "a40eaebb-4c42-4ccb-8990-6f5035a747de",
+    "notes" : "Volta konfgiuration export for\n\ncustomer.region\ncustomer.branche",
+    "outlets" : [ {
+      "_type" : "interfaces.OutletConfig",
+      "_typeVersion" : "interfaces-22.0.1006",
+      "connectorPoints" : [ ],
+      "descriptorId" : "59c636c9-ccce-4650-8460-f7025a556cd2",
+      "executionType" : "default",
+      "gid" : "2123eee7-2697-4bcd-ab36-dc6e51d9fd6a",
+      "id" : "685c4bba-7373-4bde-abec-8a1ed1e6852b",
+      "name" : "Standard",
+      "presentation" : "primary",
+      "targetProcessorId" : "826579da-7883-452e-8029-22339fc843a4"
+    } ],
+    "position" : {
+      "_type" : "interfaces.Point",
+      "_typeVersion" : "interfaces-22.0.0",
+      "x" : 23,
+      "y" : 3
+    },
+    "scriptIdentifier" : "searchCustomersProject",
+    "typeId" : "633d02d2-bda7-450d-a399-277644d39082"
+  }, {
+    "_type" : "interfaces.ProcessorConfig",
+    "_typeVersion" : "interfaces-22.0.1004",
+    "customConfig" : {
+      "_type" : "interfaces.RoutineProcessorConfig",
+      "_typeVersion" : "interfaces-23.2.001"
+    },
+    "gid" : "a698ad19-0508-42b3-9069-fc007e1b8fab",
+    "groupId" : "858de5a7-ef88-4d8f-91cc-ae749701e8a2",
+    "id" : "b5c26a39-f280-4cfc-941a-04a07ec38d56",
+    "notes" : null,
+    "outlets" : [ {
+      "_type" : "interfaces.OutletConfig",
+      "_typeVersion" : "interfaces-22.0.1006",
+      "connectorPoints" : [ ],
+      "descriptorId" : "d0da7f2c-7fb3-4a2e-a3e4-f14f11dd06dc",
+      "executionType" : "scoped",
+      "gid" : "d9739614-e94e-4067-b284-3ac6aee6f6ad",
+      "id" : "baaec695-9974-4ce8-8648-55c236230543",
+      "name" : "Aufruf",
+      "presentation" : "default",
+      "targetProcessorId" : "730a5fe4-1176-4ee3-8b31-6344d2037536"
+    } ],
+    "position" : {
+      "_type" : "interfaces.Point",
+      "_typeVersion" : "interfaces-22.0.0",
+      "x" : 17,
+      "y" : 23
+    },
+    "scriptIdentifier" : "exportProjectSocialMediaPost",
+    "typeId" : "8f97036a-6c89-458f-a28a-b0f10b0addd4"
+  }, {
+    "_type" : "interfaces.ProcessorConfig",
+    "_typeVersion" : "interfaces-22.0.1004",
+    "customConfig" : {
+      "_type" : "interfaces.TypeScriptProcessorConfig",
+      "_typeVersion" : "interfaces-23.2.018"
+    },
+    "gid" : "be1d5076-c5bc-4936-b3e4-1274196ead72",
+    "groupId" : "89ae68a1-c6f4-4cab-b037-493edaaadee8",
+    "id" : "0115aa5e-c123-43e1-b3c1-1ecb71ae485c",
+    "notes" : null,
+    "outlets" : [ {
+      "_type" : "interfaces.OutletConfig",
+      "_typeVersion" : "interfaces-22.0.1006",
+      "connectorPoints" : [ ],
+      "descriptorId" : "c4b09fff-0dae-4726-bdeb-12fd01ddc2da",
+      "executionType" : "default",
+      "gid" : "1612f9b8-c7a9-48eb-aaba-b4441cf3bd89",
+      "id" : "00f8e1f8-a051-4856-9ac8-11f0b8b5c2df",
+      "name" : "Standard",
+      "presentation" : "primary",
+      "targetProcessorId" : "134df128-7757-4b7b-bbab-dc5524818550"
+    } ],
+    "position" : {
+      "_type" : "interfaces.Point",
+      "_typeVersion" : "interfaces-22.0.0",
+      "x" : 29,
+      "y" : 13
+    },
+    "scriptIdentifier" : "recodeOccurenceProject",
+    "typeId" : "ffd19a7a-7613-40c0-876a-5d9a6eca66b6"
+  }, {
+    "_type" : "interfaces.ProcessorConfig",
+    "_typeVersion" : "interfaces-22.0.1004",
+    "customConfig" : {
+      "_type" : "interfaces.TypeScriptProcessorConfig",
+      "_typeVersion" : "interfaces-23.2.018"
+    },
+    "gid" : "001fa2d5-b7aa-4270-8861-bf2425236b5b",
+    "groupId" : "7e51e4cb-16d7-4ff4-88a2-cb914474f6a8",
+    "id" : "826579da-7883-452e-8029-22339fc843a4",
+    "notes" : null,
+    "outlets" : [ {
+      "_type" : "interfaces.OutletConfig",
+      "_typeVersion" : "interfaces-22.0.1006",
+      "connectorPoints" : [ ],
+      "descriptorId" : "c4b09fff-0dae-4726-bdeb-12fd01ddc2da",
+      "executionType" : "default",
+      "gid" : "ffe3b624-918e-4c64-bb35-6fb09fa7799a",
+      "id" : "70843e35-cbbc-46e8-87d6-cf711f37439a",
+      "name" : "Standard",
+      "presentation" : "primary",
+      "targetProcessorId" : "9ddd32fc-2728-4f1c-b52d-8846c10840d2"
+    } ],
+    "position" : {
+      "_type" : "interfaces.Point",
+      "_typeVersion" : "interfaces-22.0.0",
+      "x" : 29,
+      "y" : 3
+    },
+    "scriptIdentifier" : "recodeCustomerProject",
+    "typeId" : "ffd19a7a-7613-40c0-876a-5d9a6eca66b6"
+  }, {
+    "_type" : "interfaces.ProcessorConfig",
+    "_typeVersion" : "interfaces-22.0.1004",
+    "customConfig" : {
+      "_type" : "interfaces.CrmDataModelSearchProcessorConfig",
+      "_typeVersion" : "interfaces-26.1.001",
+      "aggregateAsListData" : false,
+      "selection" : {
+        "_type" : "bsiscout.DataModelRelationSelection",
+        "_typeVersion" : "bsiscout-24.2.001",
+        "alias" : "y-SocialMediaPostRootRelation",
+        "containerEntityId" : "Root",
+        "namespaceVersions" : [ "bsiscout-25.1.0", "crm-25.2.2", "crocus-1.0.0", "cstudio-22.0.0", "interfaces-22.0.0", "oroya-1.0.0", "start-22.0.0" ],
+        "relation" : "y-SocialMediaPostRootRelation",
+        "resultDoType" : "scout.DoEntity",
+        "selections" : [ {
+          "_type" : "bsiscout.DataModelAttributeSelection",
+          "_typeVersion" : "bsiscout-8.0.0.040",
+          "alias" : "id",
+          "attribute" : "id",
+          "fieldType" : "Key:Entity:Y-SocialMediaPost"
+        }, {
+          "_type" : "bsiscout.DataModelAttributeSelection",
+          "_typeVersion" : "bsiscout-8.0.0.040",
+          "alias" : "y-channel",
+          "attribute" : "y-channel",
+          "fieldType" : "Text60"
+        }, {
+          "_type" : "bsiscout.DataModelAttributeSelection",
+          "_typeVersion" : "bsiscout-8.0.0.040",
+          "alias" : "y-comments",
+          "attribute" : "y-comments",
+          "fieldType" : "Long"
+        }, {
+          "_type" : "bsiscout.DataModelAttributeSelection",
+          "_typeVersion" : "bsiscout-8.0.0.040",
+          "alias" : "y-message",
+          "attribute" : "y-message",
+          "fieldType" : "RichText"
+        }, {
+          "_type" : "bsiscout.DataModelAttributeSelection",
+          "_typeVersion" : "bsiscout-8.0.0.040",
+          "alias" : "y-postedOn",
+          "attribute" : "y-postedOn",
+          "fieldType" : "DateTime"
+        }, {
+          "_type" : "bsiscout.DataModelAttributeSelection",
+          "_typeVersion" : "bsiscout-8.0.0.040",
+          "alias" : "y-reactions",
+          "attribute" : "y-reactions",
+          "fieldType" : "Long"
+        }, {
+          "_type" : "bsiscout.DataModelAttributeSelection",
+          "_typeVersion" : "bsiscout-8.0.0.040",
+          "alias" : "y-shares",
+          "attribute" : "y-shares",
+          "fieldType" : "Long"
+        }, {
+          "_type" : "bsiscout.DataModelRelationSelection",
+          "_typeVersion" : "bsiscout-24.2.001",
+          "alias" : "y-customer",
+          "relation" : "y-customer",
+          "resultDoType" : "scout.DoEntity",
+          "selections" : [ {
+            "_type" : "bsiscout.DataModelAttributeSelection",
+            "_typeVersion" : "bsiscout-8.0.0.040",
+            "alias" : "globalKey",
+            "attribute" : "globalKey",
+            "fieldType" : "Text250"
+          }, {
+            "_type" : "bsiscout.DataModelAttributeSelection",
+            "_typeVersion" : "bsiscout-8.0.0.040",
+            "alias" : "id",
+            "attribute" : "id",
+            "fieldType" : "Key:Entity:CrmCustomer"
+          } ],
+          "targetType" : "Entity:CrmCustomer"
+        }, {
+          "_type" : "bsiscout.DataModelRelationSelection",
+          "_typeVersion" : "bsiscout-24.2.001",
+          "alias" : "y-platform",
+          "relation" : "y-platform",
+          "resultDoType" : "scout.DoEntity",
+          "selections" : [ {
+            "_type" : "bsiscout.DataModelAttributeSelection",
+            "_typeVersion" : "bsiscout-8.0.0.040",
+            "alias" : "globalKey",
+            "attribute" : "globalKey",
+            "fieldType" : "Text250"
+          }, {
+            "_type" : "bsiscout.DataModelAttributeSelection",
+            "_typeVersion" : "bsiscout-8.0.0.040",
+            "alias" : "id",
+            "attribute" : "id",
+            "fieldType" : "Key:Entity:CrmCode"
+          }, {
+            "_type" : "bsiscout.DataModelAttributeSelection",
+            "_typeVersion" : "bsiscout-8.0.0.040",
+            "alias" : "text",
+            "attribute" : "text",
+            "fieldType" : "Text250"
+          } ],
+          "targetType" : "Entity:CrmCode:142299"
+        }, {
+          "_type" : "bsiscout.DataModelRelationSelection",
+          "_typeVersion" : "bsiscout-24.2.001",
+          "alias" : "y-sentiments",
+          "relation" : "y-sentiments",
+          "resultDoType" : "scout.DoEntity",
+          "selections" : [ {
+            "_type" : "bsiscout.DataModelAttributeSelection",
+            "_typeVersion" : "bsiscout-8.0.0.040",
+            "alias" : "globalKey",
+            "attribute" : "globalKey",
+            "fieldType" : "Text250"
+          }, {
+            "_type" : "bsiscout.DataModelAttributeSelection",
+            "_typeVersion" : "bsiscout-8.0.0.040",
+            "alias" : "id",
+            "attribute" : "id",
+            "fieldType" : "Key:Entity:CrmCode"
+          }, {
+            "_type" : "bsiscout.DataModelAttributeSelection",
+            "_typeVersion" : "bsiscout-8.0.0.040",
+            "alias" : "text",
+            "attribute" : "text",
+            "fieldType" : "Text250"
+          } ],
+          "targetType" : "Entity:CrmCode:142433"
+        } ],
+        "targetType" : "List:Entity:Y-SocialMediaPost"
+      }
+    },
+    "gid" : "7c090582-d9bb-48bb-ac90-ca122520e82f",
+    "groupId" : "858de5a7-ef88-4d8f-91cc-ae749701e8a2",
+    "id" : "730a5fe4-1176-4ee3-8b31-6344d2037536",
+    "notes" : "Volta konfgiuration export for\n\ncustomer.region\ncustomer.branche",
+    "outlets" : [ {
+      "_type" : "interfaces.OutletConfig",
+      "_typeVersion" : "interfaces-22.0.1006",
+      "connectorPoints" : [ ],
+      "descriptorId" : "59c636c9-ccce-4650-8460-f7025a556cd2",
+      "executionType" : "default",
+      "gid" : "c05ae03d-70bd-4b6b-b279-cd9bdbddd6ba",
+      "id" : "760fe75e-51b3-48e4-9022-75c97eda6e36",
+      "name" : "Standard",
+      "presentation" : "primary",
+      "targetProcessorId" : "ea01cb30-9668-47c2-84bf-a780a597f20b"
+    } ],
+    "position" : {
+      "_type" : "interfaces.Point",
+      "_typeVersion" : "interfaces-22.0.0",
+      "x" : 23,
+      "y" : 23
+    },
+    "scriptIdentifier" : "searchSocialMediaPostProject",
+    "typeId" : "633d02d2-bda7-450d-a399-277644d39082"
+  }, {
+    "_type" : "interfaces.ProcessorConfig",
+    "_typeVersion" : "interfaces-22.0.1004",
+    "customConfig" : {
+      "_type" : "interfaces.IterationProcessorConfig",
+      "_typeVersion" : "interfaces-26.1.001",
+      "aggregateAsListData" : false,
+      "aggregateResults" : false,
+      "chunkSize" : 1,
+      "ignoreNullValues" : false,
+      "workerThreads" : 5
+    },
+    "gid" : "132d75c6-f543-42fe-be1c-6c2ab4583672",
+    "groupId" : "89ae68a1-c6f4-4cab-b037-493edaaadee8",
+    "id" : "134df128-7757-4b7b-bbab-dc5524818550",
+    "notes" : null,
+    "outlets" : [ {
+      "_type" : "interfaces.OutletConfig",
+      "_typeVersion" : "interfaces-22.0.1006",
+      "connectorPoints" : [ ],
+      "descriptorId" : "da7bac4b-8a6c-4fd7-abf3-7ca5d1a78575",
+      "executionType" : "scoped",
+      "gid" : "fb411b76-f825-48e2-ac97-2107e3dbbbab",
+      "id" : "b528b639-ce58-4848-b363-46a8675607a2",
+      "name" : "Iteration",
+      "presentation" : "default",
+      "targetProcessorId" : "d94d8d21-ee48-419a-9f46-ec3dd4ec86ed"
+    }, {
+      "_type" : "interfaces.OutletConfig",
+      "_typeVersion" : "interfaces-22.0.1006",
+      "connectorPoints" : [ ],
+      "descriptorId" : "dd8f5806-3156-4697-97c0-dd069570f2e6",
+      "executionType" : "default",
+      "gid" : "806fa4be-584d-497a-8b9c-d95ecf8c3fef",
+      "id" : "9a91b330-488e-4ef6-8172-0321693e4699",
+      "name" : "Abgeschlossen",
+      "presentation" : "default",
+      "targetProcessorId" : null
+    } ],
+    "position" : {
+      "_type" : "interfaces.Point",
+      "_typeVersion" : "interfaces-22.0.0",
+      "x" : 35,
+      "y" : 13
+    },
+    "scriptIdentifier" : "occurrencesProjectIteration",
+    "typeId" : "21c361ec-5dec-4f13-9767-442db1adb3a3"
+  }, {
+    "_type" : "interfaces.ProcessorConfig",
+    "_typeVersion" : "interfaces-22.0.1004",
+    "customConfig" : {
+      "_type" : "interfaces.TypeScriptProcessorConfig",
+      "_typeVersion" : "interfaces-23.2.018"
+    },
+    "gid" : "5c4eaeab-3914-4bc3-9298-10c328f06fa5",
+    "groupId" : "858de5a7-ef88-4d8f-91cc-ae749701e8a2",
+    "id" : "ea01cb30-9668-47c2-84bf-a780a597f20b",
+    "notes" : null,
+    "outlets" : [ {
+      "_type" : "interfaces.OutletConfig",
+      "_typeVersion" : "interfaces-22.0.1006",
+      "connectorPoints" : [ ],
+      "descriptorId" : "c4b09fff-0dae-4726-bdeb-12fd01ddc2da",
+      "executionType" : "default",
+      "gid" : "57b9160c-5de6-4380-9fc5-92c0d64806b0",
+      "id" : "20c1c09c-af4b-4cb9-aaa9-67583b5fc28f",
+      "name" : "Standard",
+      "presentation" : "primary",
+      "targetProcessorId" : "3ebb3f03-7004-45d2-93b6-f1b910c330e6"
+    } ],
+    "position" : {
+      "_type" : "interfaces.Point",
+      "_typeVersion" : "interfaces-22.0.0",
+      "x" : 29,
+      "y" : 23
+    },
+    "scriptIdentifier" : "recodeSocialMediaPostProject",
+    "typeId" : "ffd19a7a-7613-40c0-876a-5d9a6eca66b6"
+  }, {
+    "_type" : "interfaces.ProcessorConfig",
+    "_typeVersion" : "interfaces-22.0.1004",
+    "customConfig" : {
+      "_type" : "interfaces.IterationProcessorConfig",
+      "_typeVersion" : "interfaces-26.1.001",
+      "aggregateAsListData" : false,
+      "aggregateResults" : false,
+      "chunkSize" : 1,
+      "ignoreNullValues" : false,
+      "workerThreads" : 5
+    },
+    "gid" : "1ac749f7-7ed5-4f27-bfa6-61db0797d5ae",
+    "groupId" : "7e51e4cb-16d7-4ff4-88a2-cb914474f6a8",
+    "id" : "9ddd32fc-2728-4f1c-b52d-8846c10840d2",
+    "notes" : null,
+    "outlets" : [ {
+      "_type" : "interfaces.OutletConfig",
+      "_typeVersion" : "interfaces-22.0.1006",
+      "connectorPoints" : [ ],
+      "descriptorId" : "da7bac4b-8a6c-4fd7-abf3-7ca5d1a78575",
+      "executionType" : "scoped",
+      "gid" : "c879cbfc-d362-47ed-a320-0ba19a66eeb5",
+      "id" : "4d5e0e00-0ac7-4a00-89d2-e04cbf59c4a4",
+      "name" : "Iteration",
+      "presentation" : "default",
+      "targetProcessorId" : "9915512e-878c-4b15-afd8-d30f4281da2d"
+    }, {
+      "_type" : "interfaces.OutletConfig",
+      "_typeVersion" : "interfaces-22.0.1006",
+      "connectorPoints" : [ ],
+      "descriptorId" : "dd8f5806-3156-4697-97c0-dd069570f2e6",
+      "executionType" : "default",
+      "gid" : "867b072b-f12f-4700-8f2a-0a5d8767c70a",
+      "id" : "b37b68a4-60f1-4f2d-94a8-d8917495bfc8",
+      "name" : "Abgeschlossen",
+      "presentation" : "default",
+      "targetProcessorId" : null
+    } ],
+    "position" : {
+      "_type" : "interfaces.Point",
+      "_typeVersion" : "interfaces-22.0.0",
+      "x" : 35,
+      "y" : 3
+    },
+    "scriptIdentifier" : "customersProjectIteration",
+    "typeId" : "21c361ec-5dec-4f13-9767-442db1adb3a3"
+  }, {
+    "_type" : "interfaces.ProcessorConfig",
+    "_typeVersion" : "interfaces-22.0.1004",
+    "customConfig" : {
+      "_type" : "interfaces.TypeScriptProcessorConfig",
+      "_typeVersion" : "interfaces-23.2.018"
+    },
+    "gid" : "c9e61fbe-f27e-408b-a0c1-29a5de1052f3",
+    "groupId" : "89ae68a1-c6f4-4cab-b037-493edaaadee8",
+    "id" : "d94d8d21-ee48-419a-9f46-ec3dd4ec86ed",
+    "notes" : null,
+    "outlets" : [ {
+      "_type" : "interfaces.OutletConfig",
+      "_typeVersion" : "interfaces-22.0.1006",
+      "connectorPoints" : [ ],
+      "descriptorId" : "c4b09fff-0dae-4726-bdeb-12fd01ddc2da",
+      "executionType" : "default",
+      "gid" : "db549471-9c36-4165-8bbe-e2cb24024bbd",
+      "id" : "d3c0da4a-a4eb-4ccc-b553-a8e1a85b032b",
+      "name" : "Standard",
+      "presentation" : "primary",
+      "targetProcessorId" : null
+    } ],
+    "position" : {
+      "_type" : "interfaces.Point",
+      "_typeVersion" : "interfaces-22.0.0",
+      "x" : 41,
+      "y" : 13
+    },
+    "scriptIdentifier" : "storeOccurrenceProject",
+    "typeId" : "ffd19a7a-7613-40c0-876a-5d9a6eca66b6"
+  }, {
+    "_type" : "interfaces.ProcessorConfig",
+    "_typeVersion" : "interfaces-22.0.1004",
+    "customConfig" : {
+      "_type" : "interfaces.IterationProcessorConfig",
+      "_typeVersion" : "interfaces-26.1.001",
+      "aggregateAsListData" : false,
+      "aggregateResults" : false,
+      "chunkSize" : 1,
+      "ignoreNullValues" : false,
+      "workerThreads" : 15
+    },
+    "gid" : "041cb994-4763-445d-a24c-6aaa559b316a",
+    "groupId" : "858de5a7-ef88-4d8f-91cc-ae749701e8a2",
+    "id" : "3ebb3f03-7004-45d2-93b6-f1b910c330e6",
+    "notes" : null,
+    "outlets" : [ {
+      "_type" : "interfaces.OutletConfig",
+      "_typeVersion" : "interfaces-22.0.1006",
+      "connectorPoints" : [ ],
+      "descriptorId" : "da7bac4b-8a6c-4fd7-abf3-7ca5d1a78575",
+      "executionType" : "scoped",
+      "gid" : "dd48d32e-1963-4dec-963b-15aeadf819eb",
+      "id" : "1ed24c77-93ee-4a4b-82b9-558658248cb3",
+      "name" : "Iteration",
+      "presentation" : "default",
+      "targetProcessorId" : "c7d58934-4463-4476-bb24-116995581414"
+    }, {
+      "_type" : "interfaces.OutletConfig",
+      "_typeVersion" : "interfaces-22.0.1006",
+      "connectorPoints" : [ ],
+      "descriptorId" : "dd8f5806-3156-4697-97c0-dd069570f2e6",
+      "executionType" : "default",
+      "gid" : "8bc8bda1-333b-424d-8c72-5f6ef4607a65",
+      "id" : "54f246ea-6ae4-4c63-bb68-80caed40d9e1",
+      "name" : "Abgeschlossen",
+      "presentation" : "default",
+      "targetProcessorId" : null
+    } ],
+    "position" : {
+      "_type" : "interfaces.Point",
+      "_typeVersion" : "interfaces-22.0.0",
+      "x" : 35,
+      "y" : 23
+    },
+    "scriptIdentifier" : "socialMediaPostProjectIteration",
+    "typeId" : "21c361ec-5dec-4f13-9767-442db1adb3a3"
+  }, {
+    "_type" : "interfaces.ProcessorConfig",
+    "_typeVersion" : "interfaces-22.0.1004",
+    "customConfig" : {
+      "_type" : "interfaces.TypeScriptProcessorConfig",
+      "_typeVersion" : "interfaces-23.2.018"
+    },
+    "gid" : "297b10cf-1aeb-401b-9404-f8dcb4125ca5",
+    "groupId" : "7e51e4cb-16d7-4ff4-88a2-cb914474f6a8",
+    "id" : "9915512e-878c-4b15-afd8-d30f4281da2d",
+    "notes" : null,
+    "outlets" : [ {
+      "_type" : "interfaces.OutletConfig",
+      "_typeVersion" : "interfaces-22.0.1006",
+      "connectorPoints" : [ ],
+      "descriptorId" : "c4b09fff-0dae-4726-bdeb-12fd01ddc2da",
+      "executionType" : "default",
+      "gid" : "d139ea55-a353-4c2d-b6d8-03db55a846c9",
+      "id" : "cdf6f391-eca3-4d7a-9641-07ca7a7b3440",
+      "name" : "Standard",
+      "presentation" : "primary",
+      "targetProcessorId" : null
+    } ],
+    "position" : {
+      "_type" : "interfaces.Point",
+      "_typeVersion" : "interfaces-22.0.0",
+      "x" : 41,
+      "y" : 3
+    },
+    "scriptIdentifier" : "storeCustomerProject",
+    "typeId" : "ffd19a7a-7613-40c0-876a-5d9a6eca66b6"
+  }, {
+    "_type" : "interfaces.ProcessorConfig",
+    "_typeVersion" : "interfaces-22.0.1004",
+    "customConfig" : {
+      "_type" : "interfaces.TypeScriptProcessorConfig",
+      "_typeVersion" : "interfaces-23.2.018"
+    },
+    "gid" : "1ade3437-8cde-4beb-a287-006461d79339",
+    "groupId" : "858de5a7-ef88-4d8f-91cc-ae749701e8a2",
+    "id" : "c7d58934-4463-4476-bb24-116995581414",
+    "notes" : null,
+    "outlets" : [ {
+      "_type" : "interfaces.OutletConfig",
+      "_typeVersion" : "interfaces-22.0.1006",
+      "connectorPoints" : [ ],
+      "descriptorId" : "c4b09fff-0dae-4726-bdeb-12fd01ddc2da",
+      "executionType" : "default",
+      "gid" : "249cac2e-d7f1-4606-bc5f-786a62ab73e1",
+      "id" : "27ef26e9-b94a-4082-bef8-1f3862bc19ca",
+      "name" : "Standard",
+      "presentation" : "primary",
+      "targetProcessorId" : null
+    } ],
+    "position" : {
+      "_type" : "interfaces.Point",
+      "_typeVersion" : "interfaces-22.0.0",
+      "x" : 41,
+      "y" : 23
+    },
+    "scriptIdentifier" : "storeSocialMediaPostProject",
+    "typeId" : "ffd19a7a-7613-40c0-876a-5d9a6eca66b6"
+  } ],
+  "projectId" : "f82d3f48-380e-4f08-b757-1db53436d545",
+  "published" : false,
+  "recordingLevel" : "analytics",
+  "responsible" : {
+    "_type" : "start.Responsible",
+    "_typeVersion" : "start-1.3.2",
+    "userId" : "36317f78-6040-4648-936d-e8b66b394c0b"
+  },
+  "revision" : null,
+  "runtime" : "b",
+  "status" : "draft",
+  "template" : false,
+  "typeId" : "f72f9f76-fb2d-4579-b397-471b2ed4c4e3",
+  "typeScripts" : [ {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : null,
+    "readOnly" : false,
+    "scriptKind" : "public-api",
+    "scriptName" : "attributes.d.ts",
+    "test" : false,
+    "typeScript" : "export interface Attributes {\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : null,
+    "readOnly" : true,
+    "scriptKind" : "public-api",
+    "scriptName" : "interface.d.ts",
+    "test" : false,
+    "typeScript" : "import { Attributes as InvocationAttributes } from './attributes';\nimport { _Attributes as _customersProjectIterationAttributes } from './customersProjectIteration/api';\nimport { _Attributes as _execute_routinesAttributes } from './execute_routines/api';\nimport { _Attributes as _exportProjectCustomersAttributes } from './exportProjectCustomers/api';\nimport { _Attributes as _exportProjectOccurrencesAttributes } from './exportProjectOccurrences/api';\nimport { _Attributes as _exportProjectSocialMediaPostAttributes } from './exportProjectSocialMediaPost/api';\nimport { _Attributes as _occurrencesProjectIterationAttributes } from './occurrencesProjectIteration/api';\nimport { _Attributes as _recodeCustomerProjectAttributes } from './recodeCustomerProject/api';\nimport { _Attributes as _recodeOccurenceProjectAttributes } from './recodeOccurenceProject/api';\nimport { _Attributes as _recodeSocialMediaPostProjectAttributes } from './recodeSocialMediaPostProject/api';\nimport { _Attributes as _runProjectExportAttributes } from './runProjectExport/api';\nimport { _Attributes as _searchCustomersProjectAttributes } from './searchCustomersProject/api';\nimport { _Attributes as _searchOccurrencesProjectAttributes } from './searchOccurrencesProject/api';\nimport { _Attributes as _searchSocialMediaPostProjectAttributes } from './searchSocialMediaPostProject/api';\nimport { _Attributes as _socialMediaPostProjectIterationAttributes } from './socialMediaPostProjectIteration/api';\nimport { _Attributes as _storeCustomerProjectAttributes } from './storeCustomerProject/api';\nimport { _Attributes as _storeOccurrenceProjectAttributes } from './storeOccurrenceProject/api';\nimport { _Attributes as _storeSocialMediaPostProjectAttributes } from './storeSocialMediaPostProject/api';\n\nexport interface ProcessorAttributes {\n  customersProjectIteration: _customersProjectIterationAttributes;\n  execute_routines: _execute_routinesAttributes;\n  exportProjectCustomers: _exportProjectCustomersAttributes;\n  exportProjectOccurrences: _exportProjectOccurrencesAttributes;\n  exportProjectSocialMediaPost: _exportProjectSocialMediaPostAttributes;\n  export_project_trigger: any;\n  occurrencesProjectIteration: _occurrencesProjectIterationAttributes;\n  recodeCustomerProject: _recodeCustomerProjectAttributes;\n  recodeOccurenceProject: _recodeOccurenceProjectAttributes;\n  recodeSocialMediaPostProject: _recodeSocialMediaPostProjectAttributes;\n  runProjectExport: _runProjectExportAttributes;\n  searchCustomersProject: _searchCustomersProjectAttributes;\n  searchOccurrencesProject: _searchOccurrencesProjectAttributes;\n  searchSocialMediaPostProject: _searchSocialMediaPostProjectAttributes;\n  socialMediaPostProjectIteration: _socialMediaPostProjectIterationAttributes;\n  storeCustomerProject: _storeCustomerProjectAttributes;\n  storeOccurrenceProject: _storeOccurrenceProjectAttributes;\n  storeSocialMediaPostProject: _storeSocialMediaPostProjectAttributes;\n}\n\nexport interface Invocation {\n  attributes: InvocationAttributes;\n  processors: ProcessorAttributes;\n\n  setError(value: any): void;\n  getError(): any;\n  hasError(): boolean;\n  resetError(): void;\n}\n\nexport { };"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : null,
+    "readOnly" : true,
+    "scriptKind" : "public-api",
+    "scriptName" : "testDefinition.d.ts",
+    "test" : true,
+    "typeScript" : "import { Attributes as InvocationAttributes } from './attributes';\nimport { Invocation, ProcessorAttributes } from './interface';\nimport { Input as RunProjectExportInput, Output as RunProjectExportOutput } from './runProjectExport/routineapi';\nimport { Input as ExportProjectCustomersInput, Output as ExportProjectCustomersOutput } from './exportProjectCustomers/routineapi';\nimport { Input as ExportProjectOccurrencesInput, Output as ExportProjectOccurrencesOutput } from './exportProjectOccurrences/routineapi';\nimport { Input as ExportProjectSocialMediaPostInput, Output as ExportProjectSocialMediaPostOutput } from './exportProjectSocialMediaPost/routineapi';\n\ntype DeepPartial<T> = T extends any[] ? T : {\n  [P in keyof T]?: DeepPartial<T[P]>;\n};\ntype ProcessorAttributesWithInvocationResults = {[K in keyof ProcessorAttributes]: K extends keyof InvocationProcessorOutputAttribute ? ProcessorAttributes[K] & { result: InvocationProcessorOutputAttribute[K] } : ProcessorAttributes[K];};\ntype TestInvocationResult = Omit<Invocation, \"processors\"> & {processors: ProcessorAttributesWithInvocationResults; outlet: string;};\n\nexport const TestDriver: ITestDriver;\n\nexport interface InvocationProcessorInputAttribute {\n  runProjectExport: RunProjectExportInput;\n  exportProjectCustomers: ExportProjectCustomersInput;\n  exportProjectOccurrences: ExportProjectOccurrencesInput;\n  exportProjectSocialMediaPost: ExportProjectSocialMediaPostInput;\n}\n\nexport interface InvocationProcessorOutputAttribute {\n  runProjectExport: RunProjectExportOutput;\n  exportProjectCustomers: ExportProjectCustomersOutput;\n  exportProjectOccurrences: ExportProjectOccurrencesOutput;\n  exportProjectSocialMediaPost: ExportProjectSocialMediaPostOutput;\n}\n\nexport interface InterfaceTestProcessorAttribute<T extends keyof ProcessorAttributes> {\n  attribute<Q extends keyof ProcessorAttributes[T]>(attributeId: Q, value: ProcessorAttributes[T][Q]): InterfaceTestProcessorAttribute<T>;\n  attributes(attributes: DeepPartial<ProcessorAttributes[T]>): InterfaceTestProcessorAttribute<T>;\n}\n\nexport interface InterfaceTest {\n  withLogLevel(logLevel: 'off' | 'error' | 'warn' | 'info' | 'debug' | 'trace'): InterfaceTest;\n  startWith<K extends keyof ProcessorAttributes>(...args: K extends keyof InvocationProcessorInputAttribute ? [processorIdentifier: K, input?: InvocationProcessorInputAttribute[K]] : [processorIdentifier: K]): InterfaceTest;\n  stopBefore(...processorIdentifiers: (keyof ProcessorAttributes)[]): InterfaceTest;\n  stopAfter(...processorIdentifiers: (keyof ProcessorAttributes)[]): InterfaceTest;\n  processorAttributes<T extends keyof ProcessorAttributes>(processorIdentifier: T, processorAttributeFunction: (processorAttributes: InterfaceTestProcessorAttribute<T>) => void): InterfaceTest;\n  invocationAttribute<T extends keyof InvocationAttributes>(attributeId: T, value: InvocationAttributes[T]): InterfaceTest;\n  invocationAttributes(attributes: DeepPartial<InvocationAttributes>): InterfaceTest;\n  mock<T extends keyof ProcessorAttributes>(processorIdentifier: T, mockFunction?: (mock: ProcessorMock<T>, currentInvocation: Invocation) => void): InterfaceTest;\n  test(): TestInvocationResult;\n}\n\nexport interface ProcessorMock<T extends keyof ProcessorAttributes> {\n  processorAttribute<Q extends keyof ProcessorAttributes[T]>(attributeId: Q, value: ProcessorAttributes[T][Q]): ProcessorMock<T>;\n  processorAttributes(attributes: DeepPartial<ProcessorAttributes[T]>): ProcessorMock<T>;\n  invocationAttribute<Q extends keyof InvocationAttributes>(attributeId: Q, value: InvocationAttributes[Q]): ProcessorMock<T>;\n  invocationAttributes(attributes: DeepPartial<InvocationAttributes>): ProcessorMock<T>;\n  outlet(outletName: string): ProcessorMock<T>;\n}\n\ninterface ITestDriver {\n  createTest(): InterfaceTest;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "ce47ab81-02fb-40c9-a1aa-9812b8ad505a",
+    "readOnly" : true,
+    "scriptKind" : "public-api",
+    "scriptName" : "api.d.ts",
+    "test" : false,
+    "typeScript" : "import { Input } from './routineapi';\n\nexport interface _Attributes {\n  input: Input;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "ce47ab81-02fb-40c9-a1aa-9812b8ad505a",
+    "readOnly" : false,
+    "scriptKind" : "public-api",
+    "scriptName" : "routineapi.d.ts",
+    "test" : false,
+    "typeScript" : "export type Input = any;\nexport type Output = any;"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : "export function provideOutput(invocation) {\n    return null;\n}\n",
+    "processorId" : "ce47ab81-02fb-40c9-a1aa-9812b8ad505a",
+    "readOnly" : false,
+    "scriptKind" : "script",
+    "scriptName" : "output.ts",
+    "test" : false,
+    "typeScript" : "import { Output } from './routineapi';\nimport { Invocation } from '../interface';\n\nexport function provideOutput(invocation: Invocation): Output {\n  return null;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "0115aa5e-c123-43e1-b3c1-1ecb71ae485c",
+    "readOnly" : true,
+    "scriptKind" : "public-api",
+    "scriptName" : "api.d.ts",
+    "test" : false,
+    "typeScript" : "import { Attributes } from './attributes';\nimport { process } from './script';\n\nexport interface _Attributes extends Omit<Attributes, 'result'> {\n  result: ReturnType<typeof process>;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "0115aa5e-c123-43e1-b3c1-1ecb71ae485c",
+    "readOnly" : true,
+    "scriptKind" : "private-api",
+    "scriptName" : "definition.d.ts",
+    "test" : false,
+    "typeScript" : "import { Attributes } from './attributes';\n\nexport interface Self {\n  withAttribute<T extends keyof Attributes>(attributeId: T, value: Attributes[T]): Self;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "0115aa5e-c123-43e1-b3c1-1ecb71ae485c",
+    "readOnly" : false,
+    "scriptKind" : "public-api",
+    "scriptName" : "attributes.d.ts",
+    "test" : false,
+    "typeScript" : "export interface Attributes {\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : "import { recodeCode } from '../../scripts/helper';\nexport function process(invocation, self) {\n    invocation.processors.searchOccurrencesProject.data.forEach(occurrence => {\n        // Produkt volta konfig, BusinessProduct\n        recodeCode(occurrence['y-9ca9842a-595e-4d69-8191-844450666d99'], 'globalKey');\n        // Handlung volta konfig, AttributeUserDefinedCodes.EventSubtype\n        recodeCode(occurrence['y-b65f8862-9545-4c79-a88c-fa132a256c41'], 'globalKey');\n        // Ereignisstatus volta konfig, AttributeUserDefinedCodes.EventStatus\n        recodeCode(occurrence['y-c94e5b9e-4b5e-424b-8dbd-9b1b47f2b551'], 'globalKey');\n    });\n}\n",
+    "processorId" : "0115aa5e-c123-43e1-b3c1-1ecb71ae485c",
+    "readOnly" : false,
+    "scriptKind" : "script",
+    "scriptName" : "script.ts",
+    "test" : false,
+    "typeScript" : "import { Self } from './definition';\nimport { Invocation } from '../interface';\nimport { recodeCode } from '../../scripts/helper';\n\nexport function process(invocation: Invocation, self: Self) {\n  invocation.processors.searchOccurrencesProject.data.forEach(occurrence => {\n    // Produkt volta konfig, BusinessProduct\n    recodeCode(occurrence['y-9ca9842a-595e-4d69-8191-844450666d99'], 'globalKey');\n\n    // Handlung volta konfig, AttributeUserDefinedCodes.EventSubtype\n    recodeCode(occurrence['y-b65f8862-9545-4c79-a88c-fa132a256c41'], 'globalKey');\n\n    // Ereignisstatus volta konfig, AttributeUserDefinedCodes.EventStatus\n    recodeCode(occurrence['y-c94e5b9e-4b5e-424b-8dbd-9b1b47f2b551'], 'globalKey');\n  });\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "9915512e-878c-4b15-afd8-d30f4281da2d",
+    "readOnly" : true,
+    "scriptKind" : "public-api",
+    "scriptName" : "api.d.ts",
+    "test" : false,
+    "typeScript" : "import { Attributes } from './attributes';\nimport { process } from './script';\n\nexport interface _Attributes extends Omit<Attributes, 'result'> {\n  result: ReturnType<typeof process>;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "9915512e-878c-4b15-afd8-d30f4281da2d",
+    "readOnly" : true,
+    "scriptKind" : "private-api",
+    "scriptName" : "definition.d.ts",
+    "test" : false,
+    "typeScript" : "import { Attributes } from './attributes';\n\nexport interface Self {\n  withAttribute<T extends keyof Attributes>(attributeId: T, value: Attributes[T]): Self;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "9915512e-878c-4b15-afd8-d30f4281da2d",
+    "readOnly" : false,
+    "scriptKind" : "public-api",
+    "scriptName" : "attributes.d.ts",
+    "test" : false,
+    "typeScript" : "export interface Attributes {\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : "import { Collections } from '../../collections';\nexport function process(invocation, self) {\n    const customer = invocation.processors.customersProjectIteration.element;\n    Collections.get('customers_project').putImmediately(customer.globalKey, customer);\n}\n",
+    "processorId" : "9915512e-878c-4b15-afd8-d30f4281da2d",
+    "readOnly" : false,
+    "scriptKind" : "script",
+    "scriptName" : "script.ts",
+    "test" : false,
+    "typeScript" : "import { Self } from './definition';\nimport { Invocation } from '../interface';\nimport { Collections } from '../../collections';\n\nexport function process(invocation: Invocation, self: Self) {\n  const customer = invocation.processors.customersProjectIteration.element;\n  Collections.get('customers_project').putImmediately(customer.globalKey, customer);\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "9ddd32fc-2728-4f1c-b52d-8846c10840d2",
+    "readOnly" : true,
+    "scriptKind" : "public-api",
+    "scriptName" : "api.d.ts",
+    "test" : false,
+    "typeScript" : "import { Flatten } from '@eip/core';\nimport { provideData } from './data';\n\n\nexport interface _Attributes {\n  element: Flatten<ReturnType<typeof provideData>>;\n  index: number;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : "export function provideData(invocation) {\n    const r = invocation.processors.searchCustomersProject.data;\n    return r;\n}\n",
+    "processorId" : "9ddd32fc-2728-4f1c-b52d-8846c10840d2",
+    "readOnly" : false,
+    "scriptKind" : "script",
+    "scriptName" : "data.ts",
+    "test" : false,
+    "typeScript" : "import { Invocation } from '../interface';\n\nexport function provideData(invocation: Invocation) {\n  const r =\ninvocation.processors.searchCustomersProject.data\n;\n  return r;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "d94d8d21-ee48-419a-9f46-ec3dd4ec86ed",
+    "readOnly" : true,
+    "scriptKind" : "public-api",
+    "scriptName" : "api.d.ts",
+    "test" : false,
+    "typeScript" : "import { Attributes } from './attributes';\nimport { process } from './script';\n\nexport interface _Attributes extends Omit<Attributes, 'result'> {\n  result: ReturnType<typeof process>;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "d94d8d21-ee48-419a-9f46-ec3dd4ec86ed",
+    "readOnly" : true,
+    "scriptKind" : "private-api",
+    "scriptName" : "definition.d.ts",
+    "test" : false,
+    "typeScript" : "import { Attributes } from './attributes';\n\nexport interface Self {\n  withAttribute<T extends keyof Attributes>(attributeId: T, value: Attributes[T]): Self;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "d94d8d21-ee48-419a-9f46-ec3dd4ec86ed",
+    "readOnly" : false,
+    "scriptKind" : "public-api",
+    "scriptName" : "attributes.d.ts",
+    "test" : false,
+    "typeScript" : "export interface Attributes {\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : "import { Collections } from '../../collections';\nexport function process(invocation, self) {\n    const occurrence = invocation.processors.occurrencesProjectIteration.element;\n    Collections.get('occurrences_project').putImmediately(occurrence.id, occurrence);\n}\n",
+    "processorId" : "d94d8d21-ee48-419a-9f46-ec3dd4ec86ed",
+    "readOnly" : false,
+    "scriptKind" : "script",
+    "scriptName" : "script.ts",
+    "test" : false,
+    "typeScript" : "import { Self } from './definition';\nimport { Invocation } from '../interface';\nimport { Collections } from '../../collections';\n\nexport function process(invocation: Invocation, self: Self) {\n  const occurrence = invocation.processors.occurrencesProjectIteration.element;\n  Collections.get('occurrences_project').putImmediately(occurrence.id, occurrence);\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "9a519ea9-e60f-4ddc-8296-7fd191f1f9fa",
+    "readOnly" : true,
+    "scriptKind" : "public-api",
+    "scriptName" : "api.d.ts",
+    "test" : false,
+    "typeScript" : "import { Input } from './routineapi';\n\nexport interface _Attributes {\n  input: Input;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "9a519ea9-e60f-4ddc-8296-7fd191f1f9fa",
+    "readOnly" : false,
+    "scriptKind" : "public-api",
+    "scriptName" : "routineapi.d.ts",
+    "test" : false,
+    "typeScript" : "export type Input = any;\nexport type Output = any;"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : "export function provideOutput(invocation) {\n    return null;\n}\n",
+    "processorId" : "9a519ea9-e60f-4ddc-8296-7fd191f1f9fa",
+    "readOnly" : false,
+    "scriptKind" : "script",
+    "scriptName" : "output.ts",
+    "test" : false,
+    "typeScript" : "import { Output } from './routineapi';\nimport { Invocation } from '../interface';\n\nexport function provideOutput(invocation: Invocation): Output {\n  return null;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "ea01cb30-9668-47c2-84bf-a780a597f20b",
+    "readOnly" : true,
+    "scriptKind" : "public-api",
+    "scriptName" : "api.d.ts",
+    "test" : false,
+    "typeScript" : "import { Attributes } from './attributes';\nimport { process } from './script';\n\nexport interface _Attributes extends Omit<Attributes, 'result'> {\n  result: ReturnType<typeof process>;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "ea01cb30-9668-47c2-84bf-a780a597f20b",
+    "readOnly" : true,
+    "scriptKind" : "private-api",
+    "scriptName" : "definition.d.ts",
+    "test" : false,
+    "typeScript" : "import { Attributes } from './attributes';\n\nexport interface Self {\n  withAttribute<T extends keyof Attributes>(attributeId: T, value: Attributes[T]): Self;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "ea01cb30-9668-47c2-84bf-a780a597f20b",
+    "readOnly" : false,
+    "scriptKind" : "public-api",
+    "scriptName" : "attributes.d.ts",
+    "test" : false,
+    "typeScript" : "export interface Attributes {\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : "export function process(invocation, self) {\n    invocation.processors.searchSocialMediaPostProject.data.forEach(occurrence => {\n        // nop\n    });\n}\n",
+    "processorId" : "ea01cb30-9668-47c2-84bf-a780a597f20b",
+    "readOnly" : false,
+    "scriptKind" : "script",
+    "scriptName" : "script.ts",
+    "test" : false,
+    "typeScript" : "import { Self } from './definition';\nimport { Invocation } from '../interface';\n\nexport function process(invocation: Invocation, self: Self) {\n  invocation.processors.searchSocialMediaPostProject.data.forEach(occurrence => {\n    // nop\n  });\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "a40eaebb-4c42-4ccb-8990-6f5035a747de",
+    "readOnly" : true,
+    "scriptKind" : "public-api",
+    "scriptName" : "api.d.ts",
+    "test" : false,
+    "typeScript" : "export interface CrmCustomers {\n  globalKey: string;\n  id: string;\n  'y-5a96a860-02e3-4f2d-8c53-117ef0367be2': Result;\n  'y-76fba19e-1211-4781-8fbd-7c87f58a6ce5': Result_01;\n}\n\nexport interface Result {\n  globalKey: string;\n  id: string;\n  text: string;\n}\n\nexport interface Result_01 {\n  globalKey: string;\n  id: string;\n  text: string;\n}\n\nexport interface _Attributes {\n  data: CrmCustomers[];\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "a40eaebb-4c42-4ccb-8990-6f5035a747de",
+    "readOnly" : true,
+    "scriptKind" : "private-api",
+    "scriptName" : "definition.d.ts",
+    "test" : false,
+    "typeScript" : "export interface Self {\n  /**\n   * Sets the locale the query is executed with.\n   * @param languageTag an IETF BCP 47 compliant language tag (e.g. `de` or `de-CH`)\n   */\n  withLocale(languageTag: string): Self;\n  /**\n   * Sets the maximum number of rows returned. **Note**:\n   * * only the root-level of a complex selection is affected.\n   * * a possibly declared max row count on the selection is overridden by this value.\n   */\n  withMaxRowCount(maxRowCount: number): Self;\n  /**\n   * Username of the user whose permissions are used for the search.\n   */\n  withRunAsUsername(username: string): Self;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "134df128-7757-4b7b-bbab-dc5524818550",
+    "readOnly" : true,
+    "scriptKind" : "public-api",
+    "scriptName" : "api.d.ts",
+    "test" : false,
+    "typeScript" : "import { Flatten } from '@eip/core';\nimport { provideData } from './data';\n\n\nexport interface _Attributes {\n  element: Flatten<ReturnType<typeof provideData>>;\n  index: number;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : "export function provideData(invocation) {\n    const r = invocation.processors.searchOccurrencesProject.data;\n    return r;\n}\n",
+    "processorId" : "134df128-7757-4b7b-bbab-dc5524818550",
+    "readOnly" : false,
+    "scriptKind" : "script",
+    "scriptName" : "data.ts",
+    "test" : false,
+    "typeScript" : "import { Invocation } from '../interface';\n\nexport function provideData(invocation: Invocation) {\n  const r =\ninvocation.processors.searchOccurrencesProject.data\n;\n  return r;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "c7d58934-4463-4476-bb24-116995581414",
+    "readOnly" : true,
+    "scriptKind" : "public-api",
+    "scriptName" : "api.d.ts",
+    "test" : false,
+    "typeScript" : "import { Attributes } from './attributes';\nimport { process } from './script';\n\nexport interface _Attributes extends Omit<Attributes, 'result'> {\n  result: ReturnType<typeof process>;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "c7d58934-4463-4476-bb24-116995581414",
+    "readOnly" : true,
+    "scriptKind" : "private-api",
+    "scriptName" : "definition.d.ts",
+    "test" : false,
+    "typeScript" : "import { Attributes } from './attributes';\n\nexport interface Self {\n  withAttribute<T extends keyof Attributes>(attributeId: T, value: Attributes[T]): Self;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "c7d58934-4463-4476-bb24-116995581414",
+    "readOnly" : false,
+    "scriptKind" : "public-api",
+    "scriptName" : "attributes.d.ts",
+    "test" : false,
+    "typeScript" : "export interface Attributes {\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : "import { Collections } from '../../collections';\nexport function process(invocation, self) {\n    const occurrence = invocation.processors.socialMediaPostProjectIteration.element;\n    Collections.get('socialMediaPosts_project').putImmediately(occurrence.id, occurrence);\n}\n",
+    "processorId" : "c7d58934-4463-4476-bb24-116995581414",
+    "readOnly" : false,
+    "scriptKind" : "script",
+    "scriptName" : "script.ts",
+    "test" : false,
+    "typeScript" : "import { Self } from './definition';\nimport { Invocation } from '../interface';\nimport { Collections } from '../../collections';\n\nexport function process(invocation: Invocation, self: Self) {\n  const occurrence = invocation.processors.socialMediaPostProjectIteration.element;\n  Collections.get('socialMediaPosts_project').putImmediately(occurrence.id, occurrence);\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "7ba4be7c-aa6e-4a7d-9e38-c794e27d66ac",
+    "readOnly" : true,
+    "scriptKind" : "public-api",
+    "scriptName" : "api.d.ts",
+    "test" : false,
+    "typeScript" : "export interface CrmOccurrences {\n  id: string;\n  'y-2c412a3e-3c5e-41cf-bc00-14e27917db43': string;\n  'y-67d45296-165b-4383-a36a-736c8d217f64': number;\n  'y-9ca9842a-595e-4d69-8191-844450666d99': Result;\n  'y-b65f8862-9545-4c79-a88c-fa132a256c41': Result_01;\n  'y-c94e5b9e-4b5e-424b-8dbd-9b1b47f2b551': Result_02;\n}\n\nexport interface Result {\n  globalKey: string;\n  id: string;\n  text: string;\n}\n\nexport interface Result_01 {\n  globalKey: string;\n  id: string;\n  text: string;\n}\n\nexport interface Result_02 {\n  globalKey: string;\n  id: string;\n  text: string;\n}\n\nexport interface _Attributes {\n  data: CrmOccurrences[];\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "7ba4be7c-aa6e-4a7d-9e38-c794e27d66ac",
+    "readOnly" : true,
+    "scriptKind" : "private-api",
+    "scriptName" : "definition.d.ts",
+    "test" : false,
+    "typeScript" : "export interface Self {\n  /**\n   * Sets the locale the query is executed with.\n   * @param languageTag an IETF BCP 47 compliant language tag (e.g. `de` or `de-CH`)\n   */\n  withLocale(languageTag: string): Self;\n  /**\n   * Sets the maximum number of rows returned. **Note**:\n   * * only the root-level of a complex selection is affected.\n   * * a possibly declared max row count on the selection is overridden by this value.\n   */\n  withMaxRowCount(maxRowCount: number): Self;\n  /**\n   * Username of the user whose permissions are used for the search.\n   */\n  withRunAsUsername(username: string): Self;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "11a46086-3add-4e81-afe9-3664971cbe47",
+    "readOnly" : true,
+    "scriptKind" : "public-api",
+    "scriptName" : "api.d.ts",
+    "test" : false,
+    "typeScript" : "import { Input } from './routineapi';\n\nexport interface _Attributes {\n  input: Input;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "11a46086-3add-4e81-afe9-3664971cbe47",
+    "readOnly" : false,
+    "scriptKind" : "public-api",
+    "scriptName" : "routineapi.d.ts",
+    "test" : false,
+    "typeScript" : "export type Input = any;\nexport type Output = any;"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : "export function provideOutput(invocation) {\n    return null;\n}\n",
+    "processorId" : "11a46086-3add-4e81-afe9-3664971cbe47",
+    "readOnly" : false,
+    "scriptKind" : "script",
+    "scriptName" : "output.ts",
+    "test" : false,
+    "typeScript" : "import { Output } from './routineapi';\nimport { Invocation } from '../interface';\n\nexport function provideOutput(invocation: Invocation): Output {\n  return null;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "3ebb3f03-7004-45d2-93b6-f1b910c330e6",
+    "readOnly" : true,
+    "scriptKind" : "public-api",
+    "scriptName" : "api.d.ts",
+    "test" : false,
+    "typeScript" : "import { Flatten } from '@eip/core';\nimport { provideData } from './data';\n\n\nexport interface _Attributes {\n  element: Flatten<ReturnType<typeof provideData>>;\n  index: number;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : "export function provideData(invocation) {\n    const r = invocation.processors.searchSocialMediaPostProject.data;\n    return r;\n}\n",
+    "processorId" : "3ebb3f03-7004-45d2-93b6-f1b910c330e6",
+    "readOnly" : false,
+    "scriptKind" : "script",
+    "scriptName" : "data.ts",
+    "test" : false,
+    "typeScript" : "import { Invocation } from '../interface';\n\nexport function provideData(invocation: Invocation) {\n  const r =\ninvocation.processors.searchSocialMediaPostProject.data\n;\n  return r;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "b5c26a39-f280-4cfc-941a-04a07ec38d56",
+    "readOnly" : true,
+    "scriptKind" : "public-api",
+    "scriptName" : "api.d.ts",
+    "test" : false,
+    "typeScript" : "import { Input } from './routineapi';\n\nexport interface _Attributes {\n  input: Input;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "b5c26a39-f280-4cfc-941a-04a07ec38d56",
+    "readOnly" : false,
+    "scriptKind" : "public-api",
+    "scriptName" : "routineapi.d.ts",
+    "test" : false,
+    "typeScript" : "export type Input = any;\nexport type Output = any;"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : "export function provideOutput(invocation) {\n    return null;\n}\n",
+    "processorId" : "b5c26a39-f280-4cfc-941a-04a07ec38d56",
+    "readOnly" : false,
+    "scriptKind" : "script",
+    "scriptName" : "output.ts",
+    "test" : false,
+    "typeScript" : "import { Output } from './routineapi';\nimport { Invocation } from '../interface';\n\nexport function provideOutput(invocation: Invocation): Output {\n  return null;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "730a5fe4-1176-4ee3-8b31-6344d2037536",
+    "readOnly" : true,
+    "scriptKind" : "public-api",
+    "scriptName" : "api.d.ts",
+    "test" : false,
+    "typeScript" : "export interface Result {\n  id: string;\n  'y-channel': string;\n  'y-comments': number;\n  'y-message': string;\n  'y-postedOn': Date;\n  'y-reactions': number;\n  'y-shares': number;\n  'y-customer': Result_01;\n  'y-platform': Result_02;\n  'y-sentiments': Result_03;\n}\n\nexport interface Result_01 {\n  globalKey: string;\n  id: string;\n}\n\nexport interface Result_02 {\n  globalKey: string;\n  id: string;\n  text: string;\n}\n\nexport interface Result_03 {\n  globalKey: string;\n  id: string;\n  text: string;\n}\n\nexport interface _Attributes {\n  data: Result[];\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "730a5fe4-1176-4ee3-8b31-6344d2037536",
+    "readOnly" : true,
+    "scriptKind" : "private-api",
+    "scriptName" : "definition.d.ts",
+    "test" : false,
+    "typeScript" : "export interface Self {\n  /**\n   * Sets the locale the query is executed with.\n   * @param languageTag an IETF BCP 47 compliant language tag (e.g. `de` or `de-CH`)\n   */\n  withLocale(languageTag: string): Self;\n  /**\n   * Sets the maximum number of rows returned. **Note**:\n   * * only the root-level of a complex selection is affected.\n   * * a possibly declared max row count on the selection is overridden by this value.\n   */\n  withMaxRowCount(maxRowCount: number): Self;\n  /**\n   * Username of the user whose permissions are used for the search.\n   */\n  withRunAsUsername(username: string): Self;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "826579da-7883-452e-8029-22339fc843a4",
+    "readOnly" : true,
+    "scriptKind" : "public-api",
+    "scriptName" : "api.d.ts",
+    "test" : false,
+    "typeScript" : "import { Attributes } from './attributes';\nimport { process } from './script';\n\nexport interface _Attributes extends Omit<Attributes, 'result'> {\n  result: ReturnType<typeof process>;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "826579da-7883-452e-8029-22339fc843a4",
+    "readOnly" : true,
+    "scriptKind" : "private-api",
+    "scriptName" : "definition.d.ts",
+    "test" : false,
+    "typeScript" : "import { Attributes } from './attributes';\n\nexport interface Self {\n  withAttribute<T extends keyof Attributes>(attributeId: T, value: Attributes[T]): Self;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "826579da-7883-452e-8029-22339fc843a4",
+    "readOnly" : false,
+    "scriptKind" : "public-api",
+    "scriptName" : "attributes.d.ts",
+    "test" : false,
+    "typeScript" : "export interface Attributes {\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : "export function process(invocation, self) {\n    invocation.processors.searchCustomersProject.data.forEach(customer => {\n        // nop\n    });\n}\n",
+    "processorId" : "826579da-7883-452e-8029-22339fc843a4",
+    "readOnly" : false,
+    "scriptKind" : "script",
+    "scriptName" : "script.ts",
+    "test" : false,
+    "typeScript" : "import { Self } from './definition';\nimport { Invocation } from '../interface';\n\nexport function process(invocation: Invocation, self: Self) {\n  invocation.processors.searchCustomersProject.data.forEach(customer => {\n    // nop\n  });\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "6af9ddec-863e-41bf-a214-2a7d05ce075f",
+    "readOnly" : true,
+    "scriptKind" : "public-api",
+    "scriptName" : "api.d.ts",
+    "test" : false,
+    "typeScript" : "import { Attributes } from './attributes';\nimport { process } from './script';\n\nexport interface _Attributes extends Omit<Attributes, 'result'> {\n  result: ReturnType<typeof process>;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "6af9ddec-863e-41bf-a214-2a7d05ce075f",
+    "readOnly" : true,
+    "scriptKind" : "private-api",
+    "scriptName" : "definition.d.ts",
+    "test" : false,
+    "typeScript" : "import { Attributes } from './attributes';\n\nexport interface Self {\n  withAttribute<T extends keyof Attributes>(attributeId: T, value: Attributes[T]): Self;\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : null,
+    "processorId" : "6af9ddec-863e-41bf-a214-2a7d05ce075f",
+    "readOnly" : false,
+    "scriptKind" : "public-api",
+    "scriptName" : "attributes.d.ts",
+    "test" : false,
+    "typeScript" : "export interface Attributes {\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : "import { Routines } from '../../routines';\nexport function process(invocation, self) {\n    Routines.exportProjectCustomers(null);\n    Routines.exportProjectOccurrences(null);\n    Routines.exportProjectSocialMediaPost(null);\n}\n",
+    "processorId" : "6af9ddec-863e-41bf-a214-2a7d05ce075f",
+    "readOnly" : false,
+    "scriptKind" : "script",
+    "scriptName" : "script.ts",
+    "test" : false,
+    "typeScript" : "import { Self } from './definition';\nimport { Invocation } from '../interface';\nimport { Routines } from '../../routines';\n\nexport function process(invocation: Invocation, self: Self) {\n    Routines.exportProjectCustomers(null);\n    Routines.exportProjectOccurrences(null);\n    Routines.exportProjectSocialMediaPost(null);\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : "export function prepareQuery(invocation, self) {\n}\n",
+    "processorId" : "7ba4be7c-aa6e-4a7d-9e38-c794e27d66ac",
+    "readOnly" : false,
+    "scriptKind" : "script",
+    "scriptName" : "script.ts",
+    "test" : false,
+    "typeScript" : "import { Self } from './definition';\nimport { Invocation } from '../interface';\n\nexport function prepareQuery(invocation: Invocation, self: Self) {\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : "export function prepareQuery(invocation, self) {\n}\n",
+    "processorId" : "a40eaebb-4c42-4ccb-8990-6f5035a747de",
+    "readOnly" : false,
+    "scriptKind" : "script",
+    "scriptName" : "script.ts",
+    "test" : false,
+    "typeScript" : "import { Self } from './definition';\nimport { Invocation } from '../interface';\n\nexport function prepareQuery(invocation: Invocation, self: Self) {\n}"
+  }, {
+    "_type" : "interfaces.TypeScriptConfig",
+    "_typeVersion" : "interfaces-23.2.007",
+    "javaScript" : "export function prepareQuery(invocation, self) {\n}\n",
+    "processorId" : "730a5fe4-1176-4ee3-8b31-6344d2037536",
+    "readOnly" : false,
+    "scriptKind" : "script",
+    "scriptName" : "script.ts",
+    "test" : false,
+    "typeScript" : "import { Self } from './definition';\nimport { Invocation } from '../interface';\n\nexport function prepareQuery(invocation: Invocation, self: Self) {\n}"
+  } ],
+  "version" : 0
+}

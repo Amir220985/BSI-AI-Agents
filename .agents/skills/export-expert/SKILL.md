@@ -13,22 +13,11 @@ Du bist ein ausgewiesener Experte für die Export-Funktionalität der BSI Custom
 
 ## Richtlinien & Arbeitsweise
 
-### 1. Verwendung der EIP-Steps-Registry
-Sämtliche für die Schnittstellenerstellung verfügbaren Steps müssen aus der zentralen Registry abgerufen und referenziert werden:
-- **Registry-Pfad**: `registry/eip_step_registry.json`
-- Konsultiere immer diese Datei, um die genauen Typdefinitionen, Eingabe- und Ausgabeparameter sowie Metadaten der Steps zu prüfen.
-
-### 2. Der Low-Code-Step (TypeScript)
-Wenn Standard-Steps nicht ausreichen oder komplexe Validierungen, Transformationen oder bedingte Logik benötigt werden, greifst du auf den **Low-Code-Step** zurück:
-- Implementiere die Logik in **TypeScript**.
-- Achte auf sauberen, performanten und fehlerresistenten Code (z.B. defensives Programming gegen Null- oder Undefined-Werte).
-- Nutze die vordefinierten Typen und Schnittstellen der BSI CustomerSuite.
-
-### 3. Vorgehensweise bei der Interface-Erstellung
+### 1. Vorgehensweise bei der Interface-Erstellung
 1. **Quellen-Auswahl**: Prüfe in `exports/`, welche fertigen Konfigurationen es gibt, die in die Export-Datei übernommen werden sollen.
 2. **Zusammensetzung**: Setze aus den Quellen eine valide ZIP-Datei zusammen, die in BSI importiert werden kann.
 
-### 4. Konsistenzregel für den Index (KRITISCH)
+### 2. Konsistenzregel für den Index (KRITISCH)
 
 BSI prüft beim Import, dass jede ID, die in einem `referencedItems`-Eintrag vorkommt, auch im `index.json` als eigener Eintrag existiert. Ein fehlender Eintrag führt zu:
 > *„Ungültige Importdatei: Inkonsistenter Index (unbekannte referenzierte IDs)"*
@@ -46,7 +35,7 @@ BSI prüft beim Import, dass jede ID, die in einem `referencedItems`-Eintrag vor
 
 Für neue Projekte (die im Zielsystem noch nicht existieren) immer eine neue UUID generieren und die Projektdatei (`projects/`) mit in die ZIP packen.
 
-### 5. Pflichtfelder index.json je Produkttyp (KRITISCH)
+### 3. Pflichtfelder index.json je Produkttyp (KRITISCH)
 
 Der Fehler **„Ungültiges Format der Index-Datei"** tritt auf, wenn die `index.json` Pflichtfelder fehlt oder unbekannte `_type`-Werte enthält. BSI validiert das Format strikt.
 
@@ -85,7 +74,48 @@ Falsche `_type`-Werte im `id`-Feld eines Index-Items führen sofort zu „Ungül
 "resourcePath": "codes/Prozess-45831/<Name>_(Version)-<uuid>.json"
 ```
 
-Die `45831` ist die BSI-Standard-Prozessgruppe. Für neue (nicht aus einem Livesystem exportierte) Prozesse: synthetische UID `1;1;1;j<großeZahl>;j45831` verwenden — BSI nutzt `globalUniqueId` zur Duplikaterkennung.
+Die `45831` ist die BSI-Standard-Prozessgruppe. Für neue (nicht aus einem Livesystem exportierte) Prozesse: **`itemGroupId`** und **`resourcePath`** nur am Hauptprozess-Item setzen — **nicht** an den Step-Code-Items.
+
+**Pflichtfelder auf `full`-Items (KRITISCH):**
+
+| Feld | Hauptprozess | Unterstützende Dateien (Sprachen, Org, Teams…) | Step-Code-Items |
+|---|---|---|---|
+| `root` | `true` | `null` / weglassen | `null` / weglassen |
+| `typeVersions` | Vollständiges Mapping aller `_type`→Version im Transfer | Mapping der enthaltenen Typen | weglassen |
+| `dataModelNamespaceVersions` | `["bsiscout-25.1.0","crm-25.2.2","cstudio-22.0.0","crocus-1.0.0","oroya-1.0.0"]` | weglassen | weglassen |
+| `itemGroupId` | `"crm.configurable-code-type.45831.main"` | Typ-spezifisch (s.u.) | weglassen |
+
+**`itemGroupId`-Werte je Item-Typ:**
+
+| Item-Typ | `itemGroupId` |
+|---|---|
+| Hauptprozess | `crm.configurable-code-type.45831.main` |
+| Sprachen (`j71099`) | `crm.configurable-code-type.71099.main` |
+| Organisationseinheiten (`j117890`) | `crm.configurable-code-type.117890.main` |
+| Virtuelle Teams (`j109730`) | `crm.configurable-code-type.109730.main` |
+| Teamtypen (`j137825`) | `crm.configurable-code-type.137825.main` |
+| Prozessgruppe | `crm.process-group` |
+| Reference-only Code (`1;112192;106064;jZ;jN`) | `crm.code-type.N` |
+| CodeType (`1;112192;144269;jN`) | `crm.domain-key.144269` |
+| Service-Line (`1;112215;111828;jZ`) | `crm.domain-key.111828` |
+| StepDefinition (`1;112215;45832;jZ`) | `crm.configurable-code-type.45831.partial` |
+
+**Step-Code-Items** (Start, Ende und alle Zwischenschritte) sind in der Hauptprozessdatei eingebettet. Ihr Index-Eintrag hat nur diese Felder:
+
+```json
+{
+  "_type": "bsiscout.ConfigurationTransferItem",
+  "_typeVersion": "bsiscout-22.0.0",
+  "globalUniqueId": "<uuid>",
+  "id": { "_type": "crm.UidConfigurationTransferId", "_typeVersion": "crm-22.0.0", "uid": "1;112192;106064;j<Z>;j45831" },
+  "names": { "de": "Prozessschritt" },
+  "transferType": "full"
+}
+```
+
+Kein `resourcePath`, kein `itemGroupId`, keine `dataModelNamespaceVersions` — sonst: „Fehlerhafte Index-Datei".
+
+**Korrekte UID-Struktur für neue Prozesse:** `1;112192;106064;j<Z>;j45831` mit Z ≥ 1.000.000 — **nicht** `1;1;1;j...`.
 
 #### CRM-Prozess `primary-processes`-Datei (KRITISCH)
 
@@ -104,7 +134,7 @@ Korrektes Format:
 
 Der `key`-Wert ist identisch mit dem `domainKey` des Primary-Process-Index-Eintrags.
 
-### 6. `globalUniqueId` in index.json (KRITISCH)
+### 4. `globalUniqueId` in index.json (KRITISCH)
 
 Jedes Item im Index **muss** ein `globalUniqueId`-Feld haben. Fehlt es, bricht BSI mit:
 > *„getExistingTargetSystemIds: expected global unique ID to start with 'Code/'"*
@@ -122,7 +152,7 @@ Jedes Item im Index **muss** ein `globalUniqueId`-Feld haben. Fehlt es, bricht B
 | `1;112192;106064;j1000xxx;jN` (kundeneigene Objekte, Z ≥ 1.000.000) | **UUID aus dem BSI-Dateinamen** des Objekts (z.B. `Organisation-00c27100-....json` → `"00c27100-..."`) — **NICHT** `Code/N/Z` |
 | Service-Line-Keys (`1;112215;111828;jZ`) | UUID aus dem Beispiel-ZIP |
 
-### 7. Checkliste bei „Fehlerhafte Index-Datei" (KRITISCH)
+### 5. Checkliste bei „Fehlerhafte Index-Datei" (KRITISCH)
 
 Tritt der BSI-Fehler **„Fehlerhafte Index-Datei"** oder **„Ungültiges Format der Index-Datei"** beim Import auf, die folgenden Punkte der Reihe nach prüfen:
 
@@ -136,7 +166,8 @@ Tritt der BSI-Fehler **„Fehlerhafte Index-Datei"** oder **„Ungültiges Forma
 | 6 | `globalUniqueId` korrekt abgeleitet? | Z ≥ 1.000.000 → UUID aus Dateinamen, nicht `Code/N/Z` |
 | 7 | Alle in `referencedItems` referenzierten IDs haben einen eigenen Index-Eintrag? | Fehlender Eintrag → „Inkonsistenter Index" |
 | 8 | Kachel-Items (Kachelschritt) als `full`-Item mit `domainKey`-ID eingetragen? | Fehlt → „unbekannte Referenz" |
+| 9 | Enthält `referencedItems` ALLE UIDs aus dem Prozess-JSON? | Jede UID im Prozess-JSON (außer Outlet-UIDs `1;112215;206820;s...` und die eigene Prozess-UID) muss in `referencedItems` stehen — auch `codeTypeKey` (`1;112192;144269;j45831`) |
 
-### 8. Verwendung von Best-Practice-Beispielen
+### 6. Verwendung von Best-Practice-Beispielen
 - **Beispiele-Pfad**: `.agents/skills/export-expert/examples/`
 - Konsultiere bei der Erstellung neuer ZIP-Dateien immer die Beispiele und die zugehörige [README.md](examples/README.md) in diesem Ordner, um bestehende Pattern und Implementierungsstile zu übernehmen.

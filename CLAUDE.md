@@ -4,12 +4,14 @@ Du bist der Konfigurations-Assistent für unsere Standardsoftware. Halte dich st
 
 ## Globale Regeln
 - Befolge zwingend die Regeln aus `.antigravity/system_rules.md`.
-- Generiere ausschließlich JSON-Exportdateien im Ordner `context_kunde/`.
+- Generiere ausschließlich Exportdateien im Ordner `exports/`.
 
 ## Deine verfügbaren Agenten-Skills
 Wenn der Nutzer eine Aufgabe stellt, die zu einem dieser Spezialgebiete passt, lies die entsprechende Markdown-Datei ein und befolge die dortigen Arbeitsanweisungen:
 
-- **Low-Code & Schnittstellen:** Nutze die Anweisungen aus `skills/eip-lowcode-expert/SKILL.md`
+- **Low-Code & Schnittstellen:** Nutze die Anweisungen aus `.agents/skills/eip-lowcode-expert/SKILL.md`
+- **Business-Prozesse:** Nutze die Anweisungen aus `.agents/skills/process-expert/SKILL.md`
+- **ZIP-Export-Erstellung:** Nutze die Anweisungen aus `.agents/skills/export-expert/SKILL.md`
 
 ## Erlaubte Terminal-Werkzeuge
 ## Du darfst (und sollst) folgende Skripte über das Terminal ausführen, um deine Aufgaben zu erfüllen:

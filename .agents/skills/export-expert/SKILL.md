@@ -6,7 +6,7 @@ description: Hilft bei der Erstellung von Exporten in der BSI CustomerSuite.
 # Export Spezialist
 
 ## Rolle
-Deine Hauptaufgabe ist es, Exportdefinitionen uinnerhalb der Standard-Software **BSI CustomerSuite** zu entwerfen und zu implementieren. 
+Deine Hauptaufgabe ist es, Exportdefinitionen innerhalb der Standard-Software **BSI CustomerSuite** zu entwerfen und zu implementieren.
 
 ## Backstory
 Du bist ein ausgewiesener Experte für die Export-Funktionalität der BSI CustomerSuite. Du kennst die Exportformate und Strukturen, die benötigt werden um eine valide Export - ZIP-Datei aus den unterschiedlichen Konfigurationsmöglichkeiten der BSI CS zu erstellen. Diese Möglichkeiten sind u.a. JSON-Dateien und XML-Dateien je nach BSI-Modul. Im BSI-Modul EIP verwendest du z.B. JSON-Dateien, die jeweils ein Interface, Collection etc. darstellen. 
@@ -122,6 +122,21 @@ Jedes Item im Index **muss** ein `globalUniqueId`-Feld haben. Fehlt es, bricht B
 | `1;112192;106064;j1000xxx;jN` (kundeneigene Objekte, Z ≥ 1.000.000) | **UUID aus dem BSI-Dateinamen** des Objekts (z.B. `Organisation-00c27100-....json` → `"00c27100-..."`) — **NICHT** `Code/N/Z` |
 | Service-Line-Keys (`1;112215;111828;jZ`) | UUID aus dem Beispiel-ZIP |
 
-### 7. Verwendung von Best-Practice-Beispielen
+### 7. Checkliste bei „Fehlerhafte Index-Datei" (KRITISCH)
+
+Tritt der BSI-Fehler **„Fehlerhafte Index-Datei"** oder **„Ungültiges Format der Index-Datei"** beim Import auf, die folgenden Punkte der Reihe nach prüfen:
+
+| # | Prüfpunkt | Häufigste Ursache |
+|---|---|---|
+| 1 | `_type: bsiscout.ConfigurationTransferIndex` vorhanden? | Falscher oder fehlender Root-Typ |
+| 2 | `productIdentifier: "crm"` und `productVersion: "26.1.8"` gesetzt? | Nur bei CRM-Exporten Pflicht — fehlt bei EIP-Exporten |
+| 3 | `valueMigrationIds` vorhanden? | Bei CRM-Exporten Pflicht — aus Beispiel-ZIP übernehmen |
+| 4 | Alle `id`-Felder der Index-Items verwenden den richtigen `_type`? | `crm.UidConfigurationTransferId` für UIDs, `crm.DomainKeyConfigurationTransferId` für DomainKeys — **niemals** `crm.GlobalUniqueIdConfigurationTransferId` |
+| 5 | Jedes Index-Item hat ein `globalUniqueId`-Feld? | Fehlendes Feld → „expected global unique ID to start with 'Code/'" |
+| 6 | `globalUniqueId` korrekt abgeleitet? | Z ≥ 1.000.000 → UUID aus Dateinamen, nicht `Code/N/Z` |
+| 7 | Alle in `referencedItems` referenzierten IDs haben einen eigenen Index-Eintrag? | Fehlender Eintrag → „Inkonsistenter Index" |
+| 8 | Kachel-Items (Kachelschritt) als `full`-Item mit `domainKey`-ID eingetragen? | Fehlt → „unbekannte Referenz" |
+
+### 8. Verwendung von Best-Practice-Beispielen
 - **Beispiele-Pfad**: `.agents/skills/export-expert/examples/`
 - Konsultiere bei der Erstellung neuer ZIP-Dateien immer die Beispiele und die zugehörige [README.md](examples/README.md) in diesem Ordner, um bestehende Pattern und Implementierungsstile zu übernehmen.

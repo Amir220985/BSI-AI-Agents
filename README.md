@@ -96,9 +96,17 @@ Stellt sicher, dass generierte Konfigurationen als valide BSI-Import-ZIPs verpac
 
 ---
 
-## Verwendung mit Claude Code
+## Verwendung
+
+Das Repository unterstützt zwei KI-Plattformen:
+
+### Claude Code (Anthropic)
 
 Die Skills werden automatisch aktiviert, wenn Claude Code in diesem Verzeichnis gestartet wird. Die `CLAUDE.md` definiert, welche Skills für welche Aufgaben genutzt werden.
+
+### Google Antigravity
+
+Alternativ kann das Repo mit **Google Antigravity** genutzt werden. Die globalen Systemregeln und Verhaltensrichtlinien liegen in `.antigravity/system_rules.md` und werden von Antigravity beim Start des Workspaces automatisch eingelesen.
 
 **Beispiel-Prompts:**
 

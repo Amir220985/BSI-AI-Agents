@@ -1,0 +1,1012 @@
+{
+  "_meta": {
+    "description": "BSI CX (studio) Step-Typ-Registry, abgeleitet aus 20 Stories / 489 Steps der Beispiel-Exporte 2026-06-24",
+    "source": "examples/ (bsi-cx-2026-06-24_*.zip)",
+    "idField": "StepConfig.customConfig._type",
+    "version": "1.0.0"
+  },
+  "categories": [
+    "Teilnehmer",
+    "Logik",
+    "Daten",
+    "Push",
+    "Prozedur",
+    "Attribute",
+    "Web/Online",
+    "Hilfs/Prototyping"
+  ],
+  "steps": {
+    "studio.SetStoryPropertiesStepletConfig": {
+      "shortName": "SetStoryProperties",
+      "category": "Attribute",
+      "displayNames": [
+        "Attribute setzen"
+      ],
+      "occurrences": 91,
+      "customConfigKeys": [
+        "properties",
+        "useConstraint"
+      ],
+      "stepTypeIdSamples": [
+        "d0073ecf-424d-4a4e-9a1b-63707b5f053f"
+      ]
+    },
+    "studio.LandingPageStepletConfig": {
+      "shortName": "LandingPage",
+      "category": "Push",
+      "displayNames": [
+        "Landing­page",
+        "Vorschau"
+      ],
+      "occurrences": 55,
+      "customConfigKeys": [
+        "contentId",
+        "contentRevision",
+        "cookieValidation",
+        "createCommunication",
+        "htmlFormNotSentOutletTemporalConfig",
+        "noReactionOutletTemporalConfig",
+        "forms",
+        "textPlaceholders",
+        "linkPlaceholders",
+        "variants",
+        "linkIndicatorIds",
+        "preferenceCenterConfigs"
+      ],
+      "stepTypeIdSamples": [
+        "16978f47-b103-4b3e-9a98-1c5ae929e72f",
+        "4380c5bc-4799-44d2-a490-49ef2092ced3"
+      ]
+    },
+    "studio.WebsiteDispatcherStepletConfig": {
+      "shortName": "WebsiteDispatcher",
+      "category": "Web/Online",
+      "displayNames": [
+        "Nächste Page"
+      ],
+      "occurrences": 37,
+      "customConfigKeys": [
+        "websiteId",
+        "websiteNavigationId",
+        "websiteRevision"
+      ],
+      "stepTypeIdSamples": [
+        "f27f7a30-8e2d-45fa-a573-912a133c6ac8"
+      ]
+    },
+    "crocus.ExecuteJavaScriptStepletConfig": {
+      "shortName": "crocus.ExecuteJavaScript",
+      "category": "Web/Online",
+      "displayNames": [
+        "JavaScript"
+      ],
+      "occurrences": 34,
+      "customConfigKeys": [
+        "outputs",
+        "script",
+        "inputs"
+      ],
+      "stepTypeIdSamples": [
+        "f3af3d3a-65cb-44f8-a021-54c4d6e0a5f3"
+      ]
+    },
+    "studio.ConfiguredInvokeLambdaStepletConfig": {
+      "shortName": "ConfiguredInvokeLambda",
+      "category": "Prozedur",
+      "displayNames": [
+        "Analyse starten",
+        "Antwort speichern",
+        "Analyse"
+      ],
+      "occurrences": 26,
+      "customConfigKeys": [
+        "inputConfigs",
+        "outletConfigs",
+        "stepId",
+        "propertyConfigs",
+        "batchConfig"
+      ],
+      "stepTypeIdSamples": [
+        "0462a09d-323b-4c16-b1a5-57c1f28c7a23",
+        "103bd01d-fde1-491d-9749-eacb295c3e0e"
+      ]
+    },
+    "studio.BranchByConstraintStepletConfig": {
+      "shortName": "BranchByConstraint",
+      "category": "Logik",
+      "displayNames": [
+        "Kriterien"
+      ],
+      "occurrences": 25,
+      "customConfigKeys": [
+        "selections"
+      ],
+      "stepTypeIdSamples": [
+        "f43a8c7a-5624-415b-be3a-a1a334cd5f8a"
+      ]
+    },
+    "studio.SendEmailStepletConfig": {
+      "shortName": "SendEmail",
+      "category": "Push",
+      "displayNames": [
+        "E-Mail"
+      ],
+      "occurrences": 24,
+      "customConfigKeys": [
+        "bucketTesting",
+        "contentId",
+        "contentRevision",
+        "createCommunication",
+        "listUnsubscribeHeader",
+        "noReactionOutletTemporalConfig",
+        "notAnsweredOutletTemporalConfig",
+        "signEmail",
+        "storeOutput",
+        "trackingPixel",
+        "unreadOutletTemporalConfig",
+        "recipientEmail"
+      ],
+      "stepTypeIdSamples": [
+        "d49c2bed-350d-4ffc-98d6-2f2d06f5df67"
+      ]
+    },
+    "studio.HttpServiceProviderProducerStepletConfig": {
+      "shortName": "HttpServiceProviderProducer",
+      "category": "Web/Online",
+      "displayNames": [
+        "Webseiten­aufruf",
+        "REST-Eingang",
+        "QR-Scan"
+      ],
+      "occurrences": 19,
+      "customConfigKeys": [
+        "dateFormat",
+        "dateTimeFormat",
+        "decimalSeparator",
+        "defaultResponse",
+        "endpoint",
+        "httpMethod",
+        "thousandsSeparator",
+        "timeFormat",
+        "batchMode",
+        "contentType",
+        "cookieName",
+        "mappings"
+      ],
+      "stepTypeIdSamples": [
+        "82662fd1-ed89-40b5-8d69-8a204205e5e0",
+        "981f3df4-4964-4898-9478-558e855b9372"
+      ]
+    },
+    "studio.SetStoryPropertyStepletConfig": {
+      "shortName": "SetStoryProperty",
+      "category": "Attribute",
+      "displayNames": [
+        "Attribut setzen"
+      ],
+      "occurrences": 15,
+      "customConfigKeys": [
+        "property"
+      ],
+      "stepTypeIdSamples": [
+        "cccaa46e-f4df-4b13-9714-289dd1887435"
+      ]
+    },
+    "studio.BranchByFilterStepletConfig": {
+      "shortName": "BranchByFilter",
+      "category": "Logik",
+      "displayNames": [
+        "Filter"
+      ],
+      "occurrences": 12,
+      "customConfigKeys": [
+        "selection"
+      ],
+      "stepTypeIdSamples": [
+        "5ca7c2cb-3f71-44a4-81fb-697bfb1c5e2f"
+      ]
+    },
+    "studio.PlaceholderStepletConfig": {
+      "shortName": "Placeholder",
+      "category": "Hilfs/Prototyping",
+      "displayNames": [
+        "Platzhalter"
+      ],
+      "occurrences": 12,
+      "customConfigKeys": [
+        "customStepTypeConfig",
+        "outletRatios"
+      ],
+      "stepTypeIdSamples": [
+        "c50c05d3-d4fa-49d2-af33-bdfa67e5639a",
+        "cc1915a7-ac57-4cd9-9549-2777e9bc1755"
+      ]
+    },
+    "studio.PreferenceCenterStepletConfig": {
+      "shortName": "PreferenceCenter",
+      "category": "Push",
+      "displayNames": [
+        "Preference Center"
+      ],
+      "occurrences": 11,
+      "customConfigKeys": [
+        "modifyConfig",
+        "operationType"
+      ],
+      "stepTypeIdSamples": [
+        "44005e2c-0518-4b93-a756-7ca87b43971f"
+      ]
+    },
+    "studio.ExecuteBrainStepletConfig": {
+      "shortName": "ExecuteBrain",
+      "category": "Logik",
+      "displayNames": [
+        "Brain ausführen"
+      ],
+      "occurrences": 8,
+      "customConfigKeys": [
+        "brainProblemType",
+        "featureSelectionMapping",
+        "targetOutletMapping",
+        "targetPropertyMapping",
+        "versionGroupId"
+      ],
+      "stepTypeIdSamples": [
+        "ed79d16e-0e4c-4166-aaca-7a6b7212d647"
+      ]
+    },
+    "studio.RemovePropertiesStepletConfig": {
+      "shortName": "RemoveProperties",
+      "category": "Attribute",
+      "displayNames": [
+        "Attribute löschen"
+      ],
+      "occurrences": 6,
+      "customConfigKeys": [
+        "propertyIds"
+      ],
+      "stepTypeIdSamples": [
+        "1c08ec67-ef6a-4521-8cfb-ed63c3cfd58c"
+      ]
+    },
+    "studio.ForkFlowStepletConfig": {
+      "shortName": "ForkFlow",
+      "category": "Logik",
+      "displayNames": [
+        "Trennung"
+      ],
+      "occurrences": 6,
+      "customConfigKeys": [
+        "outlets"
+      ],
+      "stepTypeIdSamples": [
+        "cf24da01-a619-4a69-93aa-b5e3039f723c"
+      ]
+    },
+    "studio.UrlRedirectStepletConfig": {
+      "shortName": "UrlRedirect",
+      "category": "Web/Online",
+      "displayNames": [
+        "Weiterleiten"
+      ],
+      "occurrences": 6,
+      "customConfigKeys": [
+        "defaultLocale",
+        "urls"
+      ],
+      "stepTypeIdSamples": [
+        "4238ba6a-79fa-4741-9f7f-92a92b35f3c3"
+      ]
+    },
+    "studio.CreateDocumentStepletConfig": {
+      "shortName": "CreateDocument",
+      "category": "Push",
+      "displayNames": [
+        "Dokument",
+        "Brief"
+      ],
+      "occurrences": 6,
+      "customConfigKeys": [
+        "contentId",
+        "contentRevision",
+        "createCommunication",
+        "documentOutputFormat",
+        "filename",
+        "storeOutput",
+        "textPlaceholders",
+        "resourcePlaceholders"
+      ],
+      "stepTypeIdSamples": [
+        "5dc46e23-ab45-4298-96ad-3bf6caad5c39",
+        "fd01ea36-3b52-439e-b32c-64a8ffed963c"
+      ]
+    },
+    "studio.EntryPointProducerStepletConfig": {
+      "shortName": "EntryPointProducer",
+      "category": "Teilnehmer",
+      "displayNames": [
+        "Einstieg"
+      ],
+      "occurrences": 6,
+      "customConfigKeys": [],
+      "stepTypeIdSamples": [
+        "6b1e145d-c8cb-453f-bfd4-4be36adfd0f9"
+      ]
+    },
+    "studio.FindBestMatchingCrmCustomerStepletConfig": {
+      "shortName": "FindBestMatchingCrmCustomer",
+      "category": "Daten",
+      "displayNames": [
+        "Kunde finden"
+      ],
+      "occurrences": 5,
+      "customConfigKeys": [
+        "attributeConstraints",
+        "emailAddressProperty",
+        "phoneAddressProperty",
+        "physicalAddressProperty",
+        "setCrmCustomerAttribute"
+      ],
+      "stepTypeIdSamples": [
+        "0312343b-37f6-4373-a7b1-ccfa4a4ee2c0"
+      ]
+    },
+    "studio.DelayByIntervalStepletConfig": {
+      "shortName": "DelayByInterval",
+      "category": "Logik",
+      "displayNames": [
+        "Ver­zöger­ung"
+      ],
+      "occurrences": 5,
+      "customConfigKeys": [
+        "delayedConfig"
+      ],
+      "stepTypeIdSamples": [
+        "130cd5ec-94d5-4438-97d2-e82f930399ab"
+      ]
+    },
+    "studio.SubstoryResponseStepletConfig": {
+      "shortName": "SubstoryResponse",
+      "category": "Prozedur",
+      "displayNames": [
+        "Substory-Ende"
+      ],
+      "occurrences": 5,
+      "customConfigKeys": [
+        "configuredStepId",
+        "outletIds"
+      ],
+      "stepTypeIdSamples": [
+        "fc660970-e141-461a-b166-7142d830761b"
+      ]
+    },
+    "studio.ManageCrmCustomerIdentityStepletConfig": {
+      "shortName": "ManageCrmCustomerIdentity",
+      "category": "Daten",
+      "displayNames": [
+        "Benutzer­verwaltung"
+      ],
+      "occurrences": 4,
+      "customConfigKeys": [
+        "authenticatorId",
+        "manageIdentityConfig",
+        "operationType",
+        "userId"
+      ],
+      "stepTypeIdSamples": [
+        "d4f055ac-64e4-4a5e-958a-9a71116fc318"
+      ]
+    },
+    "crocus.PushInsignStepletConfig": {
+      "shortName": "crocus.PushInsign",
+      "category": "Push",
+      "displayNames": [
+        "inSign"
+      ],
+      "occurrences": 4,
+      "customConfigKeys": [
+        "allowInSandbox",
+        "callbackForParticipant",
+        "caseDisplayName",
+        "communicationViaInsign",
+        "expiredOutletTemporalConfig",
+        "inputFile",
+        "signaturesExtern",
+        "skipBeginMultiRequest",
+        "skipIntroLandingPage"
+      ],
+      "stepTypeIdSamples": [
+        "bbcfa2e1-de8f-4d76-8ed1-c5e7aee4e522"
+      ]
+    },
+    "studio.RemoveParticipantStepletConfig": {
+      "shortName": "RemoveParticipant",
+      "category": "Logik",
+      "displayNames": [
+        "Teilnehmer löschen"
+      ],
+      "occurrences": 4,
+      "customConfigKeys": [
+        "temporalConfig"
+      ],
+      "stepTypeIdSamples": [
+        "41d790c7-70e6-4c31-98f2-4e266437900b"
+      ]
+    },
+    "studio.ModifyCrmCustomerStepletConfig": {
+      "shortName": "ModifyCrmCustomer",
+      "category": "Daten",
+      "displayNames": [
+        "Kunde erfassen"
+      ],
+      "occurrences": 4,
+      "customConfigKeys": [
+        "customer",
+        "setCrmCustomerAttribute",
+        "addresses"
+      ],
+      "stepTypeIdSamples": [
+        "c002167e-6912-4f60-963c-fdad3bb78e71"
+      ]
+    },
+    "studio.HttpResponseBuilderStepletConfig": {
+      "shortName": "HttpResponseBuilder",
+      "category": "Web/Online",
+      "displayNames": [
+        "HTTP-Antwort"
+      ],
+      "occurrences": 4,
+      "customConfigKeys": [
+        "content",
+        "contentType",
+        "statusCode"
+      ],
+      "stepTypeIdSamples": [
+        "7e99da5d-5531-440d-a9e9-cf134e9a8d79"
+      ]
+    },
+    "studio.JoinFlowStepletConfig": {
+      "shortName": "JoinFlow",
+      "category": "Logik",
+      "displayNames": [
+        "Zusammen­führung"
+      ],
+      "occurrences": 4,
+      "customConfigKeys": [],
+      "stepTypeIdSamples": [
+        "b0787646-2412-4cd1-97c9-8cc4bce2feef"
+      ]
+    },
+    "studio.GenerateValueStepletConfig": {
+      "shortName": "GenerateValue",
+      "category": "Logik",
+      "displayNames": [
+        "Wert generieren"
+      ],
+      "occurrences": 3,
+      "customConfigKeys": [
+        "propertyId",
+        "type",
+        "typeConfig"
+      ],
+      "stepTypeIdSamples": [
+        "882412fd-06c4-42ac-b601-88ed98486025"
+      ]
+    },
+    "studio.BranchBySingleExecutionStepletConfig": {
+      "shortName": "BranchBySingleExecution",
+      "category": "Logik",
+      "displayNames": [
+        "Erstes Mal"
+      ],
+      "occurrences": 3,
+      "customConfigKeys": [],
+      "stepTypeIdSamples": [
+        "1d2d5b36-94c5-470c-b391-b96a1ffa05be"
+      ]
+    },
+    "studio.BranchByCrmCustomerOptInStepletConfig": {
+      "shortName": "BranchByCrmCustomerOptIn",
+      "category": "Logik",
+      "displayNames": [
+        "Werbe­sperre"
+      ],
+      "occurrences": 3,
+      "customConfigKeys": [
+        "channel",
+        "checkMode",
+        "optInStatusSelection"
+      ],
+      "stepTypeIdSamples": [
+        "df73accb-bfb2-4d18-8138-b3a7cd58b18d"
+      ]
+    },
+    "studio.BranchByExecutionCountStepletConfig": {
+      "shortName": "BranchByExecutionCount",
+      "category": "Logik",
+      "displayNames": [
+        "Erstes Mal"
+      ],
+      "occurrences": 3,
+      "customConfigKeys": [],
+      "stepTypeIdSamples": [
+        "1d2d5b36-94c5-470c-b391-b96a1ffa05be"
+      ]
+    },
+    "studio.HandOverToOtherStoryStepletConfig": {
+      "shortName": "HandOverToOtherStory",
+      "category": "Prozedur",
+      "displayNames": [
+        "An Story übergeben"
+      ],
+      "occurrences": 3,
+      "customConfigKeys": [
+        "propertyMappings",
+        "targetDraftStoryId",
+        "targetStepGid",
+        "targetStoryGid"
+      ],
+      "stepTypeIdSamples": [
+        "fcd98026-50f6-43ab-a448-1282d47c9e9d"
+      ]
+    },
+    "studio.PlaceholderProducerStepletConfig": {
+      "shortName": "PlaceholderProducer",
+      "category": "Hilfs/Prototyping",
+      "displayNames": [
+        "Platzhalter"
+      ],
+      "occurrences": 3,
+      "customConfigKeys": [
+        "numberOfFlows",
+        "customStepTypeConfig",
+        "outletRatios"
+      ],
+      "stepTypeIdSamples": [
+        "baf19b78-b091-414b-9fb2-b2ea91513e91"
+      ]
+    },
+    "crocus.CrmTriggerProducerStepletConfig": {
+      "shortName": "crocus.CrmTriggerProducer",
+      "category": "Teilnehmer",
+      "displayNames": [
+        "CRM Trigger"
+      ],
+      "occurrences": 2,
+      "customConfigKeys": [
+        "mappings",
+        "triggerQualifier"
+      ],
+      "stepTypeIdSamples": [
+        "386ffd3e-205d-4651-8d98-91456127c6af"
+      ]
+    },
+    "studio.WebsiteStepletConfig": {
+      "shortName": "Website",
+      "category": "Push",
+      "displayNames": [
+        "Portal"
+      ],
+      "occurrences": 2,
+      "customConfigKeys": [
+        "authenticationConfig",
+        "baseUrlSettingId",
+        "cookieName",
+        "endpoint",
+        "locale",
+        "navigationItems",
+        "structures",
+        "websiteId",
+        "websiteRevision",
+        "readCookieConfigs"
+      ],
+      "stepTypeIdSamples": [
+        "0cbb92bb-c321-4f44-b76c-c850b1a34b32"
+      ]
+    },
+    "studio.CrmCustomerProducerStepletConfig": {
+      "shortName": "CrmCustomerProducer",
+      "category": "Teilnehmer",
+      "displayNames": [
+        "Kunden suchen"
+      ],
+      "occurrences": 2,
+      "customConfigKeys": [
+        "selection"
+      ],
+      "stepTypeIdSamples": [
+        "1296b142-b661-4807-adff-883e15e26f20"
+      ]
+    },
+    "studio.SetIndicatorsStepletConfig": {
+      "shortName": "SetIndicators",
+      "category": "Daten",
+      "displayNames": [
+        "Indikatoren setzen"
+      ],
+      "occurrences": 2,
+      "customConfigKeys": [
+        "indicators"
+      ],
+      "stepTypeIdSamples": [
+        "84d444fd-6516-4bc8-a696-7846b7053836"
+      ]
+    },
+    "studio.CrmCommunicationStepletConfig": {
+      "shortName": "CrmCommunication",
+      "category": "Daten",
+      "displayNames": [
+        "Kommuni­kation"
+      ],
+      "occurrences": 2,
+      "customConfigKeys": [
+        "communication",
+        "phoneScriptEnabled",
+        "documents"
+      ],
+      "stepTypeIdSamples": [
+        "f18eae98-ecc5-4768-82a2-b7999f9acddd"
+      ]
+    },
+    "studio.ServiceTimeStepletConfig": {
+      "shortName": "ServiceTime",
+      "category": "Logik",
+      "displayNames": [
+        "Service­zeiten"
+      ],
+      "occurrences": 2,
+      "customConfigKeys": [
+        "modeDelay",
+        "serviceDays"
+      ],
+      "stepTypeIdSamples": [
+        "6e9c274d-2b3e-4ea0-9b0f-deb001b06dc7"
+      ]
+    },
+    "studio.SendSmsStepletConfig": {
+      "shortName": "SendSms",
+      "category": "Push",
+      "displayNames": [
+        "SMS"
+      ],
+      "occurrences": 2,
+      "customConfigKeys": [
+        "contentId",
+        "contentRevision",
+        "createCommunication",
+        "noReactionOutletTemporalConfig",
+        "recipient",
+        "sender",
+        "storeOutput",
+        "textPlaceholders"
+      ],
+      "stepTypeIdSamples": [
+        "f051a7af-095e-427b-9176-812d4f89729f"
+      ]
+    },
+    "studio.CookieStepletConfig": {
+      "shortName": "Cookie",
+      "category": "Web/Online",
+      "displayNames": [],
+      "occurrences": 1,
+      "customConfigKeys": [
+        "cookieComment",
+        "cookieDomain",
+        "cookieName",
+        "cookiePath",
+        "cookieValue",
+        "httpOnly",
+        "maxAgeOffset",
+        "secure"
+      ],
+      "stepTypeIdSamples": [
+        "3bfc0dcd-97f6-4f2e-85fa-28f2d2b04212"
+      ]
+    },
+    "crocus.StringBuilderStepletConfig": {
+      "shortName": "crocus.StringBuilder",
+      "category": "Web/Online",
+      "displayNames": [],
+      "occurrences": 1,
+      "customConfigKeys": [
+        "message",
+        "storyProperty"
+      ],
+      "stepTypeIdSamples": [
+        "3624136e-a2c5-48b2-8c6a-c27c92900a42"
+      ]
+    },
+    "studio.CreateAndTrackQrCodeStepletConfig": {
+      "shortName": "CreateAndTrackQrCode",
+      "category": "Push",
+      "displayNames": [
+        "QR-Code"
+      ],
+      "occurrences": 1,
+      "customConfigKeys": [
+        "dimensionInPixels",
+        "errorCorrectionLevel",
+        "notScannedOutletTemporalConfig",
+        "qrCodeScanMode"
+      ],
+      "stepTypeIdSamples": [
+        "352ae6a8-c3c1-4367-8317-d30542aef47e"
+      ]
+    },
+    "studio.CrmParticipatableStoryProducerStepletConfig": {
+      "shortName": "CrmParticipatableStoryProducer",
+      "category": "Teilnehmer",
+      "displayNames": [
+        "Mitmachen"
+      ],
+      "occurrences": 1,
+      "customConfigKeys": [
+        "allowParticipation",
+        "availableFor",
+        "createParticipantsImmediately",
+        "description",
+        "endpoint",
+        "from",
+        "imageUri",
+        "name",
+        "outlets",
+        "participantAvailability",
+        "preselectionCondition",
+        "reviewEnabled"
+      ],
+      "stepTypeIdSamples": [
+        "f5f21568-bfcc-4a8d-a602-e3b3c43aea24"
+      ]
+    },
+    "studio.CrmFeedbackStepletConfig": {
+      "shortName": "CrmFeedback",
+      "category": "Daten",
+      "displayNames": [
+        "Feedback"
+      ],
+      "occurrences": 1,
+      "customConfigKeys": [
+        "executeImmediately",
+        "message",
+        "outlets",
+        "responsible",
+        "selectionRestriction"
+      ],
+      "stepTypeIdSamples": [
+        "4faa034d-c26d-46d4-932e-a88aaeabc10b"
+      ]
+    },
+    "studio.DelayUntilFixDateStepletConfig": {
+      "shortName": "DelayUntilFixDate",
+      "category": "Logik",
+      "displayNames": [
+        "Stichtag"
+      ],
+      "occurrences": 1,
+      "customConfigKeys": [
+        "temporalConfig"
+      ],
+      "stepTypeIdSamples": [
+        "a5732232-0e3b-493c-9b4b-0b1a795f0ac9"
+      ]
+    },
+    "studio.ModifyCrmCustomerScoreStepletConfig": {
+      "shortName": "ModifyCrmCustomerScore",
+      "category": "Daten",
+      "displayNames": [
+        "Score setzen"
+      ],
+      "occurrences": 1,
+      "customConfigKeys": [
+        "score",
+        "scoreValue"
+      ],
+      "stepTypeIdSamples": [
+        "def1d438-f867-4a00-9d32-476dd55ffa4e"
+      ]
+    },
+    "crocus.FindCustomerAddressStepletConfig": {
+      "shortName": "crocus.FindCustomerAddress",
+      "category": "Prozedur",
+      "displayNames": [
+        "Adresse finden"
+      ],
+      "occurrences": 1,
+      "customConfigKeys": [
+        "electronicAddress"
+      ],
+      "stepTypeIdSamples": [
+        "f9384ebb-2c0e-42d9-9201-a9e9ca77549e"
+      ]
+    },
+    "studio.CrmCustomerOptInStepletConfig": {
+      "shortName": "CrmCustomerOptIn",
+      "category": "Daten",
+      "displayNames": [
+        "Opt-in/out"
+      ],
+      "occurrences": 1,
+      "customConfigKeys": [
+        "address",
+        "addressPropertyId",
+        "byCustomer",
+        "optInStatus",
+        "optInType"
+      ],
+      "stepTypeIdSamples": [
+        "6db40e6f-7fa2-4614-9c21-defe84716bec"
+      ]
+    },
+    "studio.SubstoryEntryStepletConfig": {
+      "shortName": "SubstoryEntry",
+      "category": "Prozedur",
+      "displayNames": [
+        "Substory-Start"
+      ],
+      "occurrences": 1,
+      "customConfigKeys": [
+        "configuredStepId",
+        "inputConfigs"
+      ],
+      "stepTypeIdSamples": [
+        "d5a3f03e-a243-420d-9c14-96af812893ea"
+      ]
+    },
+    "studio.RandomParticipantStepletConfig": {
+      "shortName": "RandomParticipant",
+      "category": "Teilnehmer",
+      "displayNames": [
+        "Ziehung"
+      ],
+      "occurrences": 1,
+      "customConfigKeys": [
+        "numberOfParticipants"
+      ],
+      "stepTypeIdSamples": [
+        "4a878a0f-d489-4781-8894-19a2be3255d0"
+      ]
+    },
+    "crocus.PushAeschbachChocolatierStepletConfig": {
+      "shortName": "crocus.PushAeschbachChocolatier",
+      "category": "Push",
+      "displayNames": [
+        "Aeschbach Choco Greets"
+      ],
+      "occurrences": 1,
+      "customConfigKeys": [
+        "message",
+        "recipientCity",
+        "recipientCountry",
+        "recipientFirstName",
+        "recipientLastName",
+        "recipientLocale",
+        "recipientStreet",
+        "recipientZipCode",
+        "senderCity",
+        "senderCompany",
+        "senderCountry",
+        "senderEmail"
+      ],
+      "stepTypeIdSamples": [
+        "f7d82e88-ec41-4893-be21-190e62bec64d"
+      ]
+    },
+    "studio.CrmCaseStepletConfig": {
+      "shortName": "CrmCase",
+      "category": "Daten",
+      "displayNames": [
+        "Geschäfts­vorfall erstellen"
+      ],
+      "occurrences": 1,
+      "customConfigKeys": [],
+      "stepTypeIdSamples": [
+        "c391ef1a-43cc-4d65-9065-1242e49be754"
+      ]
+    },
+    "crocus.UpdateCaseStepletConfig": {
+      "shortName": "crocus.UpdateCase",
+      "category": "Daten",
+      "displayNames": [
+        "Geschäfts­vorfall steuern"
+      ],
+      "occurrences": 1,
+      "customConfigKeys": [
+        "action",
+        "caseNo"
+      ],
+      "stepTypeIdSamples": [
+        "d6b36e63-078b-4e7b-99b1-81840c0e6469"
+      ]
+    },
+    "studio.CreateOneTimePasswordQrCodeStepletConfig": {
+      "shortName": "CreateOneTimePasswordQrCode",
+      "category": "Push",
+      "displayNames": [
+        "QR-Code Einmal­passwort"
+      ],
+      "occurrences": 1,
+      "customConfigKeys": [
+        "accountName",
+        "dimensionInPixels",
+        "errorCorrectionLevel",
+        "issuer"
+      ],
+      "stepTypeIdSamples": [
+        "f4620897-0fa2-47b7-a7d7-179a5bb5826f"
+      ]
+    },
+    "studio.ValidateOneTimePasswordStepletConfig": {
+      "shortName": "ValidateOneTimePassword",
+      "category": "Prozedur",
+      "displayNames": [
+        "Einmal­passwort validieren"
+      ],
+      "occurrences": 1,
+      "customConfigKeys": [
+        "encryptedSecret",
+        "oneTimePassword"
+      ],
+      "stepTypeIdSamples": [
+        "63da6144-492d-436e-9e48-65d53d694c87"
+      ]
+    },
+    "studio.TimeslotCalendarStepletConfig": {
+      "shortName": "TimeslotCalendar",
+      "category": "Push",
+      "displayNames": [
+        "Online-Termin­ver­ein­ba­rung"
+      ],
+      "occurrences": 1,
+      "customConfigKeys": [
+        "desiredUser",
+        "rangeFromDate",
+        "rangeToDate",
+        "slotType"
+      ],
+      "stepTypeIdSamples": [
+        "d5eb7a6e-06e8-46a2-95d2-c16392ab369c"
+      ]
+    },
+    "studio.CreateICalStepletConfig": {
+      "shortName": "CreateICal",
+      "category": "Push",
+      "displayNames": [
+        "iCal"
+      ],
+      "occurrences": 1,
+      "customConfigKeys": [
+        "allDay",
+        "contentId",
+        "contentRevision",
+        "endDate",
+        "eventDuration",
+        "location",
+        "organizerEmail",
+        "organizerName",
+        "reminderOffset",
+        "startDate",
+        "textPlaceholders"
+      ],
+      "stepTypeIdSamples": [
+        "34551a64-7af2-4c93-835a-8100589074ea"
+      ]
+    },
+    "studio.ForkParticipantProducerStepletConfig": {
+      "shortName": "ForkParticipantProducer",
+      "category": "Teilnehmer",
+      "displayNames": [
+        "Teilnehmer fort­führen"
+      ],
+      "occurrences": 1,
+      "customConfigKeys": [
+        "checkAllSteps",
+        "participantStatusRestriction",
+        "stepOutletMappings",
+        "strategy"
+      ],
+      "stepTypeIdSamples": [
+        "526532b2-cc55-4dcd-b3ef-72c45088737d"
+      ]
+    }
+  }
+}

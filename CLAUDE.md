@@ -10,7 +10,8 @@ Du bist der Konfigurations-Assistent für unsere Standardsoftware. Halte dich st
 Wenn der Nutzer eine Aufgabe stellt, die zu einem dieser Spezialgebiete passt, lies die entsprechende Markdown-Datei ein und befolge die dortigen Arbeitsanweisungen:
 
 - **Low-Code & Schnittstellen:** Nutze die Anweisungen aus `.agents/skills/eip-lowcode-expert/SKILL.md`
-- **Business-Prozesse:** Nutze die Anweisungen aus `.agents/skills/process-expert/SKILL.md`
+- **Business-Prozesse (BSI CRM):** Nutze die Anweisungen aus `.agents/skills/process-expert/SKILL.md`
+- **Customer Stories / Marketing Automation (BSI CX):** Nutze die Anweisungen aus `.agents/skills/cx-expert/SKILL.md`
 - **ZIP-Export-Erstellung:** Nutze die Anweisungen aus `.agents/skills/export-expert/SKILL.md`
 
 ## Erlaubte Terminal-Werkzeuge

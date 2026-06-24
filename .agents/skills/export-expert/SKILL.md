@@ -134,6 +134,32 @@ Korrektes Format:
 
 Der `key`-Wert ist identisch mit dem `domainKey` des Primary-Process-Index-Eintrags.
 
+### 3c. BSI CX / Studio-Export (`productId: "studio"`)
+
+Für BSI-CX-Exporte (Customer Stories) gelten dieselben Index-Grundregeln. Spezifika:
+
+| Aspekt | Wert |
+|---|---|
+| `productIdentifier` | **`"studio"`** (Pflicht) |
+| `productVersion` | **`"26.1.8"`** (Pflicht) |
+| `valueMigrationIds` | Pflicht — 15 UUIDs, aus einem studio-Beispiel-Export übernehmen (`.agents/skills/cx-expert/examples/`) |
+| Namespace | `["studio-25.1.0","bsiscout-25.1.0","crm-25.2.2","crocus-1.0.0","oroya-1.0.0","start-22.0.0"]` |
+
+**ID-Typen / itemGroupId:**
+
+| Artefakt | `itemGroupId` | `id` / transferType |
+|---|---|---|
+| Story | `studio.story` | `studio.StoryConfigId:<uuid>` · full |
+| Content / Design | `studio.content` / `studio.design` (+ `…partial`) | `studio.ContentId`/`DesignId:<uuid>` · full (Ordner mit `content.json`/`design.json` + Ressourcen) |
+| Flavor / Indikator / Medien | `studio.flavor` / `studio.indicator` / `studio.media-library-item` | `bsiscout.IdConfigurationTransferId` · full |
+| Konfigurierter Step | `studio.configuredStep` | full |
+| Step-Typ / Outlet-Funktion | `studio.step.type` / `studio.outlet-function-type` | **reference-only** (im Zielsystem vorhanden, `optionalType: "preserve"`) |
+| referenzierte CRM-Codes | `crm.*` | reference-only (CRM-Regeln s. o.) |
+
+**Multi-Produkt-Paket (CX + CRM):** `multi-index.json` (`bsiscout.ConfigurationTransferMultiIndex`) mit `stages[]` (je `productId`, `rootPath` `01-crm`/`02-studio`, `foreignIdMappings`). Importreihenfolge: CRM vor studio.
+
+> Vollständige Struktur, Story-/Step-Objektmodell und Content/Design-Details: **`.agents/skills/cx-expert/knowledge/cx_export_format.md`**.
+
 ### 4. `globalUniqueId` in index.json (KRITISCH)
 
 Jedes Item im Index **muss** ein `globalUniqueId`-Feld haben. Fehlt es, bricht BSI mit:

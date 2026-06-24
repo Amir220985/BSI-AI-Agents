@@ -8,9 +8,10 @@ KI-gestützte Entwicklungsumgebung für die **BSI CustomerSuite**. Dieses Reposi
 
 ```
 .agents/skills/          # Spezialisierte Agent-Skills
+  cx-expert/             # BSI CX (studio): Customer Stories & Marketing Automation
   eip-lowcode-expert/    # EIP-Schnittstellen & Low-Code (TypeScript)
   export-expert/         # BSI ZIP-Export-Erstellung & Validierung
-  process-expert/        # Business-Prozesse & Step-Registry
+  process-expert/        # Business-Prozesse (BSI CRM) & Step-Registry
 .antigravity/            # Globale Systemregeln
 CLAUDE.md                # Projekt-Konfiguration für Claude Code
 ```
@@ -51,7 +52,27 @@ Erstellt vollständige, importierbare BSI-Prozess-Konfigurationen als ZIP-Export
 
 ---
 
-### 2. EIP Low-Code Expert — Schnittstellen & Integrationen
+### 2. CX Expert — Customer Stories (Marketing Automation)
+
+**Skill:** `.agents/skills/cx-expert/`
+
+Erstellt importierbare BSI-CX-Konfigurationen (Produkt **`studio`**): Customer Stories mit Steps, Content, Designs, Flavors und Indikatoren.
+
+**Was der Agent kann:**
+- Customer Stories aus natürlichsprachlicher Beschreibung entwerfen
+- Steps aus der CX-Step-Registry wählen (5 Step-Arten: Teilnehmer/Logik/Daten/Push/Prozedur) und über Outlets (`targetStepGid`) verschalten
+- Content (E-Mail, Landingpage, SMS, Dokument …) und Designs verknüpfen
+- Valide studio-ZIPs erstellen (auch Multi-Paket CX+CRM via `multi-index.json`)
+
+**Registry:** `registry/cx_step_registry.json` v1.0.0 — 59 Step-Typen (aus 20 Beispiel-Stories / 489 Steps), Schlüssel = `customConfig._type`.
+
+**Knowledge Base:** Exportformat, Step-Katalog, Story-Inventar, Content/Design, Patterns, Glossar, Designregeln, Generierungs-Template, Review-Checkliste.
+
+**Grundlage:** 17 reale CX-Exporte (`examples/`) + BSI-CX-Help-Center-Doku.
+
+---
+
+### 3. EIP Low-Code Expert — Schnittstellen & Integrationen
 
 **Skill:** `.agents/skills/eip-lowcode-expert/`
 
@@ -74,7 +95,7 @@ Erstellt EIP-Schnittstellen (Interfaces) für die BSI Enterprise Integration Pla
 
 ---
 
-### 3. Export Expert — ZIP-Export-Erstellung
+### 4. Export Expert — ZIP-Export-Erstellung
 
 **Skill:** `.agents/skills/export-expert/`
 

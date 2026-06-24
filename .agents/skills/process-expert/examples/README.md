@@ -1,8 +1,13 @@
 # Process Spezialist – Beispiele
 
-Dieses Verzeichnis enthält bewährte Vorlagen und Beispiel-Prozesse aus realen Projekten für die Prozess-Engine der BSI CustomerSuite.
+Dieses Verzeichnis enthält bewährte Vorlagen und Beispiel-Prozesse aus realen Projekten für die Prozess-Engine der BSI CustomerSuite. Es bündelt zwei Beispiel-Sätze:
 
-## Übersicht der Beispiele
+1. **Kuratierte Vorlagen** vom 2026-06-23 (41 Prozesse), siehe Abschnitt 1.
+2. **Analyse-Exporte** vom 2026-06-24 (`bsi-crm-2026-06-24_*.zip` in diesem Ordner) — Grundlage der Wissensbasis unter [`../knowledge/`](../knowledge/), siehe Abschnitt 2.
+
+---
+
+## 1. Lokale Beispiel-ZIPs (dieser Ordner)
 
 ### `bsi-2026-06-23_14-08-35.zip`
 Export aus einem produktiven BSI CustomerSuite-System (Version 25.2, `crm-25.2.007`).
@@ -76,6 +81,24 @@ Export aus einem produktiven BSI CustomerSuite-System (Version 25.2, `crm-25.2.0
 |---|---|---|---|
 | Know-how-Eintrag überarbeiten | 1.0.0 | 3 | Wissensbasis-Pflege |
 | Informationen zu Superbikes | 1.0.0 | 7 | Produktinformation |
+
+### `bsi-2026-06-23_14-54-23.zip` · `bsi-2026-06-23_15-47-08.zip`
+Weitere kleinere Beispiel-Exporte (Vorlagen/Teilkonfigurationen) vom 2026-06-23.
+
+---
+
+## 2. Analyse-Exporte (`bsi-crm-2026-06-24_*.zip` in diesem Ordner)
+
+Basis der Wissensbasis [`../knowledge/`](../knowledge/).
+
+Quelle: **10 BSI-CustomerSuite-Exporte vom 2026-06-24** (`bsi-crm-2026-06-24_*.zip`). Entpackt 570 Dateien, 546 JSON (alle valide), Produktversion `crm-22…24.x`.
+
+| Export | Inhalt |
+|---|---|
+| `bsi-crm-2026-06-24_15-05-14` … `_15-06-51` (9×) | Je **eine Prozessgruppe** (`crm.CrmCode`, codeType 45831) + Sprach-Codes |
+| `bsi-crm-2026-06-24_15-09-39` | **19 Prozesse** (u. a. „Kunde – Daten ändern", „Dokument – Dokumenttyp zuweisen", „Kundenanfrage beantworten") + Datenmodell, lambda-bindings, email-accounts, Stammdaten-Codes |
+
+Auswertung: Prozess-Inventar, Step-Typ-Katalog, Patterns, Anti-Patterns, Glossar, Designregeln, AP5-Audit und ein Prozess-Linter — siehe [`../knowledge/README.md`](../knowledge/README.md) und [`../tools/lint_process.py`](../tools/lint_process.py).
 
 ---
 
@@ -155,13 +178,29 @@ Export aus einem produktiven BSI CustomerSuite-System (Version 25.2, `crm-25.2.0
 ```
 Verfügbare Farben: `color1` bis (mindestens) `color3`.
 
+### Outlet-Verknüpfung (wichtig für Analyse/Validierung)
+Outlet-Ziele werden auf **zwei** Wegen aufgelöst:
+1. direkt über `targetProcessStepId`;
+2. falls `null`: über eine geteilte `descriptorId` — ein Outlet ohne eigenes Ziel erbt das Ziel eines Geschwister-Outlets mit gleicher `descriptorId`.
+
+Nur wenn beides fehlt, ist ein Outlet **echt offen** (Strukturfehler). Der Linter [`../tools/lint_process.py`](../tools/lint_process.py) berücksichtigt beide Mechanismen.
+
 ### Lambda-aufrufen-Step (typeId 209754)
 Für jeden Step mit `typeId: 209754` muss eine Lambda-Binding-Datei im Ordner `lambda-bindings/` mitgeliefert werden:
 - Dateiname: `<Prozessname>_-_<Schrittname>-crminvokeLambdaProcessStep<stepId>.json`
 - `_type`: `bsiscout.LambdaBinding`
 - Definiert die Eingabe-Parameter, die aus dem CRM-Datenmodell an das EIP-Interface übergeben werden.
+- **Design-Regel R5/AP5:** Jedem Lambda-Step muss ein behandelter Fehlerpfad folgen (Kriterien-Step „… erfolgreich?" mit echtem „nein"-Zweig **oder** differenzierte eigene Ausgänge).
 
 ### Korrespondenz-Step (typeId 168901)
 Ähnlich wie Lambda-Step, aber mit Prefix `crmdocTemplateCorrespondenceProcessStep`:
 - Dateiname: `<Prozessname>_-_<Schrittname>-crmdocTemplateCorrespondenceProcessStep<stepId>.json`
 - Lambda-Inputs typischerweise: `subject`, `body`
+
+---
+
+## Hinweise
+- **Beispiel-Exporte nicht verändern** — Referenz-/Trainingsmaterial.
+- Step-Typen variieren je Produktversion; die abgeleitete Step-Typ-Semantik ist in [`../knowledge/bsi_step_type_catalog.md`](../knowledge/bsi_step_type_catalog.md) dokumentiert, verbindlich bleibt die offizielle Step-Registry des Process-Expert-Skills.
+- Die Analyse-Exporte unter `examples/` wurden mit Python (`zipfile`, cp437→UTF-8-Reencoding) entpackt, da `unzip` im iCloud-Verzeichnis bei Umlaut-Dateinamen scheitert (`write error / fchmod Bad file descriptor`); `cp -R` erhält die Umlaut-Namen.
+- Enthält Konfigurations-/Strukturdaten; produktive personenbezogene Daten gehören nicht in die Wissensbasis.

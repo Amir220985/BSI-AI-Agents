@@ -1,0 +1,33 @@
+Exportdatei: bsi-eip-2026-06-23_09-21-32.zip
+Exportdatum: 23.06.2026, 09:22
+Benutzer: andrea.adams
+Produkt: EIP
+Produktversion: 26.1.8
+========================================
+
+Verantwortlich
+----------------------------------------
+Administrator | ResponsibleConfigurationTransferIdDo {"_type":"start.ResponsibleConfigurationTransferId","_typeVersion":"start-22.0.0","responsible":{"_type":"start.Responsible","_typeVersion":"start-1.3.2","userId":"36317f78-6040-4648-936d-e8b66b394c0b"}} | Nur Referenz
+
+Interfaces
+----------------------------------------
+IBAN validation: Version 1 | IdConfigurationTransferIdDo {"_type":"bsiscout.IdConfigurationTransferId","_typeVersion":"bsiscout-22.0.0","id":"interfaces.InterfaceConfigId:af8cb193-e289-48d9-a9b6-36e30941909c"} | Export erfolgreich
+
+Interfaces (vollständig)
+----------------------------------------
+IBAN validation | IdConfigurationTransferIdDo {"_type":"bsiscout.IdConfigurationTransferId","_typeVersion":"bsiscout-22.0.0","id":"interfaces.InterfaceConfigGid:8e21cc76-b0d4-4a29-a041-e984c37ac69b"} | Export erfolgreich
+
+Projekte
+----------------------------------------
+IBAN | IdConfigurationTransferIdDo {"_type":"bsiscout.IdConfigurationTransferId","_typeVersion":"bsiscout-22.0.0","id":"interfaces.ProjectId:4ebaedb9-6f31-408d-bd36-9e36f8b3a357"} | Export erfolgreich
+
+Interface-Typen
+----------------------------------------
+Lambda | IdConfigurationTransferIdDo {"_type":"bsiscout.IdConfigurationTransferId","_typeVersion":"bsiscout-22.0.0","id":"interfaces.InterfaceTypeId:2512c737-a73b-4f78-9ae2-098ac6d291bd"} | Nur Referenz
+
+Processor-Typen
+----------------------------------------
+Iteration | IdConfigurationTransferIdDo {"_type":"bsiscout.IdConfigurationTransferId","_typeVersion":"bsiscout-22.0.0","id":"interfaces.ProcessorTypeId:21c361ec-5dec-4f13-9767-442db1adb3a3"} | Nur Referenz
+Lambda | IdConfigurationTransferIdDo {"_type":"bsiscout.IdConfigurationTransferId","_typeVersion":"bsiscout-22.0.0","id":"interfaces.ProcessorTypeId:ec06bfe3-faab-4c2c-83bc-8420789d3479"} | Nur Referenz
+REST Consumer | IdConfigurationTransferIdDo {"_type":"bsiscout.IdConfigurationTransferId","_typeVersion":"bsiscout-22.0.0","id":"interfaces.ProcessorTypeId:f069aa44-fb5c-469e-a727-705ca7072fee"} | Nur Referenz
+TypeScript | IdConfigurationTransferIdDo {"_type":"bsiscout.IdConfigurationTransferId","_typeVersion":"bsiscout-22.0.0","id":"interfaces.ProcessorTypeId:ffd19a7a-7613-40c0-876a-5d9a6eca66b6"} | Nur Referenz

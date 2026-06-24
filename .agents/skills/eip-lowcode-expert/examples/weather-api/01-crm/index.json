@@ -1,0 +1,575 @@
+{
+  "_type" : "bsiscout.ConfigurationTransferIndex",
+  "_typeVersion" : "bsiscout-22.0.0",
+  "exportDate" : "2026-06-23 16:04:22.180",
+  "exportId" : "8786a1ac-fd65-4960-ab77-65204d46c5f9",
+  "exportUser" : "andrea.adams",
+  "items" : [ {
+    "_type" : "bsiscout.ConfigurationTransferItem",
+    "_typeVersion" : "bsiscout-22.0.0",
+    "dataModelNamespaceVersions" : [ "crm-25.2.2" ],
+    "globalUniqueId" : "CrmCustomer/bsiscout.DataModelRelationId:y-weatherScore",
+    "id" : {
+      "_type" : "crm.DomainKeyConfigurationTransferId",
+      "_typeVersion" : "crm-22.0.0",
+      "domainKey" : "1;209633;190903;j1000120166"
+    },
+    "itemGroupId" : "crm.domain-key.190903",
+    "names" : {
+      "de" : "Wetter Score",
+      "en" : "Weather Score"
+    },
+    "referencedItems" : [ {
+      "_type" : "bsiscout.ConfigurationTransferReference",
+      "_typeVersion" : "bsiscout-22.0.19",
+      "id" : {
+        "_type" : "crm.UidConfigurationTransferId",
+        "_typeVersion" : "crm-22.0.0",
+        "uid" : "1;112192;106064;j1000120161;j103294"
+      }
+    } ],
+    "resourcePath" : "datamodel/fields/Wetter_Score-CrmCustomerbsiscout.DataModelRelationIdy-weatherScore.json",
+    "root" : true,
+    "transferType" : "full",
+    "typeVersions" : {
+      "crm.DataModelFlagConfig" : "crm-22.0.0",
+      "crm.DataModelItemConfig" : "crm-22.0.17",
+      "crm.DataModelPersistenceFieldDefinition" : "crm-25.1.001",
+      "crm.DataModelDataFieldConfig" : "crm-24.2.001",
+      "crm.CodeFilterDefinitionContainer" : "crm-22.0.0",
+      "crm.CodeFilterDefinition" : "crm-22.0.0"
+    }
+  }, {
+    "_type" : "bsiscout.ConfigurationTransferItem",
+    "_typeVersion" : "bsiscout-22.0.0",
+    "globalUniqueId" : "1303",
+    "id" : {
+      "_type" : "crm.UidConfigurationTransferId",
+      "_typeVersion" : "crm-22.0.0",
+      "uid" : "1;112192;106064;j1303;j71099"
+    },
+    "itemGroupId" : "crm.configurable-code-type.71099.main",
+    "names" : {
+      "de" : "Englisch",
+      "en" : "English",
+      "it" : "inglese",
+      "fr" : "anglais"
+    },
+    "referencedItems" : [ {
+      "_type" : "bsiscout.ConfigurationTransferReference",
+      "_typeVersion" : "bsiscout-22.0.19",
+      "id" : {
+        "_type" : "crm.UidConfigurationTransferId",
+        "_typeVersion" : "crm-22.0.0",
+        "uid" : "1;112192;106064;j246;j71099"
+      }
+    }, {
+      "_type" : "bsiscout.ConfigurationTransferReference",
+      "_typeVersion" : "bsiscout-22.0.19",
+      "id" : {
+        "_type" : "crm.UidConfigurationTransferId",
+        "_typeVersion" : "crm-22.0.0",
+        "uid" : "1;112192;106064;j7771;j71099"
+      }
+    }, {
+      "_type" : "bsiscout.ConfigurationTransferReference",
+      "_typeVersion" : "bsiscout-22.0.19",
+      "id" : {
+        "_type" : "crm.DomainKeyConfigurationTransferId",
+        "_typeVersion" : "crm-22.0.0",
+        "domainKey" : "1;112192;144269;j71099"
+      }
+    }, {
+      "_type" : "bsiscout.ConfigurationTransferReference",
+      "_typeVersion" : "bsiscout-22.0.19",
+      "id" : {
+        "_type" : "crm.UidConfigurationTransferId",
+        "_typeVersion" : "crm-22.0.0",
+        "uid" : "1;112192;106064;j7770;j71099"
+      }
+    } ],
+    "resourcePath" : "codes/Sprachen-71099/Englisch-1303.json",
+    "transferType" : "full",
+    "typeVersions" : {
+      "crm.CrmCode" : "crm-22.0.0",
+      "crm.LanguageCode" : "crm-22.0.0",
+      "crm.CodeFilterDefinitionContainer" : "crm-22.0.0",
+      "crm.CodeFilterDefinition" : "crm-22.0.0"
+    }
+  }, {
+    "_type" : "bsiscout.ConfigurationTransferItem",
+    "_typeVersion" : "bsiscout-22.0.0",
+    "globalUniqueId" : "246",
+    "id" : {
+      "_type" : "crm.UidConfigurationTransferId",
+      "_typeVersion" : "crm-22.0.0",
+      "uid" : "1;112192;106064;j246;j71099"
+    },
+    "itemGroupId" : "crm.configurable-code-type.71099.main",
+    "names" : {
+      "de" : "Deutsch",
+      "en" : "German",
+      "it" : "tedesco",
+      "fr" : "allemand"
+    },
+    "referencedItems" : [ {
+      "_type" : "bsiscout.ConfigurationTransferReference",
+      "_typeVersion" : "bsiscout-22.0.19",
+      "id" : {
+        "_type" : "crm.UidConfigurationTransferId",
+        "_typeVersion" : "crm-22.0.0",
+        "uid" : "1;112192;106064;j7771;j71099"
+      }
+    }, {
+      "_type" : "bsiscout.ConfigurationTransferReference",
+      "_typeVersion" : "bsiscout-22.0.19",
+      "id" : {
+        "_type" : "crm.DomainKeyConfigurationTransferId",
+        "_typeVersion" : "crm-22.0.0",
+        "domainKey" : "1;112192;144269;j71099"
+      }
+    }, {
+      "_type" : "bsiscout.ConfigurationTransferReference",
+      "_typeVersion" : "bsiscout-22.0.19",
+      "id" : {
+        "_type" : "crm.UidConfigurationTransferId",
+        "_typeVersion" : "crm-22.0.0",
+        "uid" : "1;112192;106064;j1303;j71099"
+      }
+    }, {
+      "_type" : "bsiscout.ConfigurationTransferReference",
+      "_typeVersion" : "bsiscout-22.0.19",
+      "id" : {
+        "_type" : "crm.UidConfigurationTransferId",
+        "_typeVersion" : "crm-22.0.0",
+        "uid" : "1;112192;106064;j7770;j71099"
+      }
+    } ],
+    "resourcePath" : "codes/Sprachen-71099/Deutsch-246.json",
+    "transferType" : "full",
+    "typeVersions" : {
+      "crm.CrmCode" : "crm-22.0.0",
+      "crm.LanguageCode" : "crm-22.0.0",
+      "crm.CodeFilterDefinitionContainer" : "crm-22.0.0",
+      "crm.CodeFilterDefinition" : "crm-22.0.0"
+    }
+  }, {
+    "_type" : "bsiscout.ConfigurationTransferItem",
+    "_typeVersion" : "bsiscout-22.0.0",
+    "globalUniqueId" : "368ff57b-be6a-478e-b742-b17c0b7fa4f8",
+    "id" : {
+      "_type" : "crm.UidConfigurationTransferId",
+      "_typeVersion" : "crm-22.0.0",
+      "uid" : "1;112192;106064;j1000120162;j103294"
+    },
+    "itemGroupId" : "crm.configurable-code-type.103294.main",
+    "names" : {
+      "de" : "Fantastisch",
+      "en" : "Fantastic"
+    },
+    "referencedItems" : [ {
+      "_type" : "bsiscout.ConfigurationTransferReference",
+      "_typeVersion" : "bsiscout-22.0.19",
+      "id" : {
+        "_type" : "crm.UidConfigurationTransferId",
+        "_typeVersion" : "crm-22.0.0",
+        "uid" : "1;112192;106064;j246;j71099"
+      }
+    }, {
+      "_type" : "bsiscout.ConfigurationTransferReference",
+      "_typeVersion" : "bsiscout-22.0.19",
+      "id" : {
+        "_type" : "crm.UidConfigurationTransferId",
+        "_typeVersion" : "crm-22.0.0",
+        "uid" : "1;112192;106064;j1000120161;j103294"
+      }
+    }, {
+      "_type" : "bsiscout.ConfigurationTransferReference",
+      "_typeVersion" : "bsiscout-22.0.19",
+      "id" : {
+        "_type" : "crm.UidConfigurationTransferId",
+        "_typeVersion" : "crm-22.0.0",
+        "uid" : "1;112192;106064;j1303;j71099"
+      }
+    }, {
+      "_type" : "bsiscout.ConfigurationTransferReference",
+      "_typeVersion" : "bsiscout-22.0.19",
+      "id" : {
+        "_type" : "crm.DomainKeyConfigurationTransferId",
+        "_typeVersion" : "crm-22.0.0",
+        "domainKey" : "1;112192;144269;j103294"
+      }
+    } ],
+    "resourcePath" : "codes/Eigene_Wertelisten-103294/Fantastisch-368ff57b-be6a-478e-b742-b17c0b7fa4f8.json",
+    "root" : true,
+    "transferType" : "full",
+    "typeVersions" : {
+      "crm.CrmCode" : "crm-22.0.0",
+      "crm.CodeFilterDefinitionContainer" : "crm-22.0.0",
+      "crm.CodeFilterDefinition" : "crm-22.0.0"
+    }
+  }, {
+    "_type" : "bsiscout.ConfigurationTransferItem",
+    "_typeVersion" : "bsiscout-22.0.0",
+    "globalUniqueId" : "403071c4-94dc-4a8b-9aa0-89567ec43deb",
+    "id" : {
+      "_type" : "crm.UidConfigurationTransferId",
+      "_typeVersion" : "crm-22.0.0",
+      "uid" : "1;112192;106064;j1000120163;j103294"
+    },
+    "itemGroupId" : "crm.configurable-code-type.103294.main",
+    "names" : {
+      "de" : "Gut",
+      "en" : "Good"
+    },
+    "referencedItems" : [ {
+      "_type" : "bsiscout.ConfigurationTransferReference",
+      "_typeVersion" : "bsiscout-22.0.19",
+      "id" : {
+        "_type" : "crm.UidConfigurationTransferId",
+        "_typeVersion" : "crm-22.0.0",
+        "uid" : "1;112192;106064;j246;j71099"
+      }
+    }, {
+      "_type" : "bsiscout.ConfigurationTransferReference",
+      "_typeVersion" : "bsiscout-22.0.19",
+      "id" : {
+        "_type" : "crm.UidConfigurationTransferId",
+        "_typeVersion" : "crm-22.0.0",
+        "uid" : "1;112192;106064;j1000120161;j103294"
+      }
+    }, {
+      "_type" : "bsiscout.ConfigurationTransferReference",
+      "_typeVersion" : "bsiscout-22.0.19",
+      "id" : {
+        "_type" : "crm.UidConfigurationTransferId",
+        "_typeVersion" : "crm-22.0.0",
+        "uid" : "1;112192;106064;j1303;j71099"
+      }
+    }, {
+      "_type" : "bsiscout.ConfigurationTransferReference",
+      "_typeVersion" : "bsiscout-22.0.19",
+      "id" : {
+        "_type" : "crm.DomainKeyConfigurationTransferId",
+        "_typeVersion" : "crm-22.0.0",
+        "domainKey" : "1;112192;144269;j103294"
+      }
+    } ],
+    "resourcePath" : "codes/Eigene_Wertelisten-103294/Gut-403071c4-94dc-4a8b-9aa0-89567ec43deb.json",
+    "root" : true,
+    "transferType" : "full",
+    "typeVersions" : {
+      "crm.CrmCode" : "crm-22.0.0",
+      "crm.CodeFilterDefinitionContainer" : "crm-22.0.0",
+      "crm.CodeFilterDefinition" : "crm-22.0.0"
+    }
+  }, {
+    "_type" : "bsiscout.ConfigurationTransferItem",
+    "_typeVersion" : "bsiscout-22.0.0",
+    "globalUniqueId" : "563e80b6-7951-4936-8d97-a816ebb2320b",
+    "id" : {
+      "_type" : "crm.UidConfigurationTransferId",
+      "_typeVersion" : "crm-22.0.0",
+      "uid" : "1;112192;106064;j1000120165;j103294"
+    },
+    "itemGroupId" : "crm.configurable-code-type.103294.main",
+    "names" : {
+      "de" : "Schlecht",
+      "en" : "Bad"
+    },
+    "referencedItems" : [ {
+      "_type" : "bsiscout.ConfigurationTransferReference",
+      "_typeVersion" : "bsiscout-22.0.19",
+      "id" : {
+        "_type" : "crm.UidConfigurationTransferId",
+        "_typeVersion" : "crm-22.0.0",
+        "uid" : "1;112192;106064;j246;j71099"
+      }
+    }, {
+      "_type" : "bsiscout.ConfigurationTransferReference",
+      "_typeVersion" : "bsiscout-22.0.19",
+      "id" : {
+        "_type" : "crm.UidConfigurationTransferId",
+        "_typeVersion" : "crm-22.0.0",
+        "uid" : "1;112192;106064;j1000120161;j103294"
+      }
+    }, {
+      "_type" : "bsiscout.ConfigurationTransferReference",
+      "_typeVersion" : "bsiscout-22.0.19",
+      "id" : {
+        "_type" : "crm.UidConfigurationTransferId",
+        "_typeVersion" : "crm-22.0.0",
+        "uid" : "1;112192;106064;j1303;j71099"
+      }
+    }, {
+      "_type" : "bsiscout.ConfigurationTransferReference",
+      "_typeVersion" : "bsiscout-22.0.19",
+      "id" : {
+        "_type" : "crm.DomainKeyConfigurationTransferId",
+        "_typeVersion" : "crm-22.0.0",
+        "domainKey" : "1;112192;144269;j103294"
+      }
+    } ],
+    "resourcePath" : "codes/Eigene_Wertelisten-103294/Schlecht-563e80b6-7951-4936-8d97-a816ebb2320b.json",
+    "root" : true,
+    "transferType" : "full",
+    "typeVersions" : {
+      "crm.CrmCode" : "crm-22.0.0",
+      "crm.CodeFilterDefinitionContainer" : "crm-22.0.0",
+      "crm.CodeFilterDefinition" : "crm-22.0.0"
+    }
+  }, {
+    "_type" : "bsiscout.ConfigurationTransferItem",
+    "_typeVersion" : "bsiscout-22.0.0",
+    "globalUniqueId" : "7770",
+    "id" : {
+      "_type" : "crm.UidConfigurationTransferId",
+      "_typeVersion" : "crm-22.0.0",
+      "uid" : "1;112192;106064;j7770;j71099"
+    },
+    "itemGroupId" : "crm.configurable-code-type.71099.main",
+    "names" : {
+      "de" : "Französisch",
+      "en" : "French",
+      "it" : "francese",
+      "fr" : "français"
+    },
+    "referencedItems" : [ {
+      "_type" : "bsiscout.ConfigurationTransferReference",
+      "_typeVersion" : "bsiscout-22.0.19",
+      "id" : {
+        "_type" : "crm.UidConfigurationTransferId",
+        "_typeVersion" : "crm-22.0.0",
+        "uid" : "1;112192;106064;j246;j71099"
+      }
+    }, {
+      "_type" : "bsiscout.ConfigurationTransferReference",
+      "_typeVersion" : "bsiscout-22.0.19",
+      "id" : {
+        "_type" : "crm.UidConfigurationTransferId",
+        "_typeVersion" : "crm-22.0.0",
+        "uid" : "1;112192;106064;j7771;j71099"
+      }
+    }, {
+      "_type" : "bsiscout.ConfigurationTransferReference",
+      "_typeVersion" : "bsiscout-22.0.19",
+      "id" : {
+        "_type" : "crm.DomainKeyConfigurationTransferId",
+        "_typeVersion" : "crm-22.0.0",
+        "domainKey" : "1;112192;144269;j71099"
+      }
+    }, {
+      "_type" : "bsiscout.ConfigurationTransferReference",
+      "_typeVersion" : "bsiscout-22.0.19",
+      "id" : {
+        "_type" : "crm.UidConfigurationTransferId",
+        "_typeVersion" : "crm-22.0.0",
+        "uid" : "1;112192;106064;j1303;j71099"
+      }
+    } ],
+    "resourcePath" : "codes/Sprachen-71099/Französisch-7770.json",
+    "transferType" : "full",
+    "typeVersions" : {
+      "crm.CrmCode" : "crm-22.0.0",
+      "crm.LanguageCode" : "crm-22.0.0",
+      "crm.CodeFilterDefinitionContainer" : "crm-22.0.0",
+      "crm.CodeFilterDefinition" : "crm-22.0.0"
+    }
+  }, {
+    "_type" : "bsiscout.ConfigurationTransferItem",
+    "_typeVersion" : "bsiscout-22.0.0",
+    "globalUniqueId" : "7771",
+    "id" : {
+      "_type" : "crm.UidConfigurationTransferId",
+      "_typeVersion" : "crm-22.0.0",
+      "uid" : "1;112192;106064;j7771;j71099"
+    },
+    "itemGroupId" : "crm.configurable-code-type.71099.main",
+    "names" : {
+      "de" : "Italienisch",
+      "en" : "Italian",
+      "it" : "italiano",
+      "fr" : "italien"
+    },
+    "referencedItems" : [ {
+      "_type" : "bsiscout.ConfigurationTransferReference",
+      "_typeVersion" : "bsiscout-22.0.19",
+      "id" : {
+        "_type" : "crm.UidConfigurationTransferId",
+        "_typeVersion" : "crm-22.0.0",
+        "uid" : "1;112192;106064;j246;j71099"
+      }
+    }, {
+      "_type" : "bsiscout.ConfigurationTransferReference",
+      "_typeVersion" : "bsiscout-22.0.19",
+      "id" : {
+        "_type" : "crm.DomainKeyConfigurationTransferId",
+        "_typeVersion" : "crm-22.0.0",
+        "domainKey" : "1;112192;144269;j71099"
+      }
+    }, {
+      "_type" : "bsiscout.ConfigurationTransferReference",
+      "_typeVersion" : "bsiscout-22.0.19",
+      "id" : {
+        "_type" : "crm.UidConfigurationTransferId",
+        "_typeVersion" : "crm-22.0.0",
+        "uid" : "1;112192;106064;j1303;j71099"
+      }
+    }, {
+      "_type" : "bsiscout.ConfigurationTransferReference",
+      "_typeVersion" : "bsiscout-22.0.19",
+      "id" : {
+        "_type" : "crm.UidConfigurationTransferId",
+        "_typeVersion" : "crm-22.0.0",
+        "uid" : "1;112192;106064;j7770;j71099"
+      }
+    } ],
+    "resourcePath" : "codes/Sprachen-71099/Italienisch-7771.json",
+    "transferType" : "full",
+    "typeVersions" : {
+      "crm.CrmCode" : "crm-22.0.0",
+      "crm.LanguageCode" : "crm-22.0.0",
+      "crm.CodeFilterDefinitionContainer" : "crm-22.0.0",
+      "crm.CodeFilterDefinition" : "crm-22.0.0"
+    }
+  }, {
+    "_type" : "bsiscout.ConfigurationTransferItem",
+    "_typeVersion" : "bsiscout-22.0.0",
+    "globalUniqueId" : "832bfd2a-7942-4878-bdef-2c806c5f5859",
+    "id" : {
+      "_type" : "crm.UidConfigurationTransferId",
+      "_typeVersion" : "crm-22.0.0",
+      "uid" : "1;112192;106064;j1000120164;j103294"
+    },
+    "itemGroupId" : "crm.configurable-code-type.103294.main",
+    "names" : {
+      "de" : "Erträglich",
+      "en" : "Tolerable"
+    },
+    "referencedItems" : [ {
+      "_type" : "bsiscout.ConfigurationTransferReference",
+      "_typeVersion" : "bsiscout-22.0.19",
+      "id" : {
+        "_type" : "crm.UidConfigurationTransferId",
+        "_typeVersion" : "crm-22.0.0",
+        "uid" : "1;112192;106064;j246;j71099"
+      }
+    }, {
+      "_type" : "bsiscout.ConfigurationTransferReference",
+      "_typeVersion" : "bsiscout-22.0.19",
+      "id" : {
+        "_type" : "crm.UidConfigurationTransferId",
+        "_typeVersion" : "crm-22.0.0",
+        "uid" : "1;112192;106064;j1000120161;j103294"
+      }
+    }, {
+      "_type" : "bsiscout.ConfigurationTransferReference",
+      "_typeVersion" : "bsiscout-22.0.19",
+      "id" : {
+        "_type" : "crm.UidConfigurationTransferId",
+        "_typeVersion" : "crm-22.0.0",
+        "uid" : "1;112192;106064;j1303;j71099"
+      }
+    }, {
+      "_type" : "bsiscout.ConfigurationTransferReference",
+      "_typeVersion" : "bsiscout-22.0.19",
+      "id" : {
+        "_type" : "crm.DomainKeyConfigurationTransferId",
+        "_typeVersion" : "crm-22.0.0",
+        "domainKey" : "1;112192;144269;j103294"
+      }
+    } ],
+    "resourcePath" : "codes/Eigene_Wertelisten-103294/Erträglich-832bfd2a-7942-4878-bdef-2c806c5f5859.json",
+    "root" : true,
+    "transferType" : "full",
+    "typeVersions" : {
+      "crm.CrmCode" : "crm-22.0.0",
+      "crm.CodeFilterDefinitionContainer" : "crm-22.0.0",
+      "crm.CodeFilterDefinition" : "crm-22.0.0"
+    }
+  }, {
+    "_type" : "bsiscout.ConfigurationTransferItem",
+    "_typeVersion" : "bsiscout-22.0.0",
+    "globalUniqueId" : "9ac81c27-0a86-459c-ba62-482fee56739c",
+    "id" : {
+      "_type" : "crm.UidConfigurationTransferId",
+      "_typeVersion" : "crm-22.0.0",
+      "uid" : "1;112192;106064;j1000120161;j103294"
+    },
+    "itemGroupId" : "crm.configurable-code-type.103294.main",
+    "names" : {
+      "de" : "Wetter Score",
+      "en" : "Weather Score"
+    },
+    "referencedItems" : [ {
+      "_type" : "bsiscout.ConfigurationTransferReference",
+      "_typeVersion" : "bsiscout-22.0.19",
+      "id" : {
+        "_type" : "crm.UidConfigurationTransferId",
+        "_typeVersion" : "crm-22.0.0",
+        "uid" : "1;112192;106064;j246;j71099"
+      }
+    }, {
+      "_type" : "bsiscout.ConfigurationTransferReference",
+      "_typeVersion" : "bsiscout-22.0.19",
+      "id" : {
+        "_type" : "crm.UidConfigurationTransferId",
+        "_typeVersion" : "crm-22.0.0",
+        "uid" : "1;112192;106064;j1303;j71099"
+      }
+    }, {
+      "_type" : "bsiscout.ConfigurationTransferReference",
+      "_typeVersion" : "bsiscout-22.0.19",
+      "id" : {
+        "_type" : "crm.DomainKeyConfigurationTransferId",
+        "_typeVersion" : "crm-22.0.0",
+        "domainKey" : "1;112192;144269;j103294"
+      }
+    } ],
+    "resourcePath" : "codes/Eigene_Wertelisten-103294/Wetter_Score-9ac81c27-0a86-459c-ba62-482fee56739c.json",
+    "root" : true,
+    "transferType" : "full",
+    "typeVersions" : {
+      "crm.CrmCode" : "crm-22.0.0",
+      "crm.CodeFilterDefinitionContainer" : "crm-22.0.0",
+      "crm.CodeFilterDefinition" : "crm-22.0.0"
+    }
+  }, {
+    "_type" : "bsiscout.ConfigurationTransferItem",
+    "_typeVersion" : "bsiscout-22.0.0",
+    "globalUniqueId" : "CodeType/103294",
+    "id" : {
+      "_type" : "crm.DomainKeyConfigurationTransferId",
+      "_typeVersion" : "crm-22.0.0",
+      "domainKey" : "1;112192;144269;j103294"
+    },
+    "itemGroupId" : "crm.domain-key.144269",
+    "names" : {
+      "de" : "Eigene Wertelisten",
+      "en" : "Custom lists of values",
+      "it" : "Liste di valori personalizzate",
+      "fr" : "Listes de valeurs personnalisées"
+    },
+    "transferType" : "reference-only"
+  }, {
+    "_type" : "bsiscout.ConfigurationTransferItem",
+    "_typeVersion" : "bsiscout-22.0.0",
+    "globalUniqueId" : "CodeType/71099",
+    "id" : {
+      "_type" : "crm.DomainKeyConfigurationTransferId",
+      "_typeVersion" : "crm-22.0.0",
+      "domainKey" : "1;112192;144269;j71099"
+    },
+    "itemGroupId" : "crm.domain-key.144269",
+    "names" : {
+      "de" : "Sprachen",
+      "en" : "Languages",
+      "it" : "Lingue",
+      "fr" : "Langues"
+    },
+    "transferType" : "reference-only"
+  } ],
+  "productIdentifier" : "crm",
+  "productVersion" : "26.1.8",
+  "valueMigrationIds" : [ "e4ff19f8-e094-4460-bfdf-fbe070ff1796", "8e65d468-db95-4afd-9069-321ba4c5fe0c", "9f484c16-5660-4cec-ae9e-d09879dbeeed", "b8ec99ed-70e3-4d7d-abf9-9bd7842e3615", "926a8f2e-e651-4208-9c45-1492d083df1f", "cd76ad5f-c20c-4ce0-870c-dc1a09a15c94", "25a41e97-2765-4b66-a8e7-01bccd876b8a", "f0ac4a90-d832-4cd8-b1c0-6d09d8ada4f2", "ef1e6f16-3cc9-4de0-9c6a-f003660f6725", "3e80f16f-bab3-45ea-802e-a6444f29ab63", "b51f903a-a658-4810-9b7f-b1c9a7a78b3c", "1cc6b44b-30a0-486c-b9ac-0e6d2b040bd4", "b4bf568b-197f-40d0-bb12-052c21dec83e", "3caf3ee6-0bfe-42d7-aa61-f50108309915", "f36c4e28-8268-4ad6-991b-379149236a8a", "c992ebc8-9e53-4776-a66f-b512ac5fa8b8", "dde293c9-53a7-43b4-b8ff-1edb4e5cde0e", "fa2dc4e1-3b02-43f0-84ff-718bfdae1f10", "1d24a7f9-c873-4069-8fb7-0d05538c6f09", "4ff7d00e-a102-48d7-9599-8fe5803d96c3", "07602504-34e7-4ca9-95a1-6d77585aeb73", "090aa435-76c0-48e8-b620-d8f403daec9c", "a57cd16f-7f20-46ab-9c55-6a3deb70982c", "ba0f6fb2-49b0-4de7-a8d1-ce45276b7bff", "cfee1a15-3648-4d8f-adce-ad710e85ee72", "9c4a084e-51e5-4192-bac2-04cfea622c0d", "125056ab-6dc1-40c4-884b-190c9ad46eb3", "913f0cd2-fba1-4184-9958-63fd35258b1c", "8e6043be-bbec-45f1-9e69-134b71e69d78", "d9aa2d78-134f-4658-8d96-de84ee4ed4e8", "4ccb7531-f18f-496c-9f37-67485168f553", "9ad5ef84-010e-4384-987c-dadf145c7c8a", "586e1a18-6745-4811-8cfa-9392aac01448", "c8b83eaf-7af8-4e86-8b78-e32884db5c72", "f383e3c5-8d36-48a3-a6d8-6b7579ab5ae8", "ea64e793-b804-411c-85d0-df9a70bf8d91", "a33bf35d-f444-46c5-aba8-1eb1aa0c419b", "293133ac-3f16-4681-b5ac-f5418bd094da", "59d010cd-a8e1-4328-ab0a-4219ac0e2873", "063ad7d1-2363-4ee7-a519-979e18b31199", "f7ab7f5b-0adc-4f70-80a1-582dff32394a", "8610e6db-4164-4cf6-90c7-65f409aa0672", "4aa8dc94-b904-44b9-b0ca-8cc7822f48ac", "7a0cc5a8-b67b-4410-9f47-f9a3c3251b7f", "d0578a3b-7507-40d3-9846-843f9e1ea0f2", "ea264e5c-4e96-416c-9a20-442ecccc9fa2", "975b104e-a907-4fe7-9cb7-cd6c20f4c122", "0cf9580b-7182-440e-b319-cc2bdf6b0e7e", "a42918fc-a377-4d51-9924-e666f2731604", "08df8602-79f6-40e2-b166-6477602e62ee", "68d71780-a88d-475b-a650-9bb8606be9fd", "a2cd6dea-bf67-4d3a-9857-1fce5d5c6c66", "d8eb20bc-7f09-40b4-8e9c-dcf43e214754", "7d034f6e-bc8f-4a34-9dfd-40bd553382ed", "454863f5-f931-4527-92ed-fcd1c5bbbc35", "64acb578-f633-4c06-a481-f49967e29ad6", "e6b7243f-dc0c-4320-a3f9-63a584c86ce7", "489f1f37-e94c-4f79-8473-0391587a5c36", "477ff4f4-4893-41a7-a76b-f1e64eaad243" ]
+}

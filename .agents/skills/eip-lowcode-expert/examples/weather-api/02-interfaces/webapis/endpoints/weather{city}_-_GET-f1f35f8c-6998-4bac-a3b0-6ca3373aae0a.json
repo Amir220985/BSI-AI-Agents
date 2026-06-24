@@ -1,0 +1,31 @@
+{
+  "_type" : "interfaces.WebapiEndpoint",
+  "_typeVersion" : "interfaces-24.1.002",
+  "id" : "f1f35f8c-6998-4bac-a3b0-6ca3373aae0a",
+  "includeSubpaths" : false,
+  "operations" : [ {
+    "_type" : "interfaces.WebapiOperation",
+    "_typeVersion" : "interfaces-24.1.002",
+    "allHttpMethods" : false,
+    "httpMethod" : "get",
+    "id" : "f03ac424-d5d1-4ad8-8f2c-a66f64301e85",
+    "parameterDescriptions" : "export type Cookies = Record<string, string>;\nexport type Headers = Record<string, string>;\nexport type QueryParams = Record<string, string>;\nexport type RequestBody = any;\nexport type ResponseBody = any;"
+  } ],
+  "path" : {
+    "_type" : "interfaces.WebapiPath",
+    "_typeVersion" : "interfaces-22.0.0",
+    "basePath" : "weather",
+    "endpointPath" : "{city}"
+  },
+  "pathParameters" : [ {
+    "_type" : "interfaces.WebapiEndpointPathParameter",
+    "_typeVersion" : "interfaces-24.1.001",
+    "parameter" : "city",
+    "type" : "string"
+  } ],
+  "policyIds" : [ ],
+  "projectId" : "4ca1cf10-6a17-4389-b979-a41cbfe97167",
+  "scriptIdentifier" : "city",
+  "webapiId" : "7a28d2aa-2446-432f-8bce-6d64f0fb01f5",
+  "webapiScriptIdentifier" : "weather"
+}

@@ -1,0 +1,12 @@
+{
+  "_type" : "interfaces.CollectionConfig",
+  "_typeVersion" : "interfaces-24.2.009",
+  "exportData" : false,
+  "grouping" : null,
+  "id" : "6a679c2b-4acb-4eed-92c0-93f1961b8e22",
+  "identifier" : "retries",
+  "notes" : "Collection holding bad records along with the problems and a retry counter.",
+  "projectId" : "d4fc2d45-4afe-4890-9de5-06c546299560",
+  "type" : "generic",
+  "typeScriptApi" : "export type Key = number;\nexport type Value = RecordInfo;\n\nexport interface RecordInfo {\n  record: Record;\n  hash: string;\n  issues: string[];\n  retryCount: number;\n}\n\nexport interface Record {\n  id: number,\n  task: string;\n  urgency: string;\n  userName: string;\n}\n"
+}

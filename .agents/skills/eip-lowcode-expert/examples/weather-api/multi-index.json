@@ -1,0 +1,22 @@
+{
+  "_type" : "bsiscout.ConfigurationTransferMultiIndex",
+  "_typeVersion" : "bsiscout-22.0.1001",
+  "stages" : [ {
+    "_type" : "bsiscout.ConfigurationTransferMultiIndexStage",
+    "_typeVersion" : "bsiscout-22.0.1001",
+    "customMetadata" : {
+      "_type" : "crm.DataModelSyncStageCustomMetadata",
+      "_typeVersion" : "crm-22.0.1001",
+      "productIds" : [ "interfaces" ]
+    },
+    "exportId" : "8786a1ac-fd65-4960-ab77-65204d46c5f9",
+    "productId" : "crm",
+    "rootPath" : "01-crm"
+  }, {
+    "_type" : "bsiscout.ConfigurationTransferMultiIndexStage",
+    "_typeVersion" : "bsiscout-22.0.1001",
+    "exportId" : "34ef4ab5-33ac-4953-bb44-bc02521cbd0b",
+    "productId" : "interfaces",
+    "rootPath" : "02-interfaces"
+  } ]
+}

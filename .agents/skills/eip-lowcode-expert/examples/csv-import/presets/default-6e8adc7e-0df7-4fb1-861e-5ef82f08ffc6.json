@@ -1,0 +1,22 @@
+{
+  "_type" : "interfaces.Preset",
+  "_typeVersion" : "interfaces-22.0.0",
+  "descriptorId" : "01f03794-f5f3-4b44-93f7-ddde66869af8",
+  "id" : "6e8adc7e-0df7-4fb1-861e-5ef82f08ffc6",
+  "name" : "default",
+  "notes" : null,
+  "projectId" : "d4fc2d45-4afe-4890-9de5-06c546299560",
+  "value" : {
+    "_type" : "interfaces.CsvPresetValue",
+    "_typeVersion" : "interfaces-22.0.1002",
+    "allowDuplicateHeaderNames" : false,
+    "allowMissingHeaderNames" : false,
+    "delimiterCharacter" : ";",
+    "encoding" : "UTF-8",
+    "escapeCharacter" : "\\",
+    "ignoreEmptyLines" : false,
+    "ignoreHeaderRecord" : false,
+    "ignoreSurroundingSpaces" : false,
+    "ignoreTrailingDelimiter" : false
+  }
+}

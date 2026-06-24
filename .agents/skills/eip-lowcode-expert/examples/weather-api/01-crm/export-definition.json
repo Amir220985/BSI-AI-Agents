@@ -1,0 +1,31 @@
+{
+  "_type" : "bsiscout.ConfigurationExportDefinition",
+  "_typeVersion" : "bsiscout-22.0.33",
+  "exportFilename" : "weather-api_bsi-2026-06-23_16-03-21.zip",
+  "productId" : "crm",
+  "rootTransferIds" : [ {
+    "_type" : "crm.UidConfigurationTransferId",
+    "_typeVersion" : "crm-22.0.0",
+    "uid" : "1;112192;106064;j1000120163;j103294"
+  }, {
+    "_type" : "crm.DomainKeyConfigurationTransferId",
+    "_typeVersion" : "crm-22.0.0",
+    "domainKey" : "1;209633;190903;j1000120166"
+  }, {
+    "_type" : "crm.UidConfigurationTransferId",
+    "_typeVersion" : "crm-22.0.0",
+    "uid" : "1;112192;106064;j1000120162;j103294"
+  }, {
+    "_type" : "crm.UidConfigurationTransferId",
+    "_typeVersion" : "crm-22.0.0",
+    "uid" : "1;112192;106064;j1000120161;j103294"
+  }, {
+    "_type" : "crm.UidConfigurationTransferId",
+    "_typeVersion" : "crm-22.0.0",
+    "uid" : "1;112192;106064;j1000120165;j103294"
+  }, {
+    "_type" : "crm.UidConfigurationTransferId",
+    "_typeVersion" : "crm-22.0.0",
+    "uid" : "1;112192;106064;j1000120164;j103294"
+  } ]
+}

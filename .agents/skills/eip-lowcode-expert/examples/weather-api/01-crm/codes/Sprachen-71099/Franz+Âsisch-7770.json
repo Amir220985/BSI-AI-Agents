@@ -1,0 +1,50 @@
+{
+  "_type" : "crm.LanguageCode",
+  "_typeVersion" : "crm-22.0.0",
+  "code" : {
+    "_type" : "crm.CrmCode",
+    "_typeVersion" : "crm-22.0.0",
+    "calcValueBoolean" : null,
+    "calcValueNumber" : null,
+    "calcValueUid" : null,
+    "childCodes" : [ ],
+    "codeTypeKey" : "1;112192;144269;j71099",
+    "codeUid" : "1;112192;106064;j7770;j71099",
+    "description" : null,
+    "extKey" : null,
+    "iconId" : null,
+    "names" : {
+      "1;112192;106064;j246;j71099" : "Französisch",
+      "1;112192;106064;j1303;j71099" : "French",
+      "1;112192;106064;j7770;j71099" : "français",
+      "1;112192;106064;j7771;j71099" : "francese"
+    },
+    "parentUid" : null,
+    "partitionContainer" : {
+      "_type" : "crm.CodeFilterDefinitionContainer",
+      "_typeVersion" : "crm-22.0.0",
+      "filters" : [ {
+        "_type" : "crm.CodeFilterDefinition",
+        "_typeVersion" : "crm-22.0.0",
+        "active" : true,
+        "visible" : true
+      } ]
+    },
+    "protectedCode" : true,
+    "roleContainer" : {
+      "_type" : "crm.CodeFilterDefinitionContainer",
+      "_typeVersion" : "crm-22.0.0",
+      "filters" : [ {
+        "_type" : "crm.CodeFilterDefinition",
+        "_typeVersion" : "crm-22.0.0",
+        "active" : true,
+        "visible" : true
+      } ]
+    },
+    "scriptIdentifier" : "Language.French",
+    "shortcut" : "fr",
+    "sortcode" : null
+  },
+  "emailPrefixForward" : "TR:",
+  "emailPrefixReply" : "REF:"
+}

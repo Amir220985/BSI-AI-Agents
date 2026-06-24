@@ -1,0 +1,49 @@
+Exportdatei: csv-import_bsi-eip-2026-06-23_20-50-30.zip
+Exportdatum: 23.06.2026, 20:50
+Benutzer: andrea.adams
+Produkt: EIP
+Produktversion: 26.1.8
+========================================
+
+Verantwortlich
+----------------------------------------
+Administrator | ResponsibleConfigurationTransferIdDo {"_type":"start.ResponsibleConfigurationTransferId","_typeVersion":"start-22.0.0","responsible":{"_type":"start.Responsible","_typeVersion":"start-1.3.2","userId":"36317f78-6040-4648-936d-e8b66b394c0b"}} | Nur Referenz
+
+Collections
+----------------------------------------
+mappings | IdConfigurationTransferIdDo {"_type":"bsiscout.IdConfigurationTransferId","_typeVersion":"bsiscout-22.0.0","id":"interfaces.CollectionId:c105aee0-f7ef-4715-906e-a3200c1d6aa3"} | Export erfolgreich
+processedRecords | IdConfigurationTransferIdDo {"_type":"bsiscout.IdConfigurationTransferId","_typeVersion":"bsiscout-22.0.0","id":"interfaces.CollectionId:263fc920-6c37-41bf-905a-31ce2e968cb2"} | Export erfolgreich
+retries | IdConfigurationTransferIdDo {"_type":"bsiscout.IdConfigurationTransferId","_typeVersion":"bsiscout-22.0.0","id":"interfaces.CollectionId:6a679c2b-4acb-4eed-92c0-93f1961b8e22"} | Export erfolgreich
+
+Interfaces
+----------------------------------------
+Import CSV: Version 1 | IdConfigurationTransferIdDo {"_type":"bsiscout.IdConfigurationTransferId","_typeVersion":"bsiscout-22.0.0","id":"interfaces.InterfaceConfigId:634cc4c0-5468-408e-a0b0-523841f750b8"} | Export erfolgreich
+
+Interfaces (vollständig)
+----------------------------------------
+Import CSV | IdConfigurationTransferIdDo {"_type":"bsiscout.IdConfigurationTransferId","_typeVersion":"bsiscout-22.0.0","id":"interfaces.InterfaceConfigGid:1ed9a729-fd0c-4f64-aa0a-9bffeb7f3ea8"} | Export erfolgreich
+
+Presets
+----------------------------------------
+default | IdConfigurationTransferIdDo {"_type":"bsiscout.IdConfigurationTransferId","_typeVersion":"bsiscout-22.0.0","id":"interfaces.PresetId:6e8adc7e-0df7-4fb1-861e-5ef82f08ffc6"} | Export erfolgreich
+
+Projekte
+----------------------------------------
+Import Data | IdConfigurationTransferIdDo {"_type":"bsiscout.IdConfigurationTransferId","_typeVersion":"bsiscout-22.0.0","id":"interfaces.ProjectId:d4fc2d45-4afe-4890-9de5-06c546299560"} | Export erfolgreich
+
+Interface-Typen
+----------------------------------------
+Input | IdConfigurationTransferIdDo {"_type":"bsiscout.IdConfigurationTransferId","_typeVersion":"bsiscout-22.0.0","id":"interfaces.InterfaceTypeId:ce4bb086-02d6-4cee-9509-7b0dadaa6654"} | Nur Referenz
+
+Preset-Typen
+----------------------------------------
+CSV Konfiguration | IdConfigurationTransferIdDo {"_type":"bsiscout.IdConfigurationTransferId","_typeVersion":"bsiscout-22.0.0","id":"interfaces.PresetDescriptorId:01f03794-f5f3-4b44-93f7-ddde66869af8"} | Nur Referenz
+
+Processor-Typen
+----------------------------------------
+CSV | IdConfigurationTransferIdDo {"_type":"bsiscout.IdConfigurationTransferId","_typeVersion":"bsiscout-22.0.0","id":"interfaces.ProcessorTypeId:1245030d-3b73-42fb-a7a8-3ed91b729303"} | Nur Referenz
+Daten mutieren | IdConfigurationTransferIdDo {"_type":"bsiscout.IdConfigurationTransferId","_typeVersion":"bsiscout-22.0.0","id":"interfaces.ProcessorTypeId:cf9ee65c-a489-4250-b76a-7b1741868c0f"} | Nur Referenz
+Iteration | IdConfigurationTransferIdDo {"_type":"bsiscout.IdConfigurationTransferId","_typeVersion":"bsiscout-22.0.0","id":"interfaces.ProcessorTypeId:21c361ec-5dec-4f13-9767-442db1adb3a3"} | Nur Referenz
+Manueller Trigger | IdConfigurationTransferIdDo {"_type":"bsiscout.IdConfigurationTransferId","_typeVersion":"bsiscout-22.0.0","id":"interfaces.ProcessorTypeId:b4447959-8495-4a20-83e1-e3e0384c5935"} | Nur Referenz
+TypeScript | IdConfigurationTransferIdDo {"_type":"bsiscout.IdConfigurationTransferId","_typeVersion":"bsiscout-22.0.0","id":"interfaces.ProcessorTypeId:ffd19a7a-7613-40c0-876a-5d9a6eca66b6"} | Nur Referenz
+Zeitlicher Trigger | IdConfigurationTransferIdDo {"_type":"bsiscout.IdConfigurationTransferId","_typeVersion":"bsiscout-22.0.0","id":"interfaces.ProcessorTypeId:406211f6-7b91-4790-b492-feb3e7cac22c"} | Nur Referenz

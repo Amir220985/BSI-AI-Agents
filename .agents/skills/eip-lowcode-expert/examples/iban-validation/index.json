@@ -1,0 +1,253 @@
+{
+  "_type" : "bsiscout.ConfigurationTransferIndex",
+  "_typeVersion" : "bsiscout-22.0.0",
+  "exportDate" : "2026-06-23 09:22:56.565",
+  "exportId" : "47bbf802-72f7-47db-8c6e-7461e28068e1",
+  "exportUser" : "andrea.adams",
+  "items" : [ {
+    "_type" : "bsiscout.ConfigurationTransferItem",
+    "_typeVersion" : "bsiscout-22.0.0",
+    "dataModelNamespaceVersions" : [ "bsiscout-25.1.0" ],
+    "descriptions" : {
+      "de" : "Version 1"
+    },
+    "globalUniqueId" : "af8cb193-e289-48d9-a9b6-36e30941909c",
+    "id" : {
+      "_type" : "bsiscout.IdConfigurationTransferId",
+      "_typeVersion" : "bsiscout-22.0.0",
+      "id" : "interfaces.InterfaceConfigId:af8cb193-e289-48d9-a9b6-36e30941909c"
+    },
+    "itemGroupId" : "interfaces.interface",
+    "names" : {
+      "de" : "IBAN validation"
+    },
+    "referencedItems" : [ {
+      "_type" : "bsiscout.ConfigurationTransferReference",
+      "_typeVersion" : "bsiscout-22.0.19",
+      "id" : {
+        "_type" : "bsiscout.IdConfigurationTransferId",
+        "_typeVersion" : "bsiscout-22.0.0",
+        "id" : "interfaces.InterfaceTypeId:2512c737-a73b-4f78-9ae2-098ac6d291bd"
+      },
+      "optionalType" : "preserve"
+    }, {
+      "_type" : "bsiscout.ConfigurationTransferReference",
+      "_typeVersion" : "bsiscout-22.0.19",
+      "id" : {
+        "_type" : "bsiscout.IdConfigurationTransferId",
+        "_typeVersion" : "bsiscout-22.0.0",
+        "id" : "interfaces.InterfaceConfigGid:8e21cc76-b0d4-4a29-a041-e984c37ac69b"
+      }
+    }, {
+      "_type" : "bsiscout.ConfigurationTransferReference",
+      "_typeVersion" : "bsiscout-22.0.19",
+      "id" : {
+        "_type" : "bsiscout.IdConfigurationTransferId",
+        "_typeVersion" : "bsiscout-22.0.0",
+        "id" : "interfaces.ProcessorTypeId:ffd19a7a-7613-40c0-876a-5d9a6eca66b6"
+      },
+      "optionalType" : "preserve"
+    }, {
+      "_type" : "bsiscout.ConfigurationTransferReference",
+      "_typeVersion" : "bsiscout-22.0.19",
+      "id" : {
+        "_type" : "bsiscout.IdConfigurationTransferId",
+        "_typeVersion" : "bsiscout-22.0.0",
+        "id" : "interfaces.ProcessorTypeId:21c361ec-5dec-4f13-9767-442db1adb3a3"
+      },
+      "optionalType" : "preserve"
+    }, {
+      "_type" : "bsiscout.ConfigurationTransferReference",
+      "_typeVersion" : "bsiscout-22.0.19",
+      "id" : {
+        "_type" : "bsiscout.IdConfigurationTransferId",
+        "_typeVersion" : "bsiscout-22.0.0",
+        "id" : "interfaces.ProcessorTypeId:f069aa44-fb5c-469e-a727-705ca7072fee"
+      },
+      "optionalType" : "preserve"
+    }, {
+      "_type" : "bsiscout.ConfigurationTransferReference",
+      "_typeVersion" : "bsiscout-22.0.19",
+      "id" : {
+        "_type" : "bsiscout.IdConfigurationTransferId",
+        "_typeVersion" : "bsiscout-22.0.0",
+        "id" : "interfaces.ProjectId:4ebaedb9-6f31-408d-bd36-9e36f8b3a357"
+      }
+    }, {
+      "_type" : "bsiscout.ConfigurationTransferReference",
+      "_typeVersion" : "bsiscout-22.0.19",
+      "id" : {
+        "_type" : "start.ResponsibleConfigurationTransferId",
+        "_typeVersion" : "start-22.0.0",
+        "responsible" : {
+          "_type" : "start.Responsible",
+          "_typeVersion" : "start-1.3.2",
+          "userId" : "36317f78-6040-4648-936d-e8b66b394c0b"
+        }
+      }
+    }, {
+      "_type" : "bsiscout.ConfigurationTransferReference",
+      "_typeVersion" : "bsiscout-22.0.19",
+      "id" : {
+        "_type" : "bsiscout.IdConfigurationTransferId",
+        "_typeVersion" : "bsiscout-22.0.0",
+        "id" : "interfaces.ProcessorTypeId:ec06bfe3-faab-4c2c-83bc-8420789d3479"
+      },
+      "optionalType" : "preserve"
+    } ],
+    "resourcePath" : "interfaces/IBAN_validation-af8cb193-e289-48d9-a9b6-36e30941909c.json",
+    "root" : true,
+    "transferType" : "full",
+    "typeVersions" : {
+      "interfaces.IterationProcessorConfig" : "interfaces-26.1.001",
+      "interfaces.Point" : "interfaces-22.0.0",
+      "interfaces.TypeScriptConfig" : "interfaces-23.2.007",
+      "bsiscout.Signature" : "bsiscout-24.1.001",
+      "interfaces.RestConsumerProcessorConfig" : "interfaces-24.2.008",
+      "interfaces.OutletConfig" : "interfaces-22.0.1006",
+      "interfaces.CrmLambdaProcessorConfig" : "interfaces-23.2.019",
+      "bsiscout.SignatureProperty" : "bsiscout-24.1.001",
+      "interfaces.TypeScriptProcessorConfig" : "interfaces-23.2.018",
+      "start.Responsible" : "start-1.3.2",
+      "interfaces.InterfaceConfig" : "interfaces-24.2.017",
+      "interfaces.ProcessorConfig" : "interfaces-22.0.1004"
+    }
+  }, {
+    "_type" : "bsiscout.ConfigurationTransferItem",
+    "_typeVersion" : "bsiscout-22.0.0",
+    "globalUniqueId" : "4ebaedb9-6f31-408d-bd36-9e36f8b3a357",
+    "id" : {
+      "_type" : "bsiscout.IdConfigurationTransferId",
+      "_typeVersion" : "bsiscout-22.0.0",
+      "id" : "interfaces.ProjectId:4ebaedb9-6f31-408d-bd36-9e36f8b3a357"
+    },
+    "itemGroupId" : "interfaces.project",
+    "names" : {
+      "de" : "IBAN"
+    },
+    "referencedItems" : [ {
+      "_type" : "bsiscout.ConfigurationTransferReference",
+      "_typeVersion" : "bsiscout-22.0.19",
+      "id" : {
+        "_type" : "start.ResponsibleConfigurationTransferId",
+        "_typeVersion" : "start-22.0.0",
+        "responsible" : {
+          "_type" : "start.Responsible",
+          "_typeVersion" : "start-1.3.2",
+          "userId" : "36317f78-6040-4648-936d-e8b66b394c0b"
+        }
+      }
+    } ],
+    "resourcePath" : "projects/IBAN-4ebaedb9-6f31-408d-bd36-9e36f8b3a357.json",
+    "transferType" : "full",
+    "typeVersions" : {
+      "interfaces.Project" : "interfaces-22.0.0",
+      "start.Responsible" : "start-1.3.2"
+    }
+  }, {
+    "_type" : "bsiscout.ConfigurationTransferItem",
+    "_typeVersion" : "bsiscout-22.0.0",
+    "globalUniqueId" : "8e21cc76-b0d4-4a29-a041-e984c37ac69b",
+    "id" : {
+      "_type" : "bsiscout.IdConfigurationTransferId",
+      "_typeVersion" : "bsiscout-22.0.0",
+      "id" : "interfaces.InterfaceConfigGid:8e21cc76-b0d4-4a29-a041-e984c37ac69b"
+    },
+    "itemGroupId" : "interfaces.interface.partial",
+    "names" : {
+      "de" : "IBAN validation"
+    },
+    "transferType" : "full"
+  }, {
+    "_type" : "bsiscout.ConfigurationTransferItem",
+    "_typeVersion" : "bsiscout-22.0.0",
+    "globalUniqueId" : "InterfaceType/2512c737-a73b-4f78-9ae2-098ac6d291bd",
+    "id" : {
+      "_type" : "bsiscout.IdConfigurationTransferId",
+      "_typeVersion" : "bsiscout-22.0.0",
+      "id" : "interfaces.InterfaceTypeId:2512c737-a73b-4f78-9ae2-098ac6d291bd"
+    },
+    "itemGroupId" : "interfaces.interface-type",
+    "names" : {
+      "de" : "Lambda"
+    },
+    "transferType" : "reference-only"
+  }, {
+    "_type" : "bsiscout.ConfigurationTransferItem",
+    "_typeVersion" : "bsiscout-22.0.0",
+    "globalUniqueId" : "ProcessorType/21c361ec-5dec-4f13-9767-442db1adb3a3",
+    "id" : {
+      "_type" : "bsiscout.IdConfigurationTransferId",
+      "_typeVersion" : "bsiscout-22.0.0",
+      "id" : "interfaces.ProcessorTypeId:21c361ec-5dec-4f13-9767-442db1adb3a3"
+    },
+    "itemGroupId" : "interfaces.processor-type",
+    "names" : {
+      "de" : "Iteration"
+    },
+    "transferType" : "reference-only"
+  }, {
+    "_type" : "bsiscout.ConfigurationTransferItem",
+    "_typeVersion" : "bsiscout-22.0.0",
+    "globalUniqueId" : "ProcessorType/ec06bfe3-faab-4c2c-83bc-8420789d3479",
+    "id" : {
+      "_type" : "bsiscout.IdConfigurationTransferId",
+      "_typeVersion" : "bsiscout-22.0.0",
+      "id" : "interfaces.ProcessorTypeId:ec06bfe3-faab-4c2c-83bc-8420789d3479"
+    },
+    "itemGroupId" : "interfaces.processor-type",
+    "names" : {
+      "de" : "Lambda"
+    },
+    "transferType" : "reference-only"
+  }, {
+    "_type" : "bsiscout.ConfigurationTransferItem",
+    "_typeVersion" : "bsiscout-22.0.0",
+    "globalUniqueId" : "ProcessorType/f069aa44-fb5c-469e-a727-705ca7072fee",
+    "id" : {
+      "_type" : "bsiscout.IdConfigurationTransferId",
+      "_typeVersion" : "bsiscout-22.0.0",
+      "id" : "interfaces.ProcessorTypeId:f069aa44-fb5c-469e-a727-705ca7072fee"
+    },
+    "itemGroupId" : "interfaces.processor-type",
+    "names" : {
+      "de" : "REST Consumer"
+    },
+    "transferType" : "reference-only"
+  }, {
+    "_type" : "bsiscout.ConfigurationTransferItem",
+    "_typeVersion" : "bsiscout-22.0.0",
+    "globalUniqueId" : "ProcessorType/ffd19a7a-7613-40c0-876a-5d9a6eca66b6",
+    "id" : {
+      "_type" : "bsiscout.IdConfigurationTransferId",
+      "_typeVersion" : "bsiscout-22.0.0",
+      "id" : "interfaces.ProcessorTypeId:ffd19a7a-7613-40c0-876a-5d9a6eca66b6"
+    },
+    "itemGroupId" : "interfaces.processor-type",
+    "names" : {
+      "de" : "TypeScript"
+    },
+    "transferType" : "reference-only"
+  }, {
+    "_type" : "bsiscout.ConfigurationTransferItem",
+    "_typeVersion" : "bsiscout-22.0.0",
+    "globalUniqueId" : "User/administrator",
+    "id" : {
+      "_type" : "start.ResponsibleConfigurationTransferId",
+      "_typeVersion" : "start-22.0.0",
+      "responsible" : {
+        "_type" : "start.Responsible",
+        "_typeVersion" : "start-1.3.2",
+        "userId" : "36317f78-6040-4648-936d-e8b66b394c0b"
+      }
+    },
+    "itemGroupId" : "start.responsible",
+    "names" : {
+      "de" : "Administrator"
+    },
+    "transferType" : "reference-only"
+  } ],
+  "productIdentifier" : "interfaces",
+  "productVersion" : "26.1.8",
+  "valueMigrationIds" : [ "454863f5-f931-4527-92ed-fcd1c5bbbc35", "9bded4bf-c647-4458-9969-cbdbb318e442", "cd76ad5f-c20c-4ce0-870c-dc1a09a15c94", "97abafd1-942b-4df0-97b5-ccb042bda038", "9ad5ef84-010e-4384-987c-dadf145c7c8a", "001d276d-b7b6-4e67-a218-29d0a63ab2ab", "ea64e793-b804-411c-85d0-df9a70bf8d91", "381fbdee-7c31-48fa-84d6-13dc2f9954dd" ]
+}

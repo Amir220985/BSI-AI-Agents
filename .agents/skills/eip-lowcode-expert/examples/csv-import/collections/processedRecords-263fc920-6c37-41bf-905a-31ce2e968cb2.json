@@ -1,0 +1,12 @@
+{
+  "_type" : "interfaces.CollectionConfig",
+  "_typeVersion" : "interfaces-24.2.009",
+  "exportData" : false,
+  "grouping" : null,
+  "id" : "263fc920-6c37-41bf-905a-31ce2e968cb2",
+  "identifier" : "processedRecords",
+  "notes" : "This collection holds successfully imported records along with a hash value of all its properties.\nThis allows efficient processing of periodic full loads by processing only those data records whose checksum has changed.",
+  "projectId" : "d4fc2d45-4afe-4890-9de5-06c546299560",
+  "type" : "generic",
+  "typeScriptApi" : "export type Key = number;\nexport type Value = RecordInfo;\n\nexport interface RecordInfo {\n  hash: string;\n  taskKey: string;\n}\n"
+}

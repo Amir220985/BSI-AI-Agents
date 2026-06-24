@@ -1,0 +1,25 @@
+{
+  "_type" : "interfaces.WebapiHeader",
+  "_typeVersion" : "interfaces-24.1.002",
+  "basePath" : "weather",
+  "description" : null,
+  "grouping" : null,
+  "id" : "7a28d2aa-2446-432f-8bce-6d64f0fb01f5",
+  "name" : "Weather",
+  "projectId" : "4ca1cf10-6a17-4389-b979-a41cbfe97167",
+  "responsible" : {
+    "_type" : "start.Responsible",
+    "_typeVersion" : "start-1.3.2",
+    "userId" : "36317f78-6040-4648-936d-e8b66b394c0b"
+  },
+  "scriptIdentifier" : "weather",
+  "specification" : null,
+  "specificationFormat" : null,
+  "typeDefinitions" : null,
+  "_contributions" : [ {
+    "_type" : "interfaces.WebapiHeaderTransferContribution",
+    "_typeVersion" : "interfaces-22.0.0",
+    "endpointIds" : [ "f1f35f8c-6998-4bac-a3b0-6ca3373aae0a" ],
+    "policyIds" : [ ]
+  } ]
+}

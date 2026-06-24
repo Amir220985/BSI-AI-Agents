@@ -1,0 +1,142 @@
+{
+  "_type" : "crm.DataModelDataFieldConfig",
+  "_typeVersion" : "crm-24.2.001",
+  "dataFieldId" : "CrmCustomer/bsiscout.DataModelRelationId:y-weatherScore",
+  "dataFieldKey" : "1;209633;190903;j1000120166",
+  "definition" : {
+    "_type" : "crm.DataModelPersistenceFieldDefinition",
+    "_typeVersion" : "crm-25.1.001",
+    "column" : true,
+    "currencyReferenceItemId" : null,
+    "dateReferenceItemId" : null,
+    "dbIndexed" : false,
+    "defaultValue" : null,
+    "embeddingLambdaBinding" : null,
+    "embeddingLambdaConsumerId" : null,
+    "filter" : null,
+    "list" : false,
+    "lookupConstraints" : [ ],
+    "onlyLeafSelectable" : false,
+    "reverseRelationConfig" : null,
+    "searchData" : null,
+    "searchIndexed" : false,
+    "sql" : "Y_WEATHER_SCORE_UID",
+    "timemachineEnabled" : false,
+    "timemachineMappingUuid" : "b30d421d-2364-4ea9-8064-2ceace250042",
+    "typeId" : "Entity:CrmCode:9ac81c27-0a86-459c-ba62-482fee56739c"
+  },
+  "filterVariantIds" : [ ],
+  "itemConfig" : {
+    "_type" : "crm.DataModelItemConfig",
+    "_typeVersion" : "crm-22.0.17",
+    "categoryId" : null,
+    "descriptions" : {
+      "und" : null
+    },
+    "entityId" : "CrmCustomer",
+    "flags" : [ {
+      "_type" : "crm.DataModelFlagConfig",
+      "_typeVersion" : "crm-22.0.0",
+      "flagId" : "bsiscout.DeprecatedItem",
+      "value" : false
+    }, {
+      "_type" : "crm.DataModelFlagConfig",
+      "_typeVersion" : "crm-22.0.0",
+      "flagId" : "bsiscout.DisabledForConstraintClause",
+      "value" : false
+    }, {
+      "_type" : "crm.DataModelFlagConfig",
+      "_typeVersion" : "crm-22.0.0",
+      "flagId" : "bsiscout.DisabledForSelectClause",
+      "value" : false
+    }, {
+      "_type" : "crm.DataModelFlagConfig",
+      "_typeVersion" : "crm-22.0.0",
+      "flagId" : "bsiscout.LookupActiveFilterEnabled",
+      "value" : false
+    }, {
+      "_type" : "crm.DataModelFlagConfig",
+      "_typeVersion" : "crm-22.0.0",
+      "flagId" : "bsiscout.LookupByTextDisabled",
+      "value" : false
+    }, {
+      "_type" : "crm.DataModelFlagConfig",
+      "_typeVersion" : "crm-22.0.0",
+      "flagId" : "bsiscout.LookupHierarchical",
+      "value" : false
+    }, {
+      "_type" : "crm.DataModelFlagConfig",
+      "_typeVersion" : "crm-22.0.0",
+      "flagId" : "bsiscout.LookupList",
+      "value" : true
+    }, {
+      "_type" : "crm.DataModelFlagConfig",
+      "_typeVersion" : "crm-22.0.0",
+      "flagId" : "bsiscout.LookupSearchRequired",
+      "value" : false
+    }, {
+      "_type" : "crm.DataModelFlagConfig",
+      "_typeVersion" : "crm-22.0.0",
+      "flagId" : "bsiscout.LowLevelItem",
+      "value" : false
+    }, {
+      "_type" : "crm.DataModelFlagConfig",
+      "_typeVersion" : "crm-22.0.0",
+      "flagId" : "bsiscout.Mandatory",
+      "value" : false
+    }, {
+      "_type" : "crm.DataModelFlagConfig",
+      "_typeVersion" : "crm-22.0.0",
+      "flagId" : "bsiscout.ReadOnlyUi",
+      "value" : false
+    }, {
+      "_type" : "crm.DataModelFlagConfig",
+      "_typeVersion" : "crm-22.0.0",
+      "flagId" : "bsiscout.RelationTargetDisabled",
+      "value" : true
+    }, {
+      "_type" : "crm.DataModelFlagConfig",
+      "_typeVersion" : "crm-22.0.0",
+      "flagId" : "bsiscout.TopField",
+      "value" : false
+    }, {
+      "_type" : "crm.DataModelFlagConfig",
+      "_typeVersion" : "crm-22.0.0",
+      "flagId" : "crm.NotSyncable",
+      "value" : false
+    }, {
+      "_type" : "crm.DataModelFlagConfig",
+      "_typeVersion" : "crm-22.0.0",
+      "flagId" : "crm.RemotelyNotAvailable",
+      "value" : false
+    }, {
+      "_type" : "crm.DataModelFlagConfig",
+      "_typeVersion" : "crm-22.0.0",
+      "flagId" : "crm.UniqueValue",
+      "value" : false
+    } ],
+    "names" : {
+      "und" : "Wetter Score",
+      "en" : "Weather Score"
+    },
+    "partitionContainer" : {
+      "_type" : "crm.CodeFilterDefinitionContainer",
+      "_typeVersion" : "crm-22.0.0",
+      "filters" : [ {
+        "_type" : "crm.CodeFilterDefinition",
+        "_typeVersion" : "crm-22.0.0",
+        "visible" : true
+      } ]
+    },
+    "patch" : false,
+    "roleContainer" : {
+      "_type" : "crm.CodeFilterDefinitionContainer",
+      "_typeVersion" : "crm-22.0.0",
+      "filters" : [ {
+        "_type" : "crm.CodeFilterDefinition",
+        "_typeVersion" : "crm-22.0.0",
+        "visible" : true
+      } ]
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "_type" : "crm.CrmCode",
+  "_typeVersion" : "crm-22.0.0",
+  "calcValueBoolean" : false,
+  "calcValueNumber" : null,
+  "calcValueUid" : "1;112192;106064;j1000120161;j103294",
+  "childCodes" : [ ],
+  "codeTypeKey" : "1;112192;144269;j103294",
+  "codeUid" : "1;112192;106064;j1000120163;j103294",
+  "description" : null,
+  "extKey" : null,
+  "iconId" : null,
+  "names" : {
+    "1;112192;106064;j246;j71099" : "Gut",
+    "1;112192;106064;j1303;j71099" : "Good"
+  },
+  "parentUid" : "1;112192;106064;j1000120161;j103294",
+  "partitionContainer" : {
+    "_type" : "crm.CodeFilterDefinitionContainer",
+    "_typeVersion" : "crm-22.0.0",
+    "filters" : [ {
+      "_type" : "crm.CodeFilterDefinition",
+      "_typeVersion" : "crm-22.0.0",
+      "active" : true,
+      "visible" : true
+    } ]
+  },
+  "protectedCode" : false,
+  "roleContainer" : {
+    "_type" : "crm.CodeFilterDefinitionContainer",
+    "_typeVersion" : "crm-22.0.0",
+    "filters" : [ {
+      "_type" : "crm.CodeFilterDefinition",
+      "_typeVersion" : "crm-22.0.0",
+      "active" : true,
+      "visible" : true
+    } ]
+  },
+  "scriptIdentifier" : "AttributeUserDefinedCodes.WeatherScoreGood",
+  "shortcut" : null,
+  "sortcode" : 20
+}

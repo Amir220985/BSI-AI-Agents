@@ -1,0 +1,12 @@
+{
+  "_type" : "interfaces.CollectionConfig",
+  "_typeVersion" : "interfaces-24.2.009",
+  "exportData" : true,
+  "grouping" : null,
+  "id" : "c105aee0-f7ef-4715-906e-a3200c1d6aa3",
+  "identifier" : "mappings",
+  "notes" : "This collection demonstrates how external values are mapped.\n\nNote the ticked checkbox, which causes not only the definition but also the values to be transferred during config export.",
+  "projectId" : "d4fc2d45-4afe-4890-9de5-06c546299560",
+  "type" : "generic",
+  "typeScriptApi" : "export type Key = string;\nexport type Value = 'high' | 'normal';\n"
+}

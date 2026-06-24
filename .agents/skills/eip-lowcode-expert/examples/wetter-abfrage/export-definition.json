@@ -1,0 +1,11 @@
+{
+  "_type" : "bsiscout.ConfigurationExportDefinition",
+  "_typeVersion" : "bsiscout-22.0.33",
+  "exportFilename" : "bsi-eip-wetter-2026-06-23.zip",
+  "productId" : "interfaces",
+  "rootTransferIds" : [ {
+    "_type" : "bsiscout.IdConfigurationTransferId",
+    "_typeVersion" : "bsiscout-22.0.0",
+    "id" : "interfaces.InterfaceConfigId:94f3bc07-8cfa-4c7b-8cf0-d369afcbb544"
+  } ]
+}

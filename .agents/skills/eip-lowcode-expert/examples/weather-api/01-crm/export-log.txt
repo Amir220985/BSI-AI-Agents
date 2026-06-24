@@ -1,0 +1,30 @@
+Exportdatei: weather-api_bsi-2026-06-23_16-03-21.zip
+Exportdatum: 23.06.2026, 16:04
+Benutzer: andrea.adams
+Produkt: CRM
+Produktversion: 26.1.8
+========================================
+
+Attribute
+----------------------------------------
+Wetter Score | DomainKeyConfigurationTransferIdDo {"_type":"crm.DomainKeyConfigurationTransferId","_typeVersion":"crm-22.0.0","domainKey":"1;209633;190903;j1000120166"} | Export erfolgreich
+
+Eigene Wertelisten
+----------------------------------------
+Erträglich | UidConfigurationTransferIdDo {"_type":"crm.UidConfigurationTransferId","_typeVersion":"crm-22.0.0","uid":"1;112192;106064;j1000120164;j103294"} | Export erfolgreich
+Fantastisch | UidConfigurationTransferIdDo {"_type":"crm.UidConfigurationTransferId","_typeVersion":"crm-22.0.0","uid":"1;112192;106064;j1000120162;j103294"} | Export erfolgreich
+Gut | UidConfigurationTransferIdDo {"_type":"crm.UidConfigurationTransferId","_typeVersion":"crm-22.0.0","uid":"1;112192;106064;j1000120163;j103294"} | Export erfolgreich
+Schlecht | UidConfigurationTransferIdDo {"_type":"crm.UidConfigurationTransferId","_typeVersion":"crm-22.0.0","uid":"1;112192;106064;j1000120165;j103294"} | Export erfolgreich
+Wetter Score | UidConfigurationTransferIdDo {"_type":"crm.UidConfigurationTransferId","_typeVersion":"crm-22.0.0","uid":"1;112192;106064;j1000120161;j103294"} | Export erfolgreich
+
+Wertelisten - Sonstige - Sprachen
+----------------------------------------
+Deutsch | UidConfigurationTransferIdDo {"_type":"crm.UidConfigurationTransferId","_typeVersion":"crm-22.0.0","uid":"1;112192;106064;j246;j71099"} | Export erfolgreich
+Englisch | UidConfigurationTransferIdDo {"_type":"crm.UidConfigurationTransferId","_typeVersion":"crm-22.0.0","uid":"1;112192;106064;j1303;j71099"} | Export erfolgreich
+Französisch | UidConfigurationTransferIdDo {"_type":"crm.UidConfigurationTransferId","_typeVersion":"crm-22.0.0","uid":"1;112192;106064;j7770;j71099"} | Export erfolgreich
+Italienisch | UidConfigurationTransferIdDo {"_type":"crm.UidConfigurationTransferId","_typeVersion":"crm-22.0.0","uid":"1;112192;106064;j7771;j71099"} | Export erfolgreich
+
+Wertelisten
+----------------------------------------
+Eigene Wertelisten | DomainKeyConfigurationTransferIdDo {"_type":"crm.DomainKeyConfigurationTransferId","_typeVersion":"crm-22.0.0","domainKey":"1;112192;144269;j103294"} | Nur Referenz
+Sprachen | DomainKeyConfigurationTransferIdDo {"_type":"crm.DomainKeyConfigurationTransferId","_typeVersion":"crm-22.0.0","domainKey":"1;112192;144269;j71099"} | Nur Referenz

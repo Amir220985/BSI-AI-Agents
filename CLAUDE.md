@@ -20,6 +20,7 @@ Wenn der Nutzer eine Aufgabe stellt, die zu einem dieser Spezialgebiete passt, l
 - **Low-Code & Schnittstellen:** Nutze die Anweisungen aus `.agents/skills/eip-lowcode-expert/SKILL.md`
 - **Business-Prozesse (BSI CRM):** Nutze die Anweisungen aus `.agents/skills/process-expert/SKILL.md`
 - **Customer Stories / Marketing Automation (BSI CX):** Nutze die Anweisungen aus `.agents/skills/cx-expert/SKILL.md`
+- **BSI CX Master Template Web (Kundendesign):** Nutze die Anweisungen aus `.agents/skills/cx-design/SKILL.md`
 - **ZIP-Export-Erstellung:** Nutze die Anweisungen aus `.agents/skills/export-expert/SKILL.md`
 - **Live-Bedienung der Customer Suite (Chrome-Session):** Nutze die Anweisungen aus `.agents/skills/bsi-coworker/SKILL.md`
 

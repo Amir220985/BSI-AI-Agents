@@ -8,6 +8,7 @@ KI-gestützte Entwicklungsumgebung für die **BSI CustomerSuite**. Dieses Reposi
 
 ```
 .agents/skills/          # Spezialisierte Agent-Skills
+  cx-design/             # BSI CX Master Template Web: Kundendesign einrichten & anpassen
   cx-expert/             # BSI CX (studio): Customer Stories & Marketing Automation
   eip-lowcode-expert/    # EIP-Schnittstellen & Low-Code (TypeScript)
   export-expert/         # BSI ZIP-Export-Erstellung & Validierung
@@ -114,6 +115,26 @@ Stellt sicher, dass generierte Konfigurationen als valide BSI-Import-ZIPs verpac
 |---|---|---|
 | CRM-Prozess | `crm` | `productIdentifier`, `productVersion`, `valueMigrationIds` |
 | EIP-Interface | `interfaces` | — |
+
+---
+
+### 5. CX Design Expert — BSI CX Master Template einrichten
+
+**Skill:** `.agents/skills/cx-design/`
+
+Richtet neue BSI CX Master Template Web-Projekte ein und passt sie vollständig an das Kundendesign an.
+
+**Was der Agent kann:**
+- GitHub-Release herunterladen, entpacken und `npm install` ausführen
+- Schriften (Google Fonts / lokal), Logo und Favicon einbinden
+- Kundenfarben analysieren und in `variables.scss` + `properties.js` eintragen
+- Bootstrap-Overrides und SCSS-Token-Struktur aufbauen
+- Footer als ContentElement erstellen und in `design.js` registrieren
+- Navigation in `navigation.scss` vollständig implementieren
+- Bestehende BSI-Content-Elemente ans Kundendesign anpassen (SCSS, StyleConfigs)
+- Neue ContentElements, Includes und PageIncludes anlegen
+
+**Einstiegspunkt:** `/cx-setup` — orchestriert alle weiteren Sub-Skills (`cx-brand`, `cx-fonts`, `cx-colors`, `cx-layout`, `cx-elements-customize`, `cx-element-create`)
 
 ---
 

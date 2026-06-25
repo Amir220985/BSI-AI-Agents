@@ -15,6 +15,7 @@ Wissensbasis aus der Analyse von 10 BSI-CustomerSuite-Exporten (2026-06-24).
 | [process_generation_template.md](process_generation_template.md) | Template für neue Prozesse |
 | [process_review_checklist.md](process_review_checklist.md) | Review-Checkliste |
 | [audit_ap5_schnittstellen_fehlerpfade.md](audit_ap5_schnittstellen_fehlerpfade.md) | AP5-Audit: Fehlerpfad-Prüfung aller 45 Schnittstellen-/Lambda-Steps |
+| [admin_ui_konfiguration.md](admin_ui_konfiguration.md) | Admin-UI-Wissen: Prozess- & Dokumentvorlagen-Konfiguration via Browser, Chrome-MCP-Gotchas |
 
 ## Werkzeuge
 - [../tools/lint_process.py](../tools/lint_process.py) — statischer Prozess-Linter, der einen Export gegen die Design-Rules prüft (ERROR/WARN/INFO, `--json`, CI-tauglicher Exit-Code). Siehe [../tools/README.md](../tools/README.md).

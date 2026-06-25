@@ -1,0 +1,520 @@
+{
+  "_meta": {
+    "description": "BSI CRM (CustomerSuite) Process-Step-Registry, abgeleitet aus 19 Prozessen der Exporte 2026-06-23/24.",
+    "source": "examples/ (bsi-2026-06-23_*.zip, bsi-crm-2026-06-24_*.zip)",
+    "idField": "processSteps[].typeId",
+    "version": "1.0.0",
+    "note": "stepConfigurationType und Templates sind aus echten Exporten extrahiert. Fachliche Bedeutungen sind abgeleitet, nicht aus offiziellem BSI-Katalog.",
+    "enrichedSteps": ["201503", "201504", "209153", "138297", "168901", "133850", "209754", "117298", "150292", "10049", "120386", "176353", "10048"]
+  },
+  "categories": [
+    "Struktur",
+    "Logik",
+    "UI/Manuell",
+    "Korrespondenz",
+    "Integration",
+    "Orchestrierung",
+    "Automatik",
+    "Zuweisung",
+    "Abschluss"
+  ],
+  "steps": {
+    "201503": {
+      "shortName": "Start",
+      "category": "Struktur",
+      "displayNames": ["Start"],
+      "occurrences": 19,
+      "stepConfigurationType": null,
+      "stepConfigurationTemplate": null,
+      "requiredBindings": [],
+      "outletDescriptors": [
+        { "name": "A", "description": "Einziger Ausgang; führt zum ersten fachlichen Step" }
+      ],
+      "indexRequirements": [],
+      "notes": "Automatisch vorhanden, wenn ein neuer Prozess angelegt wird. Nicht löschen. Kein stepConfiguration-Objekt nötig."
+    },
+    "201504": {
+      "shortName": "Ende",
+      "category": "Struktur",
+      "displayNames": ["Ende"],
+      "occurrences": 19,
+      "stepConfigurationType": null,
+      "stepConfigurationTemplate": null,
+      "requiredBindings": [],
+      "outletDescriptors": [],
+      "indexRequirements": [],
+      "notes": "Automatisch vorhanden. Kein Outlet, kein stepConfiguration. Wird mit targetProcessStepId von anderen Steps referenziert."
+    },
+    "209153": {
+      "shortName": "Kriterien",
+      "category": "Logik",
+      "displayNames": ["Lambda erfolgreich?", "Ist ein Themengebiet zugewiesen?", "Hauptbetreuer?", "Entscheidung", "Kriterien"],
+      "occurrences": 145,
+      "stepConfigurationType": "crm.ProcessDecideByOutletCriteriaConfiguration",
+      "stepConfigurationTemplate": {
+        "_type": "crm.ProcessDecideByOutletCriteriaConfiguration",
+        "_typeVersion": "crm-23.2.001",
+        "processStepOutletCriteria": [
+          {
+            "_type": "crm.ProcessStepOutletCriteria",
+            "_typeVersion": "crm-25.1.001",
+            "criteria": {
+              "_type": "bsiscout.DataModelAttributeConstraint",
+              "_typeVersion": "bsiscout-9.0.0.039",
+              "attribute": "<ATTRIBUT_KEY>",
+              "containerEntityId": "CrmCase",
+              "fieldType": "Boolean",
+              "namespaceVersions": [
+                "bsiscout-25.1.0", "crm-25.2.2", "crocus-1.0.0", "cstudio-22.0.0", "oroya-1.0.0"
+              ],
+              "negated": false,
+              "op": "true",
+              "operands": []
+            },
+            "outletId": "<OUTLET_ID>"
+          }
+        ]
+      },
+      "requiredBindings": [],
+      "outletDescriptors": [
+        { "name": "A", "description": "Positiver Zweig (Bedingung erfüllt)" },
+        { "name": "B", "description": "Negativer Zweig (Bedingung nicht erfüllt / Fehler)" }
+      ],
+      "indexRequirements": [],
+      "constraintPattern": {
+        "description": "DataModelAttributeConstraint für Boolean-Felder. Für Lambda-Ergebnis: attribute='y-error' + negated=true für Erfolg-Zweig.",
+        "knownAttributes": {
+          "y-error": "Lambda-Fehlerindikator (Boolean) auf CrmCase",
+          "isMainAdvisor": "Hauptbetreuer-Flag auf CrmCustomer"
+        }
+      },
+      "notes": "Häufigster Step (145×). Outlets tragen sprechende Labels (nicht nur A/B). Jeder Lambda-Step (209754) muss direkt durch diesen Step gefolgt werden. Outlet B = Fehlerbehandlung — niemals offen lassen."
+    },
+    "138297": {
+      "shortName": "Kachel",
+      "category": "UI/Logik",
+      "displayNames": ["Kachelschritt", "Auf Kundenrückmeldung warten", "Automatische Zuweisung restlicher Dokumente", "Techn. Fehler Lambda"],
+      "occurrences": 79,
+      "stepConfigurationType": "crm.ButtonTileStepConfiguration",
+      "stepConfigurationTemplate": {
+        "_type": "crm.ButtonTileStepConfiguration",
+        "_typeVersion": "crm-22.0.0",
+        "tileConfigurations": []
+      },
+      "requiredBindings": [],
+      "outletDescriptors": [
+        { "name": "A", "description": "Standard-Weiter-Outlet" }
+      ],
+      "indexRequirements": [],
+      "notes": "Zeigt dem Agenten Kachel-Buttons (Tile-UI) oder fungiert als technischer Routing-Step. tileConfigurations bleibt meist leer wenn kein UI nötig. Wird auch als Sammel-/Default-Zweig nach Entscheidungen eingesetzt."
+    },
+    "168901": {
+      "shortName": "Korrespondenz",
+      "category": "Korrespondenz",
+      "displayNames": ["E-Mail senden", "Abschlussschreiben verfassen", "Empfangsbestätigung verfassen", "Korrespondenz erstellen"],
+      "occurrences": 77,
+      "stepConfigurationType": "crm.DocTemplateCorrespondenceStepConfiguration",
+      "stepConfigurationTemplate": {
+        "_type": "crm.DocTemplateCorrespondenceStepConfiguration",
+        "_typeVersion": "crm-25.2.007",
+        "additionalNextStep": {
+          "_type": "crm.NextProcessStep",
+          "_typeVersion": "crm-22.0.0",
+          "defaultNextStepUid": null,
+          "visibleNextStepUids": []
+        },
+        "answerLambdaBindingHolder": {
+          "_type": "crm.ProcessStepLambdaBindingHolder",
+          "_typeVersion": "crm-25.2.007",
+          "_contributions": [
+            {
+              "_type": "crm.ProcessStepLambdaBindingHolderContribution",
+              "_typeVersion": "crm-25.2.007",
+              "lambdaBindingDo": null
+            }
+          ]
+        },
+        "companionActive": false,
+        "companionInputAttributeUids": [],
+        "companionInstantGenerateResponse": false,
+        "companionTileConfigurations": [],
+        "defaultEmailRecipients": [],
+        "followUpTimeInSeconds": 86400,
+        "followUpTimeUnitUid": "1;112192;106064;j71410;j71414",
+        "forwardToAdvisorUid": null,
+        "forwardToTeamRoleUid": null,
+        "forwardToTeamUid": null,
+        "forwardToTypeUid": null,
+        "forwardToUserKey": null,
+        "nextStep": {
+          "_type": "crm.NextProcessStep",
+          "_typeVersion": "crm-22.0.0",
+          "defaultNextStepUid": null,
+          "visibleNextStepUids": []
+        }
+      },
+      "requiredBindings": [
+        {
+          "inputParameterId": "08455962-19a5-4075-bb7b-5666a6856874",
+          "description": "Empfänger (CrmCustomer-ID) — aus Prozess-Input oder CrmCase-Relation",
+          "selectionType": "DataModelRelationSelection",
+          "exampleJson": {
+            "_type": "crm.ProcessStepDefinitionBinding",
+            "_typeVersion": "crm-25.2.001",
+            "inputParameterId": "08455962-19a5-4075-bb7b-5666a6856874",
+            "parameterSources": [
+              {
+                "_type": "crm.ProcessStepParameterSource",
+                "_typeVersion": "crm-25.2.001",
+                "selection": {
+                  "_type": "bsiscout.DataModelRelationSelection",
+                  "_typeVersion": "bsiscout-24.2.001",
+                  "containerEntityId": "CrmCase",
+                  "namespaceVersions": ["bsiscout-25.1.0", "crm-25.2.2", "crocus-1.0.0", "cstudio-22.0.0", "oroya-1.0.0"],
+                  "relation": "processInput-128213",
+                  "selections": [{ "_type": "bsiscout.DataModelAttributeSelection", "_typeVersion": "bsiscout-8.0.0.040", "attribute": "id", "fieldType": "Key:Entity:CrmCustomer" }],
+                  "targetType": "Entity:CrmCustomer"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "inputParameterId": "1b214b97-f5f0-40ed-addb-83326ac6fece",
+          "description": "Dokumentvorlage-Code (CrmCode-Key für die gewünschte Vorlage)",
+          "selectionType": "DataModelLiteralSelection",
+          "exampleJson": {
+            "_type": "crm.ProcessStepDefinitionBinding",
+            "_typeVersion": "crm-25.2.001",
+            "inputParameterId": "1b214b97-f5f0-40ed-addb-83326ac6fece",
+            "parameterSources": [
+              {
+                "_type": "crm.ProcessStepParameterSource",
+                "_typeVersion": "crm-25.2.001",
+                "selection": {
+                  "_type": "bsiscout.DataModelLiteralSelection",
+                  "_typeVersion": "bsiscout-8.0.0.034",
+                  "containerEntityId": "Root",
+                  "namespaceVersions": ["bsiscout-25.1.0", "crm-25.2.2", "crocus-1.0.0", "cstudio-22.0.0", "oroya-1.0.0"],
+                  "value": { "_type": "bsiscout.DataModelValue", "_typeVersion": "bsiscout-8.0.0.040", "type": "Key:Entity:CrmCode:169205", "value": "<DOKUMENTVORLAGE_UID>" }
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "outletDescriptors": [
+        { "name": "A", "description": "Weiter nach Korrespondenz-Erstellung / Versand" }
+      ],
+      "indexRequirements": [
+        "Dokumentvorlage-Code muss im selben Export als CrmCode-Item vorhanden sein (referencedItems)"
+      ],
+      "notes": "Hat 7 Bindings im typischen Beispiel: Empfänger, Vorlage, Adressnutzung, Betreff-Override, CC, BCC, Sprache. Minimalkonfiguration: inputParameterId für Empfänger + Vorlage. followUpTimeInSeconds steuert Wiedervorlage. Für automatischen Hintergrundversand stattdessen typeId 216266 verwenden."
+    },
+    "168173": {
+      "shortName": "FreeStep",
+      "category": "UI/Manuell",
+      "displayNames": ["Abbruch-Info", "Änderungen prüfen", "Dokumenttyp zuweisen", "Hinweis: …"],
+      "occurrences": 39,
+      "stepConfigurationType": "crm.FreeStepConfiguration",
+      "stepConfigurationTemplate": {
+        "_type": "crm.FreeStepConfiguration",
+        "_typeVersion": "crm-22.0.0",
+        "buttonTileConfig": {
+          "_type": "crm.ButtonTileStepConfiguration",
+          "_typeVersion": "crm-22.0.0",
+          "tileConfigurations": []
+        },
+        "freeStepElementConfig": {
+          "_type": "crm.FreeStepElementConfiguration",
+          "_typeVersion": "crm-22.0.0",
+          "elements": []
+        }
+      },
+      "requiredBindings": [],
+      "outletDescriptors": [
+        { "name": "A", "description": "Standard-Weiter-Outlet" }
+      ],
+      "indexRequirements": [],
+      "notes": "Generischer manueller Schritt ohne Entitäts-Bearbeitung. freeStepElementConfig.elements enthält UIDs von anzuzeigenden CRM-Elementen (z.B. Formulare, Widgets). Kann auch als reiner Info-/Hinweis-Step ohne Elemente eingesetzt werden."
+    },
+    "209754": {
+      "shortName": "Lambda",
+      "category": "Integration",
+      "displayNames": ["Lambda … aufrufen", "Lambda für Einzelzuweisung aufrufen", "Start Agent"],
+      "occurrences": 40,
+      "stepConfigurationType": "crm.InvokeLambdaStepConfiguration",
+      "stepConfigurationTemplate": {
+        "_type": "crm.InvokeLambdaStepConfiguration",
+        "_typeVersion": "crm-25.2.007",
+        "lambdaBindingHolder": {
+          "_type": "crm.ProcessStepLambdaBindingHolder",
+          "_typeVersion": "crm-25.2.007",
+          "lambdaBindingKey": "<LAMBDA_BINDING_KEY>",
+          "_contributions": [
+            {
+              "_type": "crm.ProcessStepLambdaBindingHolderContribution",
+              "_typeVersion": "crm-25.2.007",
+              "lambdaBindingDo": {
+                "_type": "bsiscout.LambdaBinding",
+                "_typeVersion": "bsiscout-23.2.001",
+                "inputs": [],
+                "name": null,
+                "outputs": []
+              }
+            }
+          ]
+        }
+      },
+      "requiredBindings": [],
+      "outletDescriptors": [
+        { "name": "A", "description": "Lambda erfolgreich" },
+        { "name": "B", "description": "Lambda fehlerhaft — MUSS mit Fehler-Kriterien-Step 209153 verbunden sein" }
+      ],
+      "indexRequirements": [
+        "Lambda-Definition muss im Export (oder separatem EIP-Export) referenziert sein"
+      ],
+      "notes": "PFLICHT: Direkt nach diesem Step IMMER einen Kriterien-Step (209153) 'Lambda erfolgreich?' einfügen. Outlet B = Fehlerbehandlung — niemals offen lassen (Design-Regel R5). lambdaBindingKey referenziert die Lambda-Definition aus dem EIP-Export."
+    },
+    "216266": {
+      "shortName": "HintergrundKorrespondenz",
+      "category": "Korrespondenz",
+      "displayNames": ["Bestätigung im Hintergrund versenden", "Korrespondenz im Hintergrund erstellen"],
+      "occurrences": 4,
+      "stepConfigurationType": null,
+      "stepConfigurationTemplate": null,
+      "requiredBindings": [],
+      "outletDescriptors": [
+        { "name": "A", "description": "Weiter (Versand läuft asynchron im Hintergrund)" }
+      ],
+      "indexRequirements": [],
+      "notes": "Automatischer Versand ohne Agenten-Interaktion. Für interaktive Korrespondenz stattdessen typeId 168901 verwenden."
+    },
+    "133850": {
+      "shortName": "AttributeSetzen",
+      "category": "Automatik",
+      "displayNames": ["Prozess-Attribute setzen", "Vorher-Stand speichern", "Zwischenspeichern", "Error"],
+      "occurrences": 22,
+      "stepConfigurationType": "crm.SetProcessAttributesStepConfiguration",
+      "stepConfigurationTemplate": {
+        "_type": "crm.SetProcessAttributesStepConfiguration",
+        "_typeVersion": "crm-25.1.001",
+        "attributeValueContainers": [
+          {
+            "_type": "crm.ProcessAttributeValueContainer",
+            "_typeVersion": "crm-25.1.001",
+            "attributeConstraint": null,
+            "attributeSelection": {
+              "_type": "bsiscout.DataModelLiteralSelection",
+              "_typeVersion": "bsiscout-8.0.0.034",
+              "containerEntityId": "Root",
+              "namespaceVersions": ["bsiscout-25.1.0", "crm-25.2.2", "crocus-1.0.0", "cstudio-22.0.0", "oroya-1.0.0"],
+              "value": {
+                "_type": "bsiscout.DataModelValue",
+                "_typeVersion": "bsiscout-8.0.0.040",
+                "type": "Boolean",
+                "value": true
+              }
+            },
+            "attributeUid": "<PROZESS_ATTRIBUT_UID>"
+          }
+        ]
+      },
+      "requiredBindings": [],
+      "outletDescriptors": [
+        { "name": "A", "description": "Weiter nach Attribut-Setzen" }
+      ],
+      "indexRequirements": [],
+      "notes": "Vollautomatischer Step ohne UI. Typischer Einsatz: Vorher-Stand für 4-Augen/Rollback speichern (Design-Regel R7, R15). attributeUid muss auf ein im Prozess definiertes Attribut zeigen."
+    },
+    "117298": {
+      "shortName": "SubprozessStarten",
+      "category": "Orchestrierung",
+      "displayNames": ["Themengebiet-Zuweisung starten", "KYC Prozess starten", "Dokumentklassifizierung starten", "Abklärung zu Beschwerde"],
+      "occurrences": 29,
+      "stepConfigurationType": "crm.CreateCaseStepConfiguration",
+      "stepConfigurationTemplate": {
+        "_type": "crm.CreateCaseStepConfiguration",
+        "_typeVersion": "crm-22.0.0",
+        "background": false,
+        "bindings": {}
+      },
+      "requiredBindings": [],
+      "outletDescriptors": [
+        { "name": "A", "description": "Subprozess wurde gestartet; Weiter im Hauptprozess" }
+      ],
+      "indexRequirements": [
+        "Ziel-Prozess muss im selben oder einem referenzierten Export enthalten sein"
+      ],
+      "notes": "Startet einen neuen Geschäftsvorfall/Subprozess (Fork). background=false = Nutzer sieht den neuen Case sofort. Oft gefolgt von typeId 150292 (abwarten), um den Hauptprozess zu pausieren bis der Subprozess fertig ist (Design-Regel R18)."
+    },
+    "150292": {
+      "shortName": "Abwarten",
+      "category": "Orchestrierung",
+      "displayNames": ["Gestartete Geschäftsvorfälle abwarten", "KYC Prozess abwarten", "Auf Abklärung warten"],
+      "occurrences": 29,
+      "stepConfigurationType": "crm.JoinCasesStepConfiguration",
+      "stepConfigurationTemplate": {
+        "_type": "crm.JoinCasesStepConfiguration",
+        "_typeVersion": "crm-25.2.015",
+        "allStepsRelevant": true,
+        "allowStepCompletionUid": null,
+        "clearFollowUpOnEventUid": null,
+        "relevantStepIds": []
+      },
+      "requiredBindings": [],
+      "outletDescriptors": [
+        { "name": "A", "description": "Weiter sobald alle abgewarteten Subprozesse abgeschlossen sind" }
+      ],
+      "indexRequirements": [],
+      "notes": "Join/Wait-Step: pausiert Hauptprozess bis referenzierte Cases abgeschlossen. allStepsRelevant=true = alle gestarteten Subprozesse müssen fertig sein. PFLICHT: SLA/Eskalation oder Timeout setzen (Design-Regel R18) um Deadlocks zu vermeiden."
+    },
+    "10049": {
+      "shortName": "Abschluss",
+      "category": "Abschluss",
+      "displayNames": ["Geschäftsvorfall abschließen", "Kundenservice", "Wiedervorlage", "Absagegrund festhalten"],
+      "occurrences": 9,
+      "stepConfigurationType": "crm.CustomerServiceStepConfiguration",
+      "stepConfigurationTemplate": {
+        "_type": "crm.CustomerServiceStepConfiguration",
+        "_typeVersion": "crm-22.0.0",
+        "nextStep": {
+          "_type": "crm.NextProcessStep",
+          "_typeVersion": "crm-22.0.0",
+          "defaultNextStepUid": null,
+          "visibleNextStepUids": []
+        }
+      },
+      "requiredBindings": [],
+      "outletDescriptors": [
+        { "name": "A", "description": "Standard-Abschluss" },
+        { "name": "B", "description": "Alternativer Abschluss / Wiedervorlage" }
+      ],
+      "indexRequirements": [],
+      "notes": "Letzter fachlicher Step vor dem Ende-Step (201504). JEDER Prozess braucht mindestens einen Step dieses Typs (Design-Regel R1). visibleNextStepUids steuert, welche Wiedervorlage-Optionen dem Agenten angezeigt werden."
+    },
+    "120386": {
+      "shortName": "ManuelleZuweisung",
+      "category": "Zuweisung",
+      "displayNames": ["Geschäftsvorfall manuell zuweisen"],
+      "occurrences": 9,
+      "stepConfigurationType": "crm.AssignCaseManuallyStepConfiguration",
+      "stepConfigurationTemplate": {
+        "_type": "crm.AssignCaseManuallyStepConfiguration",
+        "_typeVersion": "crm-23.2.001"
+      },
+      "requiredBindings": [],
+      "outletDescriptors": [
+        { "name": "A", "description": "Weiter nach Zuweisung" }
+      ],
+      "indexRequirements": [],
+      "notes": "Lässt den Agenten einen Case manuell einem Team oder Bearbeiter zuweisen. Für automatische Zuweisung typeId 108606 verwenden."
+    },
+    "108606": {
+      "shortName": "AutomatischeZuweisung",
+      "category": "Zuweisung",
+      "displayNames": ["Geschäftsvorfall automatisch zuweisen", "Geschäftsvorfall an Erfasser zuweisen"],
+      "occurrences": 3,
+      "stepConfigurationType": null,
+      "stepConfigurationTemplate": null,
+      "requiredBindings": [],
+      "outletDescriptors": [
+        { "name": "A", "description": "Weiter nach automatischer Zuweisung" }
+      ],
+      "indexRequirements": [],
+      "notes": "Vollautomatischer Zuweisungsschritt. Für manuelle Zuweisung typeId 120386 verwenden."
+    },
+    "176353": {
+      "shortName": "AdressenAendern",
+      "category": "UI/Manuell",
+      "displayNames": ["Adress- und Kontaktdaten ändern", "Adressen ändern"],
+      "occurrences": 1,
+      "stepConfigurationType": null,
+      "stepConfigurationTemplate": null,
+      "requiredBindings": [
+        {
+          "inputParameterId": "<CUSTOMER_BINDING>",
+          "description": "Zu bearbeitender Kunde (CrmCustomer-Referenz)",
+          "selectionType": "DataModelRelationSelection"
+        }
+      ],
+      "outletDescriptors": [
+        { "name": "A", "description": "Weiter nach Adressänderung" }
+      ],
+      "indexRequirements": [],
+      "notes": "Spezialisierter Edit-Step für Adress-/Kontaktdaten. Benötigt 1 Binding auf den Kunden. stepConfiguration war in Beispielen null."
+    },
+    "10048": {
+      "shortName": "Informationen",
+      "category": "UI/Manuell",
+      "displayNames": ["Bitte Beschwerdeführer auswählen", "Info an Hauptbetreuer: Deaktivierung Kunden"],
+      "occurrences": 1,
+      "stepConfigurationType": null,
+      "stepConfigurationTemplate": null,
+      "requiredBindings": [],
+      "outletDescriptors": [
+        { "name": "A", "description": "Standard" },
+        { "name": "B", "description": "Alternativ-Zweig" },
+        { "name": "C", "description": "Weiterer Zweig" }
+      ],
+      "indexRequirements": [],
+      "notes": "Reiner Informations-/Auswahl-Step. stepConfiguration war in Beispielen null. Kann mehrere Outlets haben."
+    },
+    "10005": {
+      "shortName": "EntitaetBearbeiten",
+      "category": "UI/Manuell",
+      "displayNames": ["Kunde bearbeiten", "Ansprechpartner bearbeiten", "Beziehungen bearbeiten"],
+      "occurrences": 10,
+      "stepConfigurationType": null,
+      "stepConfigurationTemplate": null,
+      "requiredBindings": [],
+      "outletDescriptors": [
+        { "name": "A", "description": "Weiter nach Bearbeitung" }
+      ],
+      "indexRequirements": [],
+      "notes": "Edit-Maske für eine CRM-Entität (Kunde, Ansprechpartner, etc.)."
+    },
+    "10006": {
+      "shortName": "EntitaetAnlegen",
+      "category": "UI/Manuell",
+      "displayNames": ["Kunde erstellen", "Ansprechpartner anlegen"],
+      "occurrences": 2,
+      "stepConfigurationType": null,
+      "stepConfigurationTemplate": null,
+      "requiredBindings": [],
+      "outletDescriptors": [
+        { "name": "A", "description": "Weiter nach Anlage" }
+      ],
+      "indexRequirements": [],
+      "notes": "Anlegen einer neuen CRM-Entität."
+    },
+    "112440": {
+      "shortName": "KundeSuchen",
+      "category": "UI/Manuell",
+      "displayNames": ["Kunde suchen"],
+      "occurrences": 6,
+      "stepConfigurationType": null,
+      "stepConfigurationTemplate": null,
+      "requiredBindings": [],
+      "outletDescriptors": [
+        { "name": "A", "description": "Weiter nach Kundenidentifikation" }
+      ],
+      "indexRequirements": [],
+      "notes": "Spezialisierter Such-Step für Kunden. Ähnlich wie 10004, aber auf Kunden-Suche spezialisiert. Im Admin-UI in der Palette unter Kategorie 'Kunde' zu finden."
+    },
+    "217005": {
+      "shortName": "SucheAuswahl",
+      "category": "UI/Manuell",
+      "displayNames": ["Dokument suchen", "Einen Vertrag auswählen", "Beschwerdeführer Daten betrachten"],
+      "occurrences": 13,
+      "stepConfigurationType": null,
+      "stepConfigurationTemplate": null,
+      "requiredBindings": [],
+      "outletDescriptors": [
+        { "name": "A", "description": "Weiter nach Auswahl" }
+      ],
+      "indexRequirements": [],
+      "notes": "Generischer Such-/Auswahl-Step für beliebige Entitäten."
+    }
+  }
+}

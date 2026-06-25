@@ -17,6 +17,9 @@ Wissensbasis aus der Analyse von 10 BSI-CustomerSuite-Exporten (2026-06-24).
 | [audit_ap5_schnittstellen_fehlerpfade.md](audit_ap5_schnittstellen_fehlerpfade.md) | AP5-Audit: Fehlerpfad-Prüfung aller 45 Schnittstellen-/Lambda-Steps |
 | [admin_ui_konfiguration.md](admin_ui_konfiguration.md) | Admin-UI-Wissen: Prozess- & Dokumentvorlagen-Konfiguration via Browser, Chrome-MCP-Gotchas |
 
+## Registry
+- [../registry/process_step_registry.json](../registry/process_step_registry.json) — maschinenlesbare Step-Typ-Registry v1.0.0 (19 typeIds, Templates, Bindings, Outlet-Deskriptoren)
+
 ## Werkzeuge
 - [../tools/lint_process.py](../tools/lint_process.py) — statischer Prozess-Linter, der einen Export gegen die Design-Rules prüft (ERROR/WARN/INFO, `--json`, CI-tauglicher Exit-Code). Siehe [../tools/README.md](../tools/README.md).
 

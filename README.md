@@ -117,7 +117,48 @@ Stellt sicher, dass generierte Konfigurationen als valide BSI-Import-ZIPs verpac
 
 ---
 
-### 4. BSI CoWorker — Live-Bedienung der Customer Suite
+<<<<<<< README.md
+## Einrichtung
+
+### 1. Repository auschecken
+
+```bash
+git clone <repo-url>
+cd bsi-core-ai-system
+```
+
+### 2. API-Key hinterlegen
+
+Lege eine `.env`-Datei im Projektverzeichnis an (wird nicht eingecheckt):
+
+```bash
+echo 'BSI_MCP_API_KEY=dein-api-key' > .env
+```
+
+Den API-Key erhältst du vom Projektverantwortlichen.
+
+### 3. Setup-Skript ausführen
+
+**macOS / Linux:**
+```bash
+./setup.sh
+source ~/.zshrc
+```
+
+**Windows (PowerShell):**
+```powershell
+powershell -ExecutionPolicy Bypass -File setup.ps1
+```
+
+Das Skript konfiguriert automatisch:
+- **Claude Code CLI** — trägt den API-Key in `~/.zshrc` ein, sodass `.claude/settings.json` den MCP-Server erkennt
+- **Claude Desktop App** — patcht `~/Library/Application Support/Claude/claude_desktop_config.json` mit dem `mcp-remote`-Eintrag
+
+### 4. Apps neu starten
+
+Claude Code und/oder die Claude Desktop App neu starten. Der MCP-Server **azure-knowledge-base** ist danach verfügbar und ermöglicht semantische Suche in der BSI-Dokumentation direkt aus dem Chat.
+=======
+### 5. BSI CoWorker — Live-Bedienung der Customer Suite
 
 **Skill:** `.agents/skills/bsi-coworker/`
 
@@ -132,6 +173,7 @@ Bedient eine **laufende BSI-Customer-Suite-Instanz** interaktiv über eine **akt
 **Sicherheitsgrundsatz:** Der Agent fragt **niemals** Credentials ab, speichert/protokolliert keine Zugangsdaten und interagiert ausschließlich mit **freigegebenen** BSI-Tabs. Technische Basis: Claude-in-Chrome-MCP.
 
 **Komponenten:** `ChromeSessionManager`, `BSISessionContext`, `BSIEnvironmentResolver`, `BSILoginGuard`, `BSITabController`, `BSIPageNavigator`, `BSISafetyGuard` (siehe `reference/session-architektur.md`).
+>>>>>>> README.md
 
 ---
 

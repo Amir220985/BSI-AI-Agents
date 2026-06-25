@@ -16,3 +16,4 @@ bsi_import_1.zip
 
 # Interfaces
 interfaces/
+.env

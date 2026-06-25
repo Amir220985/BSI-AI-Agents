@@ -117,6 +117,24 @@ Stellt sicher, dass generierte Konfigurationen als valide BSI-Import-ZIPs verpac
 
 ---
 
+### 4. BSI CoWorker — Live-Bedienung der Customer Suite
+
+**Skill:** `.agents/skills/bsi-coworker/`
+
+Bedient eine **laufende BSI-Customer-Suite-Instanz** interaktiv über eine **aktive Chrome-Session des Users** — im Gegensatz zu den drei anderen Skills, die Export-Dateien *erzeugen*.
+
+**Was der Agent kann:**
+- Ziel-URL und Umgebung (DEV/INT/TEST/PROD) abfragen bzw. ableiten
+- Den User zum **manuellen Login** in Chrome auffordern und mit der aktiven Session weiterarbeiten
+- In der Suite navigieren (CRM, CX, Insight, AI, EIP), Datensätze suchen/pflegen, Assistenten/Prozesse ausführen
+- Verändernde und destruktive Aktionen über **Freigabe-Gates** absichern, PROD gesondert schützen, Dry-Run/Preview nutzen
+
+**Sicherheitsgrundsatz:** Der Agent fragt **niemals** Credentials ab, speichert/protokolliert keine Zugangsdaten und interagiert ausschließlich mit **freigegebenen** BSI-Tabs. Technische Basis: Claude-in-Chrome-MCP.
+
+**Komponenten:** `ChromeSessionManager`, `BSISessionContext`, `BSIEnvironmentResolver`, `BSILoginGuard`, `BSITabController`, `BSIPageNavigator`, `BSISafetyGuard` (siehe `reference/session-architektur.md`).
+
+---
+
 ## Verwendung
 
 Das Repository unterstützt zwei KI-Plattformen:
